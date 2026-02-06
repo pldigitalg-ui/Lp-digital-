@@ -11,25 +11,20 @@
   <meta property="og:description" content="Gestão de páginas + anúncios para gerar clientes todos os dias. Sem contrato de fidelidade.">
   <meta property="og:type" content="website">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap (IMPORTANTE: não altere essa linha) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
   <style>
     body{background:#f6f7fb;min-height:100vh}
     .wrap{max-width:980px;margin:28px auto;padding:0 14px}
-    .card{border:0;border-radius:20px;box-shadow:0 14px 40px rgba(0,0,0,.10)}
+    .cardx{border:0;border-radius:20px;box-shadow:0 14px 40px rgba(0,0,0,.10);background:#fff}
     .left{
       background: linear-gradient(135deg, #0d6efd, #083b93);
-      color:#fff;border-radius:18px;padding:26px;
-      min-height:100%;
+      color:#fff;border-radius:18px;padding:26px;min-height:100%;
     }
     .logo{
-      width:220px;
-      max-width:100%;
-      height:auto;
-      object-fit:contain;
-      border-radius:12px;
-      display:block;
-      margin:0 auto;
+      width:200px;max-width:100%;height:auto;object-fit:contain;border-radius:12px;
+      display:block;margin:0 auto;
     }
     .muted{color:#6c757d}
     .pill{
@@ -37,44 +32,28 @@
       background:rgba(255,255,255,.12);color:#fff;font-weight:600;font-size:.9rem
     }
     .benefit{display:flex;gap:10px;align-items:flex-start}
-    .dot{
-      width:10px;height:10px;border-radius:999px;background:#fff;opacity:.9;margin-top:7px
-    }
+    .dot{width:10px;height:10px;border-radius:999px;background:#fff;opacity:.9;margin-top:7px}
     .form-control{border-radius:12px;padding:12px 14px}
     .btn-primary{border-radius:12px;padding:12px 14px;font-weight:800}
     .mini{font-size:.92rem}
-    .whats{
-      position:fixed;right:18px;bottom:18px;z-index:9999;text-decoration:none;
-    }
-    .whats .btn{
-      border-radius:999px;padding:12px 16px;
-      box-shadow:0 10px 25px rgba(0,0,0,.18);
-      font-weight:800
-    }
     .trust{
-      border-radius:14px;
-      background:#f1f5ff;
-      padding:12px 14px;
-      font-size:.93rem;
-      color:#1f3b7a;
+      border-radius:14px;background:#f1f5ff;padding:12px 14px;
+      font-size:.93rem;color:#1f3b7a;
     }
+    .whats{position:fixed;right:18px;bottom:18px;z-index:9999;text-decoration:none}
+    .whats .btn{border-radius:999px;padding:12px 16px;box-shadow:0 10px 25px rgba(0,0,0,.18);font-weight:800}
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="card p-3 p-md-4">
+    <div class="cardx p-3 p-md-4">
       <div class="row g-3 g-md-4 align-items-stretch">
 
-        <!-- COLUNA ESQUERDA (COPY) -->
+        <!-- COLUNA ESQUERDA -->
         <div class="col-12 col-lg-6">
           <div class="left h-100">
-            <img class="logo mb-3" src="logo.jpeg?v=1" alt="PL Digital Marketing"
-                 onerror="this.style.display='none'; document.getElementById('logoError').classList.remove('d-none');">
-
-            <div id="logoError" class="d-none mt-2" style="color:rgba(255,255,255,.95)">
-              Logo não carregou. Confirme se o arquivo <b>logo.jpeg</b> está publicado no GitHub Pages.
-            </div>
+            <img class="logo mb-3" src="logo.jpeg?v=2" alt="PL Digital Marketing">
 
             <div class="d-flex flex-wrap gap-2 mb-3 justify-content-center">
               <span class="pill">Gestão de Páginas</span>
@@ -97,9 +76,7 @@
                 <span class="dot"></span>
                 <div>
                   <div class="fw-bold">Atendimento rápido no WhatsApp</div>
-                  <div class="mini" style="opacity:.9">
-                    Você preenche e a gente te chama com a melhor estratégia pro seu negócio.
-                  </div>
+                  <div class="mini" style="opacity:.9">Você preenche e a gente te chama com a melhor estratégia.</div>
                 </div>
               </div>
 
@@ -107,9 +84,7 @@
                 <span class="dot"></span>
                 <div>
                   <div class="fw-bold">Tráfego pago que chama cliente</div>
-                  <div class="mini" style="opacity:.9">
-                    Anúncios no Instagram e Facebook focados em WhatsApp e conversão.
-                  </div>
+                  <div class="mini" style="opacity:.9">Anúncios focados em WhatsApp e conversão.</div>
                 </div>
               </div>
 
@@ -117,9 +92,7 @@
                 <span class="dot"></span>
                 <div>
                   <div class="fw-bold">Gestão profissional de páginas</div>
-                  <div class="mini" style="opacity:.9">
-                    Conteúdo estratégico, perfil organizado e autoridade para sua marca.
-                  </div>
+                  <div class="mini" style="opacity:.9">Conteúdo estratégico e perfil organizado.</div>
                 </div>
               </div>
             </div>
@@ -129,11 +102,11 @@
             <div class="row text-center g-2">
               <div class="col-4">
                 <div class="fw-bold">+Clientes</div>
-                <div class="mini" style="opacity:.9">foco em conversão</div>
+                <div class="mini" style="opacity:.9">conversão</div>
               </div>
               <div class="col-4">
                 <div class="fw-bold">Rápido</div>
-                <div class="mini" style="opacity:.9">setup ágil</div>
+                <div class="mini" style="opacity:.9">setup</div>
               </div>
               <div class="col-4">
                 <div class="fw-bold">Suporte</div>
@@ -143,7 +116,7 @@
           </div>
         </div>
 
-        <!-- COLUNA DIREITA (FORM) -->
+        <!-- COLUNA DIREITA -->
         <div class="col-12 col-lg-6">
           <div class="p-3 p-md-4">
             <h2 class="h4 fw-bold mb-2 text-center">Quer vender mais pelo Instagram e WhatsApp?</h2>
@@ -151,7 +124,7 @@
               Você preenche e a PL Digital te chama com um plano claro <b>(sem contrato de fidelidade)</b>.
             </p>
 
-            <div class="trust mb-4">
+            <div class="trust mb-4 text-center">
               ✅ Atendimento humano • ✅ Sem contrato de fidelidade • ✅ Sem spam
             </div>
 
@@ -182,7 +155,7 @@
 
               <div class="mb-3">
                 <label class="form-label">Seu negócio</label>
-                <input name="negocio" type="text" class="form-control" placeholder="Ex: Serralheria, Barbearia, Loja..." required>
+                <input name="negocio" type="text" class="form-control" placeholder="Ex: Barbearia, Loja, Prestador..." required>
                 <div class="invalid-feedback">Diga qual é seu negócio.</div>
               </div>
 
@@ -224,7 +197,7 @@
     </div>
   </div>
 
-  <!-- WhatsApp flutuante (dinâmico com dados do formulário) -->
+  <!-- WhatsApp flutuante (dinâmico) -->
   <a class="whats" id="whatsFloat" target="_blank" href="#">
     <span class="btn btn-success">WhatsApp</span>
   </a>
@@ -274,7 +247,6 @@
       const old = btn.innerText;
       btn.innerText = 'Enviando...';
 
-      // Aqui você pode integrar EmailJS depois.
       setTimeout(() => {
         success.classList.remove('d-none');
         btn.disabled = false;
