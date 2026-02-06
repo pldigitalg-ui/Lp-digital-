@@ -1,6 +1,3 @@
-
-
-
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +18,7 @@
 
         <!-- Cabeçalho -->
         <div class="text-center mb-4">
-            <img src="https:file:///C:/Users/pc/Desktop/assets/WhatsApp%20Image%202026-01-28%20at%2011.53.25.jpeg>
+            <img src="file:///C:/Users/pc/Desktop/assets/WhatsApp%20Image%202026-01-28%20at%2011.53.25.jpeg" width="140" alt="PL Digital">
             <h4>Preencha seus dados para entrarmos em contato</h4>
         </div>
 
