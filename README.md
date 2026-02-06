@@ -36,8 +36,16 @@ body{background:#f6f7fb;min-height:100vh}
   </style>
 </head>
 
-<body>
   <div class="wrap">
+<div class="text-center mb-3">
+  <img class="logo" src="logo.jpeg" alt="PL Digital">
+</div>
+
+<h1 class="h4 text-center mb-2">Solicite seu atendimento</h1>
+<p class="text-center muted mb-4">
+  Envie seus dados e a PL Digital chama você no WhatsApp com a melhor solução.
+</p>
+
     <div class="card p-4 p-md-5">
       <!-- Logo -->
       <div class="text-center mb-3">
