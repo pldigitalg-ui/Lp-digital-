@@ -21,7 +21,7 @@
 
         <!-- Cabeçalho -->
         <div class="text-center mb-4">
-            <img src="https://drive.google.com/uc?export=view&id=1EH-NNIvaef15JckxMWMt8vWBFH9y73W1" width="140" alt="PL Digital">
+            <img src="https://file:///C:/Users/pc/Desktop/assets/WhatsApp%20Image%202026-01-28%20at%2011.53.25.jpeg">
             <h4>Preencha seus dados para entrarmos em contato</h4>
         </div>
 
