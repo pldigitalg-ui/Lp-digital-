@@ -242,7 +242,6 @@
         form.classList.add('was-validated');
         return;
       }
-
       btn.disabled = true;
       const old = btn.innerText;
       btn.innerText = 'Enviando...';
