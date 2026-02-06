@@ -1,4 +1,6 @@
+<img src="https://pldigital-ui.github.io/Lp-digital-/logo.jpeg" alt="PL Digital">
 
+<img width="1280" height="768" alt="image" src="https://github.com/user-attachments/assets/e157fae4-887a-49f5-8019-d2cd2e87fcfd" />
 
 <img src="https://pldigital-ui.github.io/Lp-digital-/logo.jpeg" alt="PL Digital">
 
