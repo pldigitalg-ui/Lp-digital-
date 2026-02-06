@@ -1,46 +1,86 @@
-Logo não carregou. Confirme se o arquivo logo.jpeg está publicado no GitHub Pages.
-Gestão de Páginas Tráfego Pago Instagram Profissional
-Gestão de Instagram e anúncios para gerar clientes todos os dias.
-
-A PL Digital Marketing cuida da sua presença online: gestão de páginas, tráfego pago e estratégia focada em chamar clientes no WhatsApp. Sem post aleatório. Sem anúncio no escuro.
-
-Atendimento rápido no WhatsApp
-Você preenche e a gente te chama com a melhor estratégia pro seu negócio.
-Tráfego pago que chama cliente
-Anúncios no Instagram e Facebook focados em WhatsApp e conversão.
-Gestão profissional de páginas
-Conteúdo estratégico, perfil organizado e autoridade para sua marca.
-+Clientes
-foco em conversão
-Rápido
-setup ágil
-Suporte
-WhatsApp
-Quer vender mais pelo Instagram e WhatsApp?
-
-Você preenche e a PL Digital te chama com um plano claro (sem contrato de fidelidade).
-
-✅ Atendimento humano • ✅ Sem contrato de fidelidade • ✅ Sem spam
-✅ Enviado! Já vamos te chamar no WhatsApp.
-Nome 
-Informe seu nome.
-WhatsApp (com DDD) 
-Informe seu WhatsApp.
-Cidade 
-Informe sua cidade.
-Seu negócio 
-Diga qual é seu negócio.
-O que você quer agora?
-Selecione
-Gestão de Instagram (posts + estratégia)
-Tráfego Pago (Meta/Google)
-Site / Landing Page
-Pacote completo (gestão + anúncios + site)
-Selecione uma opção.
-Instagram (opcional) 
-Quero gestão profissional
-Prefiro falar direto no WhatsApp
-
-Seus dados são usados apenas para atendimento. Sem spam.
-
-WhatsApp
+<div class="wrap">
+<div class="card p-3 p-md-4">
+<div class="row g-3 g-md-4 align-items-stretch"><!-- COLUNA ESQUERDA (COPY) -->
+<div class="col-12 col-lg-6">
+<div class="left h-100"><img class="logo mb-3" src="logo.jpeg?v=1" alt="PL Digital Marketing">
+<div id="logoError" class="d-none mt-2" style="color: rgba(255,255,255,.95);">Logo n&atilde;o carregou. Confirme se o arquivo <strong>logo.jpeg</strong> est&aacute; publicado no GitHub Pages.</div>
+<div class="d-flex flex-wrap gap-2 mb-3 justify-content-center"><span class="pill">Gest&atilde;o de P&aacute;ginas</span> <span class="pill">Tr&aacute;fego Pago</span> <span class="pill">Instagram Profissional</span></div>
+<h1 class="h3 fw-bold mb-2 text-center">Gest&atilde;o de Instagram e an&uacute;ncios para gerar clientes todos os dias.</h1>
+<p class="mb-4 text-center" style="opacity: .95;">A <strong>PL Digital Marketing</strong> cuida da sua presen&ccedil;a online: gest&atilde;o de p&aacute;ginas, tr&aacute;fego pago e estrat&eacute;gia focada em chamar clientes no WhatsApp. Sem post aleat&oacute;rio. Sem an&uacute;ncio no escuro.</p>
+<div class="d-grid gap-3">
+<div class="benefit">
+<div>
+<div class="fw-bold">Atendimento r&aacute;pido no WhatsApp</div>
+<div class="mini" style="opacity: .9;">Voc&ecirc; preenche e a gente te chama com a melhor estrat&eacute;gia pro seu neg&oacute;cio.</div>
+</div>
+</div>
+<div class="benefit">
+<div>
+<div class="fw-bold">Tr&aacute;fego pago que chama cliente</div>
+<div class="mini" style="opacity: .9;">An&uacute;ncios no Instagram e Facebook focados em WhatsApp e convers&atilde;o.</div>
+</div>
+</div>
+<div class="benefit">
+<div>
+<div class="fw-bold">Gest&atilde;o profissional de p&aacute;ginas</div>
+<div class="mini" style="opacity: .9;">Conte&uacute;do estrat&eacute;gico, perfil organizado e autoridade para sua marca.</div>
+</div>
+</div>
+</div>
+<hr class="my-4" style="border-color: rgba(255,255,255,.2);">
+<div class="row text-center g-2">
+<div class="col-4">
+<div class="fw-bold">+Clientes</div>
+<div class="mini" style="opacity: .9;">foco em convers&atilde;o</div>
+</div>
+<div class="col-4">
+<div class="fw-bold">R&aacute;pido</div>
+<div class="mini" style="opacity: .9;">setup &aacute;gil</div>
+</div>
+<div class="col-4">
+<div class="fw-bold">Suporte</div>
+<div class="mini" style="opacity: .9;">WhatsApp</div>
+</div>
+</div>
+</div>
+</div>
+<!-- COLUNA DIREITA (FORM) -->
+<div class="col-12 col-lg-6">
+<div class="p-3 p-md-4">
+<h2 class="h4 fw-bold mb-2 text-center">Quer vender mais pelo Instagram e WhatsApp?</h2>
+<p class="muted mb-3 text-center">Voc&ecirc; preenche e a PL Digital te chama com um plano claro <strong>(sem contrato de fidelidade)</strong>.</p>
+<div class="trust mb-4">✅ Atendimento humano &bull; ✅ Sem contrato de fidelidade &bull; ✅ Sem spam</div>
+<div id="success" class="alert alert-success d-none" role="alert">✅ Enviado! J&aacute; vamos te chamar no WhatsApp.</div>
+<form id="leadForm" novalidate="">
+<div class="mb-3"><label class="form-label">Nome</label> <input class="form-control" name="nome" required="" type="text" placeholder="Ex: Paulo Roberto">
+<div class="invalid-feedback">Informe seu nome.</div>
+</div>
+<div class="mb-3"><label class="form-label">WhatsApp (com DDD)</label> <input class="form-control" autocomplete="tel" name="whatsapp" required="" type="tel" placeholder="(31) 9 9806-4556">
+<div class="invalid-feedback">Informe seu WhatsApp.</div>
+</div>
+<div class="mb-3"><label class="form-label">Cidade</label> <input class="form-control" name="cidade" required="" type="text" placeholder="Ex: Belo Horizonte - MG">
+<div class="invalid-feedback">Informe sua cidade.</div>
+</div>
+<div class="mb-3"><label class="form-label">Seu neg&oacute;cio</label> <input class="form-control" name="negocio" required="" type="text" placeholder="Ex: Serralheria, Barbearia, Loja...">
+<div class="invalid-feedback">Diga qual &eacute; seu neg&oacute;cio.</div>
+</div>
+<div class="mb-3"><label class="form-label">O que voc&ecirc; quer agora?</label><select class="form-control" name="servico" required="">
+<option disabled="disabled" selected="selected" value="">Selecione</option>
+<option>Gest&atilde;o de Instagram (posts + estrat&eacute;gia)</option>
+<option>Tr&aacute;fego Pago (Meta/Google)</option>
+<option>Site / Landing Page</option>
+<option>Pacote completo (gest&atilde;o + an&uacute;ncios + site)</option>
+</select>
+<div class="invalid-feedback">Selecione uma op&ccedil;&atilde;o.</div>
+</div>
+<div class="mb-3"><label class="form-label">Instagram (opcional)</label> <input class="form-control" name="instagram" type="text" placeholder="@seuinstagram"></div>
+<button id="btnSend" class="btn btn-primary w-100" type="submit"> Quero gest&atilde;o profissional </button>
+<div class="text-center mt-3"><a id="whatsTextLink" class="text-decoration-none fw-semibold" href="#" target="_blank" rel="noopener"> Prefiro falar direto no WhatsApp </a></div>
+<p class="muted text-center mt-3 mb-0 mini">Seus dados s&atilde;o usados apenas para atendimento. Sem spam.</p>
+</form></div>
+</div>
+</div>
+</div>
+</div>
+<!-- WhatsApp flutuante (dinâmico com dados do formulário) -->
+<p><a id="whatsFloat" class="whats" href="#" target="_blank" rel="noopener"> <span class="btn btn-success">WhatsApp</span> </a></p>
