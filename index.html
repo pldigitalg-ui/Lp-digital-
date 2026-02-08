@@ -11,75 +11,71 @@
       --bg:#03110c;
       --bg2:#061a12;
 
-      --card: rgba(255,255,255,.07);
-      --line: rgba(255,255,255,.12);
-
       --text:#eafff6;
       --muted:#bfe9d5;
 
-      --brand:#19e38a;
-      --brand2:#0fbf73;
+      --line: rgba(255,255,255,.12);
 
+      --brand:#19e38a;
       --blue:#1f61ff;
 
-      --shadow: 0 26px 90px rgba(0,0,0,.55);
+      --shadow: 0 28px 110px rgba(0,0,0,.60);
       --radius: 18px;
 
-      --glow: 0 0 0 rgba(25,227,138,0);
-      --ring: 0 0 0 4px rgba(25,227,138,.12);
-
-      --speed: 900ms;
       --ease: cubic-bezier(.2,.9,.2,1);
+      --speed: 900ms;
     }
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color:var(--text);
       background:
         radial-gradient(1200px 560px at 10% 10%, rgba(25,227,138,.28), transparent 60%),
-        radial-gradient(900px 520px at 90% 25%, rgba(15,191,115,.18), transparent 55%),
-        radial-gradient(800px 600px at 50% 110%, rgba(31,97,255,.14), transparent 55%),
+        radial-gradient(900px 520px at 90% 25%, rgba(31,97,255,.18), transparent 55%),
+        radial-gradient(800px 600px at 50% 115%, rgba(15,191,115,.16), transparent 55%),
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
 
-    /* ====== BG premium (partículas + grade) ====== */
+    /* ===== BG premium (grid) ===== */
     .bg-grid{
       position:fixed;
       inset:0;
       pointer-events:none;
       opacity:.16;
       background-image:
-        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px);
       background-size: 46px 46px;
-      mask-image: radial-gradient(500px 420px at 50% 18%, black 40%, transparent 75%);
+      mask-image: radial-gradient(600px 460px at 50% 16%, black 40%, transparent 78%);
+      z-index:0;
     }
 
+    /* ===== orbes animadas ===== */
     .orb{
       position:fixed;
-      inset:auto;
-      width:520px;
-      height:520px;
+      width:560px;
+      height:560px;
       border-radius:999px;
-      filter: blur(40px);
+      filter: blur(46px);
       opacity:.22;
       pointer-events:none;
+      z-index:0;
       animation: float 10s var(--ease) infinite alternate;
     }
-    .orb.one{ left:-160px; top:40px; background: rgba(25,227,138,.55); }
-    .orb.two{ right:-200px; top:120px; background: rgba(31,97,255,.50); animation-duration: 12s; }
-    .orb.three{ left:50%; bottom:-340px; transform:translateX(-50%); background: rgba(15,191,115,.50); animation-duration: 14s; opacity:.18; }
+    .orb.one{ left:-220px; top:40px; background: rgba(25,227,138,.56); }
+    .orb.two{ right:-240px; top:120px; background: rgba(31,97,255,.52); animation-duration:12s; }
+    .orb.three{ left:50%; bottom:-360px; transform:translateX(-50%); background: rgba(15,191,115,.56); opacity:.18; animation-duration:14s; }
 
     @keyframes float{
       from{ transform: translate3d(0,0,0) scale(1); }
       to{ transform: translate3d(0,-26px,0) scale(1.05); }
     }
 
-    /* ====== Layout ====== */
+    /* ===== Layout ===== */
     .container{
       width:min(1260px, 94vw);
       margin:0 auto;
@@ -107,8 +103,8 @@
     }
 
     .logo{
-      width:56px;
-      height:56px;
+      width:58px;
+      height:58px;
       border-radius: 16px;
       object-fit:cover;
       border:1px solid rgba(255,255,255,.16);
@@ -119,8 +115,8 @@
     .brand h2{
       margin:0;
       font-size:15px;
-      letter-spacing:.2px;
       line-height:1.1;
+      letter-spacing:.2px;
     }
     .brand p{
       margin:4px 0 0;
@@ -152,25 +148,38 @@
     }
 
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       position:relative;
       overflow:hidden;
+      transform: translateZ(0);
     }
 
-    /* brilho animado por cima do card */
+    /* Luz passando no card (efeito premium) */
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:-120px;
+      background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.10) 50%, transparent 65%);
+      transform: translateX(-40%) rotate(6deg);
+      opacity:.0;
+      transition: opacity 320ms var(--ease);
+      pointer-events:none;
+    }
+    .card:hover::after{ opacity:1; }
+
+    /* brilho interno */
     .card::before{
       content:"";
       position:absolute;
       inset:-2px;
       background:
-        radial-gradient(600px 220px at 20% 0%, rgba(25,227,138,.24), transparent 60%),
-        radial-gradient(520px 240px at 80% 10%, rgba(31,97,255,.16), transparent 60%);
-      opacity:.9;
+        radial-gradient(650px 260px at 20% 0%, rgba(25,227,138,.22), transparent 60%),
+        radial-gradient(520px 260px at 80% 10%, rgba(31,97,255,.16), transparent 60%);
+      opacity:.95;
       pointer-events:none;
-      filter: blur(0px);
       animation: sheen 8s var(--ease) infinite alternate;
     }
     @keyframes sheen{
@@ -178,14 +187,13 @@
       to{ transform: translate3d(0,-10px,0); opacity:.95; }
     }
 
-    /* conteúdo acima do brilho */
     .card > *{ position:relative; z-index:1; }
 
     .left-card{
       padding: 22px;
       opacity:0;
       transform: translateY(12px);
-      animation: inUp calc(var(--speed) + 120ms) var(--ease) forwards;
+      animation: inUp calc(var(--speed) + 140ms) var(--ease) forwards;
       animation-delay: 80ms;
     }
 
@@ -195,7 +203,18 @@
       background: rgba(0,0,0,.16);
       overflow:hidden;
       box-shadow: 0 22px 70px rgba(0,0,0,.35);
-      transform: translateZ(0);
+      position:relative;
+    }
+
+    /* Borda neon sutil no mockup */
+    .mockup-wrap::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      border-radius: 20px;
+      background: radial-gradient(300px 140px at 20% 0%, rgba(25,227,138,.55), transparent 60%);
+      opacity:.16;
+      pointer-events:none;
     }
 
     .mockup{
@@ -208,7 +227,7 @@
       padding: 26px;
       opacity:0;
       transform: translateY(12px);
-      animation: inUp calc(var(--speed) + 220ms) var(--ease) forwards;
+      animation: inUp calc(var(--speed) + 240ms) var(--ease) forwards;
       animation-delay: 140ms;
     }
 
@@ -244,7 +263,6 @@
       border-radius: 999px;
       border:1px solid rgba(25,227,138,.26);
       background: rgba(25,227,138,.08);
-      color: var(--text);
       font-size: 13px;
     }
 
@@ -273,18 +291,10 @@
     }
     input:focus, select:focus{
       border-color: rgba(25,227,138,.55);
-      box-shadow: var(--ring);
+      box-shadow: 0 0 0 4px rgba(25,227,138,.12);
       transform: translateY(-1px);
     }
 
-    .hint{
-      margin-top: 10px;
-      color: rgba(191,233,213,.86);
-      font-size: 12px;
-      line-height:1.4;
-    }
-
-    /* ====== CTA WhatsApp (somente ícone) ====== */
     .cta-row{
       display:flex;
       align-items:center;
@@ -298,36 +308,41 @@
       flex-direction:column;
       gap:2px;
     }
-    .cta-text strong{
-      font-size: 13px;
-      letter-spacing:.1px;
-    }
+    .cta-text strong{ font-size: 13px; }
     .cta-text span{
       font-size: 12px;
       color: rgba(191,233,213,.88);
     }
 
+    /* Botão: só ícone WhatsApp */
     .btn-wa{
       appearance:none;
       border:0;
       cursor:pointer;
-      width: 52px;
-      height: 52px;
+      width: 54px;
+      height: 54px;
       border-radius: 16px;
       display:grid;
       place-items:center;
       background: radial-gradient(120px 80px at 30% 20%, rgba(255,255,255,.18), transparent 55%),
                   linear-gradient(180deg, #2a7bff, #1f61ff);
       box-shadow: 0 22px 60px rgba(31,97,255,.22);
-      transition: transform 160ms var(--ease), filter 160ms var(--ease), box-shadow 220ms var(--ease);
+      transition: transform 160ms var(--ease), filter 160ms var(--ease);
     }
-    .btn-wa:hover{ transform: translateY(-2px) scale(1.02); filter: brightness(1.05); }
+    .btn-wa:hover{ transform: translateY(-2px) scale(1.03); filter: brightness(1.06); }
     .btn-wa:active{ transform: translateY(0) scale(.99); }
 
     .btn-wa svg{
       width: 26px;
       height: 26px;
       display:block;
+    }
+
+    .hint{
+      margin-top: 10px;
+      color: rgba(191,233,213,.86);
+      font-size: 12px;
+      line-height:1.4;
     }
 
     .err{
@@ -342,27 +357,18 @@
       line-height:1.45;
     }
 
-    .footer-mini{
-      margin-top: 14px;
-      font-size: 12px;
-      color: rgba(191,233,213,.78);
-    }
-
-    /* ====== Mobile ====== */
+    /* Mobile */
     @media (max-width: 980px){
       .container{ padding: 26px 0 36px; }
-      .hero{
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
+      .hero{ grid-template-columns: 1fr; gap: 16px; }
       .left-card{ order:2; }
       .right-card{ order:1; }
       .grid{ grid-template-columns: 1fr; }
-      .topbar{ margin-bottom: 12px; }
+      .pill{ display:none; } /* no celular fica clean */
     }
 
     @media (prefers-reduced-motion: reduce){
-      *{ animation: none !important; transition: none !important; }
+      *{ animation:none !important; transition:none !important; }
       .orb{ display:none; }
     }
   </style>
@@ -377,8 +383,7 @@
   <main class="container">
     <header class="topbar">
       <div class="brand">
-        <!-- Troque por sua logo local: assets/logo.png -->
-        <img class="logo" src="assets/logo.png" alt="PL Digital Marketing" />
+        <img class="logo" src="logo.jpeg" alt="PL Digital Marketing" />
         <div>
           <h2>PL Digital Marketing</h2>
           <p>Gestão • Tráfego • WhatsApp</p>
@@ -389,15 +394,14 @@
     </header>
 
     <section class="hero">
-      <!-- ESQUERDA (Mockup/Imagem) -->
+      <!-- Esquerda -->
       <div class="card left-card">
-        <div class="mockup-wrap" aria-label="Prévia do material">
-          <!-- Troque por sua imagem local: assets/mockup.png -->
-          <img class="mockup" src="assets/mockup.png" alt="Prévia PL Digital" />
+        <div class="mockup-wrap">
+          <img class="mockup" src="mockup.png" alt="Prévia PL Digital" />
         </div>
       </div>
 
-      <!-- DIREITA (Formulário) -->
+      <!-- Direita -->
       <div class="card right-card">
         <h1>Quer vender mais pelo Instagram e WhatsApp?</h1>
         <p class="sub">
@@ -406,7 +410,7 @@
 
         <div class="badges">
           <div class="badge">⚡ Resposta rápida</div>
-          <div class="badge">🎯 Estratégia de conversão</div>
+          <div class="badge">🎯 Conversão no WhatsApp</div>
           <div class="badge">📈 Crescimento organizado</div>
         </div>
 
@@ -416,7 +420,6 @@
               <label for="nome">Nome</label>
               <input id="nome" name="nome" placeholder="Ex: Paulo Roberto" required />
             </div>
-
             <div>
               <label for="cidade">Cidade</label>
               <input id="cidade" name="cidade" placeholder="Ex: Belo Horizonte - MG" />
@@ -428,7 +431,6 @@
               <label for="email">Email</label>
               <input id="email" name="email" type="email" placeholder="ex: seuemail@gmail.com" />
             </div>
-
             <div>
               <label for="whats">WhatsApp (com DDD)</label>
               <input id="whats" name="whats" inputmode="tel" placeholder="Ex: (31) 99999-9999" required />
@@ -444,51 +446,41 @@
             <option value="Quero vender mais pelo Instagram">Quero vender mais pelo Instagram</option>
             <option value="Quero tráfego pago e gestão">Quero tráfego pago e gestão</option>
             <option value="Quero organizar meu perfil e conteúdo">Quero organizar meu perfil e conteúdo</option>
-            <option value="Quero um plano completo (estratégia + execução)">Quero um plano completo (estratégia + execução)</option>
+            <option value="Quero um plano completo (estratégia + execução)">Quero um plano completo</option>
           </select>
 
           <div class="cta-row">
             <div class="cta-text">
               <strong>Enviar direto no WhatsApp</strong>
-              <span>Sem cadastro • Sem enrolação</span>
+              <span>Mensagem vai pronta automaticamente</span>
             </div>
 
-            <!-- Botão APENAS com o ícone do WhatsApp -->
             <button class="btn-wa" type="submit" aria-label="Enviar no WhatsApp">
-              <!-- Ícone WhatsApp (SVG) -->
-              <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
                 <path fill="#ffffff" d="M19.11 17.53c-.29-.14-1.7-.84-1.96-.93-.27-.1-.46-.14-.66.14-.19.29-.76.93-.93 1.12-.17.19-.34.22-.63.07-.29-.14-1.23-.45-2.34-1.43-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.44.12-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.66-1.6-.9-2.19-.24-.58-.48-.5-.66-.51l-.56-.01c-.19 0-.51.07-.77.36-.27.29-1.01.99-1.01 2.41s1.04 2.8 1.18 2.99c.14.19 2.05 3.13 4.97 4.39.69.3 1.23.48 1.65.62.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.25.17-1.36-.07-.12-.26-.19-.55-.33ZM16 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.25.59 4.36 1.62 6.19L3.2 28.8l6.79-1.58c1.77.97 3.81 1.53 5.99 1.53 7.07 0 12.8-5.73 12.8-12.8S23.07 3.2 16 3.2Zm0 23.09c-2.04 0-3.94-.6-5.53-1.63l-.4-.25-4.03.94.94-3.93-.26-.41a10.98 10.98 0 0 1-1.73-5.97c0-6.06 4.92-10.98 10.98-10.98s10.98 4.92 10.98 10.98-4.92 10.98-10.98 10.98Z"/>
               </svg>
             </button>
           </div>
 
           <div id="errBox" class="err"></div>
-
-          <p class="hint">
-            Ao clicar, você será direcionado ao WhatsApp com a mensagem pronta.
-          </p>
-
-          <div class="footer-mini">
-            Seus dados são usados apenas para atendimento.
-          </div>
+          <p class="hint">Ao clicar, o WhatsApp abre com a mensagem pronta.</p>
         </form>
       </div>
     </section>
   </main>
 
   <script>
-    // ====== CONFIG ======
-    const OWNER_WHATSAPP = "5531998064556"; // seu número com DDI 55
+    const OWNER_WHATSAPP = "5531998064556";
 
     function onlyDigits(str){
       return (str || "").replace(/\D/g, "");
     }
 
     function buildMessage(data){
-      const lines = [
+      return [
         "Olá! Vim pela sua página (PL Digital).",
         "",
-        "📌 *Dados do lead:*",
+        "📌 Dados do lead:",
         `• Nome: ${data.nome || "-"}`,
         `• WhatsApp: ${data.whats || "-"}`,
         `• Email: ${data.email || "-"}`,
@@ -497,15 +489,7 @@
         `• Objetivo: ${data.objetivo || "-"}`,
         "",
         "Quero saber como funciona e valores. ✅"
-      ];
-      return lines.join("\n");
-    }
-
-    function openWhatsApp(message){
-      const encoded = encodeURIComponent(message);
-      // wa.me funciona bem em desktop e celular
-      const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encoded}`;
-      window.open(url, "_blank", "noopener,noreferrer");
+      ].join("\n");
     }
 
     function showError(msg){
@@ -526,15 +510,12 @@
 
       const nome = document.getElementById("nome").value.trim();
       const whatsRaw = document.getElementById("whats").value.trim();
+      const whatsDigits = onlyDigits(whatsRaw);
 
       if(!nome){
         showError("Preencha seu nome para eu te atender melhor.");
         return;
       }
-
-      const whatsDigits = onlyDigits(whatsRaw);
-
-      // validação simples (DDD + número BR geralmente 10/11 dígitos sem DDI)
       if(whatsDigits.length < 10){
         showError("Digite um WhatsApp válido com DDD. Ex: (31) 99999-9999");
         return;
@@ -549,8 +530,9 @@
         objetivo: document.getElementById("objetivo").value
       };
 
-      const message = buildMessage(data);
-      openWhatsApp(message);
+      const msg = buildMessage(data);
+      const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
     });
   </script>
 </body>
