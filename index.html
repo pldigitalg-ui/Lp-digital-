@@ -1,328 +1,556 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PL Digital Marketing | Gestão de Páginas & Tráfego Pago</title>
-
-  <meta name="description" content="PL Digital Marketing: gestão de páginas, tráfego pago e estratégia para gerar clientes no WhatsApp.">
-  <meta property="og:title" content="PL Digital Marketing">
-  <meta property="og:description" content="Gestão de páginas + anúncios para gerar clientes todos os dias. Sem contrato de fidelidade.">
-  <meta property="og:type" content="website">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PL Digital Marketing</title>
+  <meta name="description" content="Gestão de Instagram + Tráfego pago + Atendimento no WhatsApp. Sem fidelidade, sem spam." />
 
   <style>
-    body{background:#f6f7fb;min-height:100vh}
-    .wrap{max-width:980px;margin:28px auto;padding:0 14px}
-    .cardx{border:0;border-radius:20px;box-shadow:0 14px 40px rgba(0,0,0,.10);background:#fff}
+    :root{
+      --bg:#03110c;
+      --bg2:#061a12;
 
-    /* ✅ FUNDO NOVO (verde escuro + preto) combinando com logo verde */
-    .left{
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(57,255,163,.20), transparent 60%),
-                  linear-gradient(135deg, #061a14, #0b3b2b 55%, #052018);
-      color:#fff;border-radius:18px;padding:26px;min-height:100%;
+      --card: rgba(255,255,255,.07);
+      --line: rgba(255,255,255,.12);
+
+      --text:#eafff6;
+      --muted:#bfe9d5;
+
+      --brand:#19e38a;
+      --brand2:#0fbf73;
+
+      --blue:#1f61ff;
+
+      --shadow: 0 26px 90px rgba(0,0,0,.55);
+      --radius: 18px;
+
+      --glow: 0 0 0 rgba(25,227,138,0);
+      --ring: 0 0 0 4px rgba(25,227,138,.12);
+
+      --speed: 900ms;
+      --ease: cubic-bezier(.2,.9,.2,1);
     }
 
-    .logo{width:200px;max-width:100%;height:auto;object-fit:contain;border-radius:12px;display:block;margin:0 auto}
-    .muted{color:#6c757d}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.10);color:#fff;font-weight:600;font-size:.9rem}
-    .benefit{display:flex;gap:10px;align-items:flex-start}
-    .dot{width:10px;height:10px;border-radius:999px;background:#7CFFB8;opacity:.95;margin-top:7px}
-    .form-control{border-radius:12px;padding:12px 14px}
-    .btn-primary{border-radius:12px;padding:12px 14px;font-weight:800}
-    .mini{font-size:.92rem}
-    .trust{border-radius:14px;background:#ecfff5;padding:12px 14px;font-size:.93rem;color:#0b3b2b}
-    .whats{position:fixed;right:18px;bottom:18px;z-index:9999;text-decoration:none}
-    .whats .btn{border-radius:999px;padding:12px 16px;box-shadow:0 10px 25px rgba(0,0,0,.18);font-weight:800}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 560px at 10% 10%, rgba(25,227,138,.28), transparent 60%),
+        radial-gradient(900px 520px at 90% 25%, rgba(15,191,115,.18), transparent 55%),
+        radial-gradient(800px 600px at 50% 110%, rgba(31,97,255,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    /* ====== BG premium (partículas + grade) ====== */
+    .bg-grid{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.16;
+      background-image:
+        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: radial-gradient(500px 420px at 50% 18%, black 40%, transparent 75%);
+    }
+
+    .orb{
+      position:fixed;
+      inset:auto;
+      width:520px;
+      height:520px;
+      border-radius:999px;
+      filter: blur(40px);
+      opacity:.22;
+      pointer-events:none;
+      animation: float 10s var(--ease) infinite alternate;
+    }
+    .orb.one{ left:-160px; top:40px; background: rgba(25,227,138,.55); }
+    .orb.two{ right:-200px; top:120px; background: rgba(31,97,255,.50); animation-duration: 12s; }
+    .orb.three{ left:50%; bottom:-340px; transform:translateX(-50%); background: rgba(15,191,115,.50); animation-duration: 14s; opacity:.18; }
+
+    @keyframes float{
+      from{ transform: translate3d(0,0,0) scale(1); }
+      to{ transform: translate3d(0,-26px,0) scale(1.05); }
+    }
+
+    /* ====== Layout ====== */
+    .container{
+      width:min(1260px, 94vw);
+      margin:0 auto;
+      padding: 52px 0 64px;
+      position:relative;
+      z-index:1;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
+      opacity:0;
+      transform: translateY(10px);
+      animation: inUp var(--speed) var(--ease) forwards;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+    }
+
+    .logo{
+      width:56px;
+      height:56px;
+      border-radius: 16px;
+      object-fit:cover;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow: 0 16px 42px rgba(0,0,0,.45);
+      background: rgba(0,0,0,.2);
+    }
+
+    .brand h2{
+      margin:0;
+      font-size:15px;
+      letter-spacing:.2px;
+      line-height:1.1;
+    }
+    .brand p{
+      margin:4px 0 0;
+      color: var(--muted);
+      font-size:12px;
+      line-height:1.1;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(25,227,138,.28);
+      background: rgba(25,227,138,.08);
+      color: var(--text);
+      font-size: 13px;
+      white-space:nowrap;
+      box-shadow: 0 20px 60px rgba(0,0,0,.20);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 32px;
+      align-items:start;
+      margin-top: 14px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* brilho animado por cima do card */
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(600px 220px at 20% 0%, rgba(25,227,138,.24), transparent 60%),
+        radial-gradient(520px 240px at 80% 10%, rgba(31,97,255,.16), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+      filter: blur(0px);
+      animation: sheen 8s var(--ease) infinite alternate;
+    }
+    @keyframes sheen{
+      from{ transform: translate3d(0,0,0); opacity:.75; }
+      to{ transform: translate3d(0,-10px,0); opacity:.95; }
+    }
+
+    /* conteúdo acima do brilho */
+    .card > *{ position:relative; z-index:1; }
+
+    .left-card{
+      padding: 22px;
+      opacity:0;
+      transform: translateY(12px);
+      animation: inUp calc(var(--speed) + 120ms) var(--ease) forwards;
+      animation-delay: 80ms;
+    }
+
+    .mockup-wrap{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+      overflow:hidden;
+      box-shadow: 0 22px 70px rgba(0,0,0,.35);
+      transform: translateZ(0);
+    }
+
+    .mockup{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+
+    .right-card{
+      padding: 26px;
+      opacity:0;
+      transform: translateY(12px);
+      animation: inUp calc(var(--speed) + 220ms) var(--ease) forwards;
+      animation-delay: 140ms;
+    }
+
+    @keyframes inUp{
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    h1{
+      margin: 6px 0 10px;
+      font-size: clamp(24px, 2.2vw, 36px);
+      line-height: 1.08;
+      letter-spacing: -0.5px;
+    }
+
+    .sub{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height:1.55;
+    }
+
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin: 14px 0 18px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(25,227,138,.26);
+      background: rgba(25,227,138,.08);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    label{
+      display:block;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 12px 0 6px;
+    }
+
+    input, select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+      outline:none;
+      transition: transform 160ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+    }
+    input:focus, select:focus{
+      border-color: rgba(25,227,138,.55);
+      box-shadow: var(--ring);
+      transform: translateY(-1px);
+    }
+
+    .hint{
+      margin-top: 10px;
+      color: rgba(191,233,213,.86);
+      font-size: 12px;
+      line-height:1.4;
+    }
+
+    /* ====== CTA WhatsApp (somente ícone) ====== */
+    .cta-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top: 16px;
+    }
+
+    .cta-text{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .cta-text strong{
+      font-size: 13px;
+      letter-spacing:.1px;
+    }
+    .cta-text span{
+      font-size: 12px;
+      color: rgba(191,233,213,.88);
+    }
+
+    .btn-wa{
+      appearance:none;
+      border:0;
+      cursor:pointer;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display:grid;
+      place-items:center;
+      background: radial-gradient(120px 80px at 30% 20%, rgba(255,255,255,.18), transparent 55%),
+                  linear-gradient(180deg, #2a7bff, #1f61ff);
+      box-shadow: 0 22px 60px rgba(31,97,255,.22);
+      transition: transform 160ms var(--ease), filter 160ms var(--ease), box-shadow 220ms var(--ease);
+    }
+    .btn-wa:hover{ transform: translateY(-2px) scale(1.02); filter: brightness(1.05); }
+    .btn-wa:active{ transform: translateY(0) scale(.99); }
+
+    .btn-wa svg{
+      width: 26px;
+      height: 26px;
+      display:block;
+    }
+
+    .err{
+      display:none;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,80,80,.08);
+      color: rgba(255,230,230,.95);
+      font-size: 12px;
+      line-height:1.45;
+    }
+
+    .footer-mini{
+      margin-top: 14px;
+      font-size: 12px;
+      color: rgba(191,233,213,.78);
+    }
+
+    /* ====== Mobile ====== */
+    @media (max-width: 980px){
+      .container{ padding: 26px 0 36px; }
+      .hero{
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .left-card{ order:2; }
+      .right-card{ order:1; }
+      .grid{ grid-template-columns: 1fr; }
+      .topbar{ margin-bottom: 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none !important; transition: none !important; }
+      .orb{ display:none; }
+    }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="cardx p-3 p-md-4">
-      <div class="row g-3 g-md-4 align-items-stretch">
+  <div class="bg-grid"></div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
 
-        <!-- COLUNA ESQUERDA -->
-        <div class="col-12 col-lg-6">
-          <div class="left h-100">
-            <img class="logo mb-3" src="logo.jpeg?v=4" alt="PL Digital Marketing">
-
-            <div class="d-flex flex-wrap gap-2 mb-3 justify-content-center">
-              <span class="pill">Gestão de Páginas</span>
-              <span class="pill">Tráfego Pago</span>
-              <span class="pill">Instagram Profissional</span>
-            </div>
-
-            <h1 class="h3 fw-bold mb-2 text-center">
-              Marketing com estratégia para gerar clientes todos os dias.
-            </h1>
-
-            <p class="mb-4 text-center" style="opacity:.95">
-              A <b>PL Digital Marketing</b> cuida da sua presença online: gestão de páginas,
-              tráfego pago e estratégia focada em chamar clientes no WhatsApp.
-              Sem post aleatório. Sem anúncio no escuro.
-            </p>
-
-            <div class="d-grid gap-3">
-              <div class="benefit">
-                <span class="dot"></span>
-                <div>
-                  <div class="fw-bold">Atendimento rápido no WhatsApp</div>
-                  <div class="mini" style="opacity:.9">Você preenche e a gente te chama com a melhor estratégia.</div>
-                </div>
-              </div>
-
-              <div class="benefit">
-                <span class="dot"></span>
-                <div>
-                  <div class="fw-bold">Tráfego pago que chama cliente</div>
-                  <div class="mini" style="opacity:.9">Anúncios focados em WhatsApp e conversão.</div>
-                </div>
-              </div>
-
-              <div class="benefit">
-                <span class="dot"></span>
-                <div>
-                  <div class="fw-bold">Gestão profissional de páginas</div>
-                  <div class="mini" style="opacity:.9">Conteúdo estratégico, perfil organizado e autoridade.</div>
-                </div>
-              </div>
-            </div>
-
-            <hr class="my-4" style="border-color:rgba(255,255,255,.15)">
-
-            <div class="row text-center g-2">
-              <div class="col-4">
-                <div class="fw-bold">+Clientes</div>
-                <div class="mini" style="opacity:.9">conversão</div>
-              </div>
-              <div class="col-4">
-                <div class="fw-bold">Rápido</div>
-                <div class="mini" style="opacity:.9">setup</div>
-              </div>
-              <div class="col-4">
-                <div class="fw-bold">Suporte</div>
-                <div class="mini" style="opacity:.9">WhatsApp</div>
-              </div>
-            </div>
-          </div>
+  <main class="container">
+    <header class="topbar">
+      <div class="brand">
+        <!-- Troque por sua logo local: assets/logo.png -->
+        <img class="logo" src="assets/logo.png" alt="PL Digital Marketing" />
+        <div>
+          <h2>PL Digital Marketing</h2>
+          <p>Gestão • Tráfego • WhatsApp</p>
         </div>
-
-        <!-- COLUNA DIREITA -->
-        <div class="col-12 col-lg-6">
-          <div class="p-3 p-md-4">
-            <h2 class="h4 fw-bold mb-2 text-center">Quer vender mais pelo Instagram e WhatsApp?</h2>
-            <p class="muted mb-3 text-center">
-              Você preenche e a PL Digital te chama com um plano claro <b>(sem contrato de fidelidade)</b>.
-            </p>
-
-            <div class="trust mb-4 text-center">
-              ✅ Atendimento humano • ✅ Sem contrato de fidelidade • ✅ Sem spam
-            </div>
-
-            <div id="success" class="alert alert-success d-none" role="alert">
-              ✅ Enviado! Te levaremos para o WhatsApp agora.
-            </div>
-
-            <div id="error" class="alert alert-danger d-none" role="alert">
-              ❌ Não consegui enviar o e-mail agora. Mesmo assim, vou te levar para o WhatsApp.
-            </div>
-
-            <form id="leadForm" novalidate>
-              <div class="mb-3">
-                <label class="form-label">Nome</label>
-                <input name="nome" type="text" class="form-control" placeholder="Ex: Paulo Roberto" required>
-                <div class="invalid-feedback">Informe seu nome.</div>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input name="email" type="email" class="form-control" placeholder="ex: seuemail@gmail.com" required>
-                <div class="invalid-feedback">Informe um e-mail válido.</div>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label">WhatsApp (com DDD)</label>
-                <input name="whatsapp" type="tel" class="form-control" inputmode="numeric" autocomplete="tel"
-                       placeholder="(31) 9 9806-4556" required>
-                <div class="invalid-feedback">Informe seu WhatsApp.</div>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label">Cidade</label>
-                <input name="cidade" type="text" class="form-control" placeholder="Ex: Belo Horizonte - MG" required>
-                <div class="invalid-feedback">Informe sua cidade.</div>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label">Seu negócio</label>
-                <input name="negocio" type="text" class="form-control" placeholder="Ex: Barbearia, Loja, Prestador..." required>
-                <div class="invalid-feedback">Diga qual é seu negócio.</div>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label">O que você quer agora?</label>
-                <select name="servico" class="form-control" required>
-                  <option value="" selected disabled>Selecione</option>
-                  <option>Gestão de Instagram (posts + estratégia)</option>
-                  <option>Tráfego Pago (Meta/Google)</option>
-                  <option>Site / Landing Page</option>
-                  <option>Pacote completo (gestão + anúncios + site)</option>
-                </select>
-                <div class="invalid-feedback">Selecione uma opção.</div>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label">Instagram (opcional)</label>
-                <input name="instagram" type="text" class="form-control" placeholder="@seuinstagram">
-              </div>
-
-              <button id="btnSend" class="btn btn-primary w-100" type="submit">
-                Quero atendimento no WhatsApp
-              </button>
-
-              <div class="text-center mt-3">
-                <a id="whatsTextLink" target="_blank" class="text-decoration-none fw-semibold" href="#">
-                  Prefiro falar direto no WhatsApp
-                </a>
-              </div>
-
-              <p class="muted text-center mt-3 mb-0 mini">
-                Seus dados são usados apenas para atendimento. Sem spam.
-              </p>
-            </form>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </div>
 
-  <!-- WhatsApp flutuante (dinâmico) -->
-  <a class="whats" id="whatsFloat" target="_blank" href="#">
-    <span class="btn btn-success">WhatsApp</span>
-  </a>
+      <div class="pill">✔ Atendimento humano • ✔ Sem fidelidade • ✔ Sem spam</div>
+    </header>
 
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <section class="hero">
+      <!-- ESQUERDA (Mockup/Imagem) -->
+      <div class="card left-card">
+        <div class="mockup-wrap" aria-label="Prévia do material">
+          <!-- Troque por sua imagem local: assets/mockup.png -->
+          <img class="mockup" src="assets/mockup.png" alt="Prévia PL Digital" />
+        </div>
+      </div>
+
+      <!-- DIREITA (Formulário) -->
+      <div class="card right-card">
+        <h1>Quer vender mais pelo Instagram e WhatsApp?</h1>
+        <p class="sub">
+          Preencha e eu te chamo com um plano claro (estratégia + anúncios + atendimento).
+        </p>
+
+        <div class="badges">
+          <div class="badge">⚡ Resposta rápida</div>
+          <div class="badge">🎯 Estratégia de conversão</div>
+          <div class="badge">📈 Crescimento organizado</div>
+        </div>
+
+        <form id="leadForm" autocomplete="on">
+          <div class="grid">
+            <div>
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" placeholder="Ex: Paulo Roberto" required />
+            </div>
+
+            <div>
+              <label for="cidade">Cidade</label>
+              <input id="cidade" name="cidade" placeholder="Ex: Belo Horizonte - MG" />
+            </div>
+          </div>
+
+          <div class="grid">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="ex: seuemail@gmail.com" />
+            </div>
+
+            <div>
+              <label for="whats">WhatsApp (com DDD)</label>
+              <input id="whats" name="whats" inputmode="tel" placeholder="Ex: (31) 99999-9999" required />
+            </div>
+          </div>
+
+          <label for="negocio">Seu negócio</label>
+          <input id="negocio" name="negocio" placeholder="Ex: Barbearia, Loja, Clínica, Serralheria..." />
+
+          <label for="objetivo">O que você quer agora?</label>
+          <select id="objetivo" name="objetivo">
+            <option value="Quero mais clientes no WhatsApp">Quero mais clientes no WhatsApp</option>
+            <option value="Quero vender mais pelo Instagram">Quero vender mais pelo Instagram</option>
+            <option value="Quero tráfego pago e gestão">Quero tráfego pago e gestão</option>
+            <option value="Quero organizar meu perfil e conteúdo">Quero organizar meu perfil e conteúdo</option>
+            <option value="Quero um plano completo (estratégia + execução)">Quero um plano completo (estratégia + execução)</option>
+          </select>
+
+          <div class="cta-row">
+            <div class="cta-text">
+              <strong>Enviar direto no WhatsApp</strong>
+              <span>Sem cadastro • Sem enrolação</span>
+            </div>
+
+            <!-- Botão APENAS com o ícone do WhatsApp -->
+            <button class="btn-wa" type="submit" aria-label="Enviar no WhatsApp">
+              <!-- Ícone WhatsApp (SVG) -->
+              <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                <path fill="#ffffff" d="M19.11 17.53c-.29-.14-1.7-.84-1.96-.93-.27-.1-.46-.14-.66.14-.19.29-.76.93-.93 1.12-.17.19-.34.22-.63.07-.29-.14-1.23-.45-2.34-1.43-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.44.12-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.66-1.6-.9-2.19-.24-.58-.48-.5-.66-.51l-.56-.01c-.19 0-.51.07-.77.36-.27.29-1.01.99-1.01 2.41s1.04 2.8 1.18 2.99c.14.19 2.05 3.13 4.97 4.39.69.3 1.23.48 1.65.62.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.25.17-1.36-.07-.12-.26-.19-.55-.33ZM16 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.25.59 4.36 1.62 6.19L3.2 28.8l6.79-1.58c1.77.97 3.81 1.53 5.99 1.53 7.07 0 12.8-5.73 12.8-12.8S23.07 3.2 16 3.2Zm0 23.09c-2.04 0-3.94-.6-5.53-1.63l-.4-.25-4.03.94.94-3.93-.26-.41a10.98 10.98 0 0 1-1.73-5.97c0-6.06 4.92-10.98 10.98-10.98s10.98 4.92 10.98 10.98-4.92 10.98-10.98 10.98Z"/>
+              </svg>
+            </button>
+          </div>
+
+          <div id="errBox" class="err"></div>
+
+          <p class="hint">
+            Ao clicar, você será direcionado ao WhatsApp com a mensagem pronta.
+          </p>
+
+          <div class="footer-mini">
+            Seus dados são usados apenas para atendimento.
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <script>
-    const WHATS_NUMBER = "5531998064556"; // ✅ (31)99806-4556
+    // ====== CONFIG ======
+    const OWNER_WHATSAPP = "5531998064556"; // seu número com DDI 55
 
-    // ✅ PREENCHA COM OS SEUS DADOS DO EMAILJS
-    const EMAILJS_PUBLIC_KEY  = "SUBSTITUIR_AQUI_PUBLIC_KEY";
-    const EMAILJS_SERVICE_ID  = "SUBSTITUIR_AQUI_SERVICE_ID";
-    const EMAILJS_TEMPLATE_ID = "SUBSTITUIR_AQUI_TEMPLATE_ID";
-
-    const form = document.getElementById('leadForm');
-    const btn = document.getElementById('btnSend');
-    const success = document.getElementById('success');
-    const errorBox = document.getElementById('error');
-    const whatsFloat = document.getElementById('whatsFloat');
-    const whatsTextLink = document.getElementById('whatsTextLink');
-
-    // Inicia EmailJS (se a chave estiver preenchida)
-    if (EMAILJS_PUBLIC_KEY && !EMAILJS_PUBLIC_KEY.includes("SUBSTITUIR_AQUI")) {
-      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    function onlyDigits(str){
+      return (str || "").replace(/\D/g, "");
     }
 
-    function buildMsgFromForm() {
-      const nome = (form.nome?.value || '').trim();
-      const email = (form.email?.value || '').trim();
-      const whatsapp = (form.whatsapp?.value || '').trim();
-      const cidade = (form.cidade?.value || '').trim();
-      const negocio = (form.negocio?.value || '').trim();
-      const servico = (form.servico?.value || '').trim();
-      const insta = (form.instagram?.value || '').trim();
-
-      const msg =
-        `Oi PL Digital! Quero gestão de páginas e marketing.\n\n` +
-        `Nome: ${nome}\n` +
-        `Email: ${email}\n` +
-        `WhatsApp: ${whatsapp}\n` +
-        `Cidade: ${cidade}\n` +
-        `Negócio: ${negocio}\n` +
-        `Interesse: ${servico}\n` +
-        (insta ? `Instagram: ${insta}\n` : '');
-
-      return { nome, email, whatsapp, cidade, negocio, servico, insta, msg };
+    function buildMessage(data){
+      const lines = [
+        "Olá! Vim pela sua página (PL Digital).",
+        "",
+        "📌 *Dados do lead:*",
+        `• Nome: ${data.nome || "-"}`,
+        `• WhatsApp: ${data.whats || "-"}`,
+        `• Email: ${data.email || "-"}`,
+        `• Cidade: ${data.cidade || "-"}`,
+        `• Negócio: ${data.negocio || "-"}`,
+        `• Objetivo: ${data.objetivo || "-"}`,
+        "",
+        "Quero saber como funciona e valores. ✅"
+      ];
+      return lines.join("\n");
     }
 
-    function buildWhatsUrl() {
-      const { msg } = buildMsgFromForm();
-      return `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(msg)}`;
+    function openWhatsApp(message){
+      const encoded = encodeURIComponent(message);
+      // wa.me funciona bem em desktop e celular
+      const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encoded}`;
+      window.open(url, "_blank", "noopener,noreferrer");
     }
 
-    function syncWhatsLinks() {
-      const url = buildWhatsUrl();
-      whatsFloat.href = url;
-      whatsTextLink.href = url;
+    function showError(msg){
+      const box = document.getElementById("errBox");
+      box.textContent = msg;
+      box.style.display = "block";
     }
 
-    form.addEventListener('input', syncWhatsLinks);
-    syncWhatsLinks();
-
-    async function sendEmailLead(data) {
-      // Se o usuário não configurou EmailJS ainda, não trava.
-      const notConfigured =
-        EMAILJS_PUBLIC_KEY.includes("SUBSTITUIR_AQUI") ||
-        EMAILJS_SERVICE_ID.includes("SUBSTITUIR_AQUI") ||
-        EMAILJS_TEMPLATE_ID.includes("SUBSTITUIR_AQUI");
-
-      if (notConfigured) return false;
-
-      // Você precisa criar no EmailJS um template com variáveis:
-      // {{nome}} {{email}} {{whatsapp}} {{cidade}} {{negocio}} {{servico}} {{instagram}} {{mensagem}}
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        nome: data.nome,
-        email: data.email,
-        whatsapp: data.whatsapp,
-        cidade: data.cidade,
-        negocio: data.negocio,
-        servico: data.servico,
-        instagram: data.insta,
-        mensagem: data.msg,
-        to_email: "pldigitalG@gmail.com" // ✅ destino
-      });
-      return true;
+    function clearError(){
+      const box = document.getElementById("errBox");
+      box.textContent = "";
+      box.style.display = "none";
     }
 
-    form.addEventListener('submit', async (e) => {
+    document.getElementById("leadForm").addEventListener("submit", function(e){
       e.preventDefault();
+      clearError();
 
-      if (!form.checkValidity()) {
-        form.classList.add('was-validated');
+      const nome = document.getElementById("nome").value.trim();
+      const whatsRaw = document.getElementById("whats").value.trim();
+
+      if(!nome){
+        showError("Preencha seu nome para eu te atender melhor.");
         return;
       }
 
-      const data = buildMsgFromForm();
-      const whatsUrl = buildWhatsUrl();
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const whatsDigits = onlyDigits(whatsRaw);
 
-      if (success) success.classList.remove('d-none');
-      if (errorBox) errorBox.classList.add('d-none');
-
-      btn.disabled = true;
-      const old = btn.innerText;
-      btn.innerText = 'Enviando...';
-
-      // ✅ tenta enviar o e-mail, mas mesmo se falhar, abre o WhatsApp
-      try {
-        await sendEmailLead(data);
-      } catch (err) {
-        if (errorBox) errorBox.classList.remove('d-none');
-      } finally {
-        btn.disabled = false;
-        btn.innerText = old;
-
-        // ✅ abre WhatsApp (mobile precisa ser no mesmo clique; aqui ainda costuma funcionar bem)
-        if (isMobile) {
-          window.location.href = whatsUrl;
-        } else {
-          window.open(whatsUrl, '_blank', 'noopener,noreferrer');
-        }
+      // validação simples (DDD + número BR geralmente 10/11 dígitos sem DDI)
+      if(whatsDigits.length < 10){
+        showError("Digite um WhatsApp válido com DDD. Ex: (31) 99999-9999");
+        return;
       }
+
+      const data = {
+        nome,
+        whats: whatsRaw,
+        email: document.getElementById("email").value.trim(),
+        cidade: document.getElementById("cidade").value.trim(),
+        negocio: document.getElementById("negocio").value.trim(),
+        objetivo: document.getElementById("objetivo").value
+      };
+
+      const message = buildMessage(data);
+      openWhatsApp(message);
     });
   </script>
 </body>
