@@ -6,6 +6,37 @@
   <title>PL Digital Marketing</title>
   <meta name="description" content="Gestão de Instagram + Tráfego pago + Atendimento no WhatsApp. Sem fidelidade, sem spam." />
 
+  <!-- =========================
+       META PIXEL (troque o ID)
+  ========================== -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID_AQUI'); // <<<<< TROQUE AQUI
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1" />
+  </noscript>
+
+  <!-- =========================
+       GOOGLE TAG (troque o ID)
+  ========================== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // <<<<< TROQUE AQUI
+  </script>
+
   <style>
     :root{
       --bg:#03110c;
@@ -13,10 +44,10 @@
 
       --text:#eafff6;
       --muted:#bfe9d5;
-
       --line: rgba(255,255,255,.12);
 
       --brand:#19e38a;
+      --brand2:#0fbf73;
       --blue:#1f61ff;
 
       --shadow: 0 28px 110px rgba(0,0,0,.60);
@@ -40,7 +71,7 @@
       overflow-x:hidden;
     }
 
-    /* ===== BG premium (grid) ===== */
+    /* BG premium */
     .bg-grid{
       position:fixed;
       inset:0;
@@ -54,7 +85,6 @@
       z-index:0;
     }
 
-    /* ===== orbes animadas ===== */
     .orb{
       position:fixed;
       width:560px;
@@ -75,7 +105,6 @@
       to{ transform: translate3d(0,-26px,0) scale(1.05); }
     }
 
-    /* ===== Layout ===== */
     .container{
       width:min(1260px, 94vw);
       margin:0 auto;
@@ -157,7 +186,6 @@
       transform: translateZ(0);
     }
 
-    /* Luz passando no card (efeito premium) */
     .card::after{
       content:"";
       position:absolute;
@@ -170,7 +198,6 @@
     }
     .card:hover::after{ opacity:1; }
 
-    /* brilho interno */
     .card::before{
       content:"";
       position:absolute;
@@ -186,7 +213,6 @@
       from{ transform: translate3d(0,0,0); opacity:.75; }
       to{ transform: translate3d(0,-10px,0); opacity:.95; }
     }
-
     .card > *{ position:relative; z-index:1; }
 
     .left-card{
@@ -205,8 +231,6 @@
       box-shadow: 0 22px 70px rgba(0,0,0,.35);
       position:relative;
     }
-
-    /* Borda neon sutil no mockup */
     .mockup-wrap::before{
       content:"";
       position:absolute;
@@ -266,10 +290,136 @@
       font-size: 13px;
     }
 
+    /* ===== Prova social (números) ===== */
+    .proof{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0 18px;
+    }
+    .proof-item{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.14);
+    }
+    .proof-item strong{
+      display:block;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .proof-item span{
+      display:block;
+      margin-top: 2px;
+      font-size: 12px;
+      color: rgba(191,233,213,.86);
+    }
+
+    /* ===== Urgência ===== */
+    .urgency{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin: 10px 0 14px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(31,97,255,.20);
+      background: linear-gradient(90deg, rgba(31,97,255,.12), rgba(25,227,138,.08));
+    }
+    .urgency strong{ font-size: 13px; }
+    .urgency small{ display:block; color: rgba(191,233,213,.92); font-size: 12px; margin-top: 2px; }
+
+    .slots{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:4px;
+      min-width: 170px;
+    }
+    .bar{
+      width: 170px;
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .bar > div{
+      height:100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(25,227,138,.95), rgba(31,97,255,.85));
+      box-shadow: 0 0 18px rgba(25,227,138,.25);
+      transition: width 600ms var(--ease);
+    }
+    .slots .count{
+      font-size: 12px;
+      color: rgba(191,233,213,.92);
+    }
+
+    /* ===== Mini autoridade ===== */
+    .authority{
+      margin: 12px 0 6px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .authority .dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background: rgba(25,227,138,.95);
+      box-shadow: 0 0 14px rgba(25,227,138,.35);
+      margin-top: 4px;
+      flex:0 0 auto;
+    }
+    .authority strong{
+      display:block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .authority span{
+      display:block;
+      font-size: 12px;
+      color: rgba(191,233,213,.90);
+      line-height:1.45;
+    }
+
+    /* ===== Depoimentos ===== */
+    .testimonials{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .t{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+    }
+    .t p{
+      margin:0;
+      font-size: 12px;
+      color: rgba(233,255,246,.92);
+      line-height:1.5;
+    }
+    .t .who{
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(191,233,213,.85);
+    }
+
     .grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      margin-top: 14px;
     }
 
     label{
@@ -305,235 +455,3 @@
 
     .cta-text{
       display:flex;
-      flex-direction:column;
-      gap:2px;
-    }
-    .cta-text strong{ font-size: 13px; }
-    .cta-text span{
-      font-size: 12px;
-      color: rgba(191,233,213,.88);
-    }
-
-    /* Botão: só ícone WhatsApp */
-    .btn-wa{
-      appearance:none;
-      border:0;
-      cursor:pointer;
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      display:grid;
-      place-items:center;
-      background: radial-gradient(120px 80px at 30% 20%, rgba(255,255,255,.18), transparent 55%),
-                  linear-gradient(180deg, #2a7bff, #1f61ff);
-      box-shadow: 0 22px 60px rgba(31,97,255,.22);
-      transition: transform 160ms var(--ease), filter 160ms var(--ease);
-    }
-    .btn-wa:hover{ transform: translateY(-2px) scale(1.03); filter: brightness(1.06); }
-    .btn-wa:active{ transform: translateY(0) scale(.99); }
-
-    .btn-wa svg{
-      width: 26px;
-      height: 26px;
-      display:block;
-    }
-
-    .hint{
-      margin-top: 10px;
-      color: rgba(191,233,213,.86);
-      font-size: 12px;
-      line-height:1.4;
-    }
-
-    .err{
-      display:none;
-      margin-top: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,80,80,.08);
-      color: rgba(255,230,230,.95);
-      font-size: 12px;
-      line-height:1.45;
-    }
-
-    /* Mobile */
-    @media (max-width: 980px){
-      .container{ padding: 26px 0 36px; }
-      .hero{ grid-template-columns: 1fr; gap: 16px; }
-      .left-card{ order:2; }
-      .right-card{ order:1; }
-      .grid{ grid-template-columns: 1fr; }
-      .pill{ display:none; } /* no celular fica clean */
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{ animation:none !important; transition:none !important; }
-      .orb{ display:none; }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="bg-grid"></div>
-  <div class="orb one"></div>
-  <div class="orb two"></div>
-  <div class="orb three"></div>
-
-  <main class="container">
-    <header class="topbar">
-      <div class="brand">
-        <img class="logo" src="logo.jpeg" alt="PL Digital Marketing" />
-        <div>
-          <h2>PL Digital Marketing</h2>
-          <p>Gestão • Tráfego • WhatsApp</p>
-        </div>
-      </div>
-
-      <div class="pill">✔ Atendimento humano • ✔ Sem fidelidade • ✔ Sem spam</div>
-    </header>
-
-    <section class="hero">
-      <!-- Esquerda -->
-      <div class="card left-card">
-        <div class="mockup-wrap">
-          <img class="mockup" src="mockup.png" alt="Prévia PL Digital" />
-        </div>
-      </div>
-
-      <!-- Direita -->
-      <div class="card right-card">
-        <h1>Quer vender mais pelo Instagram e WhatsApp?</h1>
-        <p class="sub">
-          Preencha e eu te chamo com um plano claro (estratégia + anúncios + atendimento).
-        </p>
-
-        <div class="badges">
-          <div class="badge">⚡ Resposta rápida</div>
-          <div class="badge">🎯 Conversão no WhatsApp</div>
-          <div class="badge">📈 Crescimento organizado</div>
-        </div>
-
-        <form id="leadForm" autocomplete="on">
-          <div class="grid">
-            <div>
-              <label for="nome">Nome</label>
-              <input id="nome" name="nome" placeholder="Ex: Paulo Roberto" required />
-            </div>
-            <div>
-              <label for="cidade">Cidade</label>
-              <input id="cidade" name="cidade" placeholder="Ex: Belo Horizonte - MG" />
-            </div>
-          </div>
-
-          <div class="grid">
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="ex: seuemail@gmail.com" />
-            </div>
-            <div>
-              <label for="whats">WhatsApp (com DDD)</label>
-              <input id="whats" name="whats" inputmode="tel" placeholder="Ex: (31) 99999-9999" required />
-            </div>
-          </div>
-
-          <label for="negocio">Seu negócio</label>
-          <input id="negocio" name="negocio" placeholder="Ex: Barbearia, Loja, Clínica, Serralheria..." />
-
-          <label for="objetivo">O que você quer agora?</label>
-          <select id="objetivo" name="objetivo">
-            <option value="Quero mais clientes no WhatsApp">Quero mais clientes no WhatsApp</option>
-            <option value="Quero vender mais pelo Instagram">Quero vender mais pelo Instagram</option>
-            <option value="Quero tráfego pago e gestão">Quero tráfego pago e gestão</option>
-            <option value="Quero organizar meu perfil e conteúdo">Quero organizar meu perfil e conteúdo</option>
-            <option value="Quero um plano completo (estratégia + execução)">Quero um plano completo</option>
-          </select>
-
-          <div class="cta-row">
-            <div class="cta-text">
-              <strong>Enviar direto no WhatsApp</strong>
-              <span>Mensagem vai pronta automaticamente</span>
-            </div>
-
-            <button class="btn-wa" type="submit" aria-label="Enviar no WhatsApp">
-              <svg viewBox="0 0 32 32" aria-hidden="true">
-                <path fill="#ffffff" d="M19.11 17.53c-.29-.14-1.7-.84-1.96-.93-.27-.1-.46-.14-.66.14-.19.29-.76.93-.93 1.12-.17.19-.34.22-.63.07-.29-.14-1.23-.45-2.34-1.43-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.44.12-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.66-1.6-.9-2.19-.24-.58-.48-.5-.66-.51l-.56-.01c-.19 0-.51.07-.77.36-.27.29-1.01.99-1.01 2.41s1.04 2.8 1.18 2.99c.14.19 2.05 3.13 4.97 4.39.69.3 1.23.48 1.65.62.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.25.17-1.36-.07-.12-.26-.19-.55-.33ZM16 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.25.59 4.36 1.62 6.19L3.2 28.8l6.79-1.58c1.77.97 3.81 1.53 5.99 1.53 7.07 0 12.8-5.73 12.8-12.8S23.07 3.2 16 3.2Zm0 23.09c-2.04 0-3.94-.6-5.53-1.63l-.4-.25-4.03.94.94-3.93-.26-.41a10.98 10.98 0 0 1-1.73-5.97c0-6.06 4.92-10.98 10.98-10.98s10.98 4.92 10.98 10.98-4.92 10.98-10.98 10.98Z"/>
-              </svg>
-            </button>
-          </div>
-
-          <div id="errBox" class="err"></div>
-          <p class="hint">Ao clicar, o WhatsApp abre com a mensagem pronta.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    const OWNER_WHATSAPP = "5531998064556";
-
-    function onlyDigits(str){
-      return (str || "").replace(/\D/g, "");
-    }
-
-    function buildMessage(data){
-      return [
-        "Olá! Vim pela sua página (PL Digital).",
-        "",
-        "📌 Dados do lead:",
-        `• Nome: ${data.nome || "-"}`,
-        `• WhatsApp: ${data.whats || "-"}`,
-        `• Email: ${data.email || "-"}`,
-        `• Cidade: ${data.cidade || "-"}`,
-        `• Negócio: ${data.negocio || "-"}`,
-        `• Objetivo: ${data.objetivo || "-"}`,
-        "",
-        "Quero saber como funciona e valores. ✅"
-      ].join("\n");
-    }
-
-    function showError(msg){
-      const box = document.getElementById("errBox");
-      box.textContent = msg;
-      box.style.display = "block";
-    }
-
-    function clearError(){
-      const box = document.getElementById("errBox");
-      box.textContent = "";
-      box.style.display = "none";
-    }
-
-    document.getElementById("leadForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      clearError();
-
-      const nome = document.getElementById("nome").value.trim();
-      const whatsRaw = document.getElementById("whats").value.trim();
-      const whatsDigits = onlyDigits(whatsRaw);
-
-      if(!nome){
-        showError("Preencha seu nome para eu te atender melhor.");
-        return;
-      }
-      if(whatsDigits.length < 10){
-        showError("Digite um WhatsApp válido com DDD. Ex: (31) 99999-9999");
-        return;
-      }
-
-      const data = {
-        nome,
-        whats: whatsRaw,
-        email: document.getElementById("email").value.trim(),
-        cidade: document.getElementById("cidade").value.trim(),
-        negocio: document.getElementById("negocio").value.trim(),
-        objetivo: document.getElementById("objetivo").value
-      };
-
-      const msg = buildMessage(data);
-      const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(msg)}`;
-      window.open(url, "_blank", "noopener,noreferrer");
-    });
-  </script>
-</body>
-</html>
