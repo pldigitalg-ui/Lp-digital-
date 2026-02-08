@@ -6,53 +6,26 @@
   <title>PL Digital Marketing</title>
   <meta name="description" content="Gestão de Instagram + Tráfego pago + Atendimento no WhatsApp. Sem fidelidade, sem spam." />
 
-  <!-- =========================
-       META PIXEL (TROQUE O ID QUANDO TIVER)
-  ========================== -->
-  <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'SEU_PIXEL_ID_AQUI'); // <<<<< quando tiver, cole o número aqui
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1" />
-  </noscript>
-
-  <!-- =========================
-       GOOGLE TAG (TROQUE O ID QUANDO TIVER)
-  ========================== -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX'); // <<<<< quando tiver, cole o G- aqui
-  </script>
-
-  <!-- =========================
-       EMAILJS (CONFIGURADO ✅)
-  ========================== -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
   <style>
     :root{
-      --bg:#03110c; --bg2:#061a12;
-      --text:#eafff6; --muted:#bfe9d5;
+      --bg:#03110c;
+      --bg2:#061a12;
+
+      --text:#eafff6;
+      --muted:#bfe9d5;
+
       --line: rgba(255,255,255,.12);
-      --brand:#19e38a; --blue:#1f61ff;
+
+      --brand:#19e38a;
+      --blue:#1f61ff;
+
       --shadow: 0 28px 110px rgba(0,0,0,.60);
       --radius: 18px;
+
       --ease: cubic-bezier(.2,.9,.2,1);
       --speed: 900ms;
     }
+
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
     body{
@@ -66,8 +39,13 @@
         linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
+
+    /* ===== BG premium (grid) ===== */
     .bg-grid{
-      position:fixed; inset:0; pointer-events:none; opacity:.16;
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.16;
       background-image:
         linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px);
@@ -75,147 +53,323 @@
       mask-image: radial-gradient(600px 460px at 50% 16%, black 40%, transparent 78%);
       z-index:0;
     }
+
+    /* ===== orbes animadas ===== */
     .orb{
-      position:fixed; width:560px; height:560px; border-radius:999px;
-      filter: blur(46px); opacity:.22; pointer-events:none; z-index:0;
+      position:fixed;
+      width:560px;
+      height:560px;
+      border-radius:999px;
+      filter: blur(46px);
+      opacity:.22;
+      pointer-events:none;
+      z-index:0;
       animation: float 10s var(--ease) infinite alternate;
     }
     .orb.one{ left:-220px; top:40px; background: rgba(25,227,138,.56); }
     .orb.two{ right:-240px; top:120px; background: rgba(31,97,255,.52); animation-duration:12s; }
     .orb.three{ left:50%; bottom:-360px; transform:translateX(-50%); background: rgba(15,191,115,.56); opacity:.18; animation-duration:14s; }
-    @keyframes float{ from{transform:translate3d(0,0,0) scale(1);} to{transform:translate3d(0,-26px,0) scale(1.05);} }
 
-    .container{ width:min(1260px, 94vw); margin:0 auto; padding:52px 0 64px; position:relative; z-index:1; }
+    @keyframes float{
+      from{ transform: translate3d(0,0,0) scale(1); }
+      to{ transform: translate3d(0,-26px,0) scale(1.05); }
+    }
+
+    /* ===== Layout ===== */
+    .container{
+      width:min(1260px, 94vw);
+      margin:0 auto;
+      padding: 52px 0 64px;
+      position:relative;
+      z-index:1;
+    }
+
     .topbar{
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-      margin-bottom:18px; opacity:0; transform:translateY(10px);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
+      opacity:0;
+      transform: translateY(10px);
       animation: inUp var(--speed) var(--ease) forwards;
     }
-    .brand{ display:flex; align-items:center; gap:12px; min-width:220px; }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+    }
+
     .logo{
-      width:58px; height:58px; border-radius:16px; object-fit:cover;
-      border:1px solid rgba(255,255,255,.16); box-shadow:0 16px 42px rgba(0,0,0,.45);
+      width:58px;
+      height:58px;
+      border-radius: 16px;
+      object-fit:cover;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow: 0 16px 42px rgba(0,0,0,.45);
       background: rgba(0,0,0,.2);
     }
-    .brand h2{ margin:0; font-size:15px; line-height:1.1; letter-spacing:.2px; }
-    .brand p{ margin:4px 0 0; color:var(--muted); font-size:12px; line-height:1.1; }
+
+    .brand h2{
+      margin:0;
+      font-size:15px;
+      line-height:1.1;
+      letter-spacing:.2px;
+    }
+    .brand p{
+      margin:4px 0 0;
+      color: var(--muted);
+      font-size:12px;
+      line-height:1.1;
+    }
+
     .pill{
-      display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:999px;
-      border:1px solid rgba(25,227,138,.28); background: rgba(25,227,138,.08); font-size:13px; white-space:nowrap;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(25,227,138,.28);
+      background: rgba(25,227,138,.08);
+      color: var(--text);
+      font-size: 13px;
+      white-space:nowrap;
       box-shadow: 0 20px 60px rgba(0,0,0,.20);
     }
 
-    .hero{ display:grid; grid-template-columns:1.05fr 1fr; gap:32px; align-items:start; margin-top:14px; }
+    .hero{
+      display:grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 32px;
+      align-items:start;
+      margin-top: 14px;
+    }
+
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
-      border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
-      position:relative; overflow:hidden; transform: translateZ(0);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+      transform: translateZ(0);
     }
+
+    /* Luz passando no card (efeito premium) */
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:-120px;
+      background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.10) 50%, transparent 65%);
+      transform: translateX(-40%) rotate(6deg);
+      opacity:.0;
+      transition: opacity 320ms var(--ease);
+      pointer-events:none;
+    }
+    .card:hover::after{ opacity:1; }
+
+    /* brilho interno */
     .card::before{
-      content:""; position:absolute; inset:-2px;
+      content:"";
+      position:absolute;
+      inset:-2px;
       background:
         radial-gradient(650px 260px at 20% 0%, rgba(25,227,138,.22), transparent 60%),
         radial-gradient(520px 260px at 80% 10%, rgba(31,97,255,.16), transparent 60%);
-      opacity:.95; pointer-events:none; animation: sheen 8s var(--ease) infinite alternate;
+      opacity:.95;
+      pointer-events:none;
+      animation: sheen 8s var(--ease) infinite alternate;
     }
-    @keyframes sheen{ from{transform:translate3d(0,0,0);opacity:.75;} to{transform:translate3d(0,-10px,0);opacity:.95;} }
+    @keyframes sheen{
+      from{ transform: translate3d(0,0,0); opacity:.75; }
+      to{ transform: translate3d(0,-10px,0); opacity:.95; }
+    }
+
     .card > *{ position:relative; z-index:1; }
 
     .left-card{
-      padding:22px; opacity:0; transform:translateY(12px);
-      animation: inUp calc(var(--speed) + 140ms) var(--ease) forwards; animation-delay:80ms;
+      padding: 22px;
+      opacity:0;
+      transform: translateY(12px);
+      animation: inUp calc(var(--speed) + 140ms) var(--ease) forwards;
+      animation-delay: 80ms;
     }
+
     .mockup-wrap{
-      border-radius:18px; border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.16); overflow:hidden; box-shadow:0 22px 70px rgba(0,0,0,.35);
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+      overflow:hidden;
+      box-shadow: 0 22px 70px rgba(0,0,0,.35);
+      position:relative;
     }
-    .mockup{ display:block; width:100%; height:auto; }
+
+    /* Borda neon sutil no mockup */
+    .mockup-wrap::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      border-radius: 20px;
+      background: radial-gradient(300px 140px at 20% 0%, rgba(25,227,138,.55), transparent 60%);
+      opacity:.16;
+      pointer-events:none;
+    }
+
+    .mockup{
+      display:block;
+      width:100%;
+      height:auto;
+    }
 
     .right-card{
-      padding:26px; opacity:0; transform:translateY(12px);
-      animation: inUp calc(var(--speed) + 240ms) var(--ease) forwards; animation-delay:140ms;
+      padding: 26px;
+      opacity:0;
+      transform: translateY(12px);
+      animation: inUp calc(var(--speed) + 240ms) var(--ease) forwards;
+      animation-delay: 140ms;
     }
-    @keyframes inUp{ to{ opacity:1; transform: translateY(0);} }
 
-    h1{ margin:6px 0 10px; font-size:clamp(24px, 2.2vw, 36px); line-height:1.08; letter-spacing:-0.5px; }
-    .sub{ margin:0 0 16px; color:var(--muted); font-size:15px; line-height:1.55; }
+    @keyframes inUp{
+      to{ opacity:1; transform: translateY(0); }
+    }
 
-    .badges{ display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 12px; }
+    h1{
+      margin: 6px 0 10px;
+      font-size: clamp(24px, 2.2vw, 36px);
+      line-height: 1.08;
+      letter-spacing: -0.5px;
+    }
+
+    .sub{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height:1.55;
+    }
+
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin: 14px 0 18px;
+    }
     .badge{
-      display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px;
-      border:1px solid rgba(25,227,138,.26); background: rgba(25,227,138,.08); font-size:13px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(25,227,138,.26);
+      background: rgba(25,227,138,.08);
+      font-size: 13px;
     }
 
-    .grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:10px; }
-    label{ display:block; font-size:13px; color:var(--muted); margin:12px 0 6px; }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    label{
+      display:block;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 12px 0 6px;
+    }
+
     input, select{
-      width:100%; padding:12px 12px; border-radius:12px;
-      border:1px solid rgba(255,255,255,.14); background: rgba(0,0,0,.22);
-      color:var(--text); outline:none;
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+      outline:none;
       transition: transform 160ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
     }
     input:focus, select:focus{
-      border-color: rgba(25,227,138,.55); box-shadow:0 0 0 4px rgba(25,227,138,.12); transform: translateY(-1px);
+      border-color: rgba(25,227,138,.55);
+      box-shadow: 0 0 0 4px rgba(25,227,138,.12);
+      transform: translateY(-1px);
     }
 
-    .cta-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:16px; }
-    .cta-text{ display:flex; flex-direction:column; gap:2px; }
-    .cta-text strong{ font-size:13px; }
-    .cta-text span{ font-size:12px; color: rgba(191,233,213,.88); }
+    .cta-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top: 16px;
+    }
 
+    .cta-text{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .cta-text strong{ font-size: 13px; }
+    .cta-text span{
+      font-size: 12px;
+      color: rgba(191,233,213,.88);
+    }
+
+    /* Botão: só ícone WhatsApp */
     .btn-wa{
-      appearance:none; border:0; cursor:pointer; width:54px; height:54px; border-radius:16px;
-      display:grid; place-items:center;
+      appearance:none;
+      border:0;
+      cursor:pointer;
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display:grid;
+      place-items:center;
       background: radial-gradient(120px 80px at 30% 20%, rgba(255,255,255,.18), transparent 55%),
                   linear-gradient(180deg, #2a7bff, #1f61ff);
       box-shadow: 0 22px 60px rgba(31,97,255,.22);
       transition: transform 160ms var(--ease), filter 160ms var(--ease);
-      position:relative;
     }
     .btn-wa:hover{ transform: translateY(-2px) scale(1.03); filter: brightness(1.06); }
     .btn-wa:active{ transform: translateY(0) scale(.99); }
-    .btn-wa::after{
-      content:""; position:absolute; inset:-10px; border-radius:22px;
-      border:1px solid rgba(31,97,255,.35);
-      animation: pulse 2.6s var(--ease) infinite;
-    }
-    @keyframes pulse{
-      0%{transform:scale(.96);opacity:.85;}
-      70%{transform:scale(1.10);opacity:0;}
-      100%{transform:scale(.96);opacity:0;}
-    }
-    .btn-wa svg{ width:26px; height:26px; display:block; }
 
-    .hint{ margin-top:10px; color: rgba(191,233,213,.86); font-size:12px; line-height:1.4; }
-    .toast{
-      display:none; margin-top:10px; padding:10px 12px; border-radius:12px;
-      border:1px solid rgba(25,227,138,.22); background: rgba(25,227,138,.10);
-      font-size:12px; line-height:1.45;
+    .btn-wa svg{
+      width: 26px;
+      height: 26px;
+      display:block;
     }
+
+    .hint{
+      margin-top: 10px;
+      color: rgba(191,233,213,.86);
+      font-size: 12px;
+      line-height:1.4;
+    }
+
     .err{
-      display:none; margin-top:10px; padding:10px 12px; border-radius:12px;
-      border:1px solid rgba(255,255,255,.14); background: rgba(255,80,80,.08);
-      color: rgba(255,230,230,.95); font-size:12px; line-height:1.45;
-    }
-    .fallback{ display:none; margin-top:10px; gap:10px; align-items:center; flex-wrap:wrap; }
-    .fallback a{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18); color: var(--text); text-decoration:none; font-size:12px;
+      display:none;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,80,80,.08);
+      color: rgba(255,230,230,.95);
+      font-size: 12px;
+      line-height:1.45;
     }
 
+    /* Mobile */
     @media (max-width: 980px){
-      .container{ padding:26px 0 36px; }
-      .hero{ grid-template-columns:1fr; gap:16px; }
+      .container{ padding: 26px 0 36px; }
+      .hero{ grid-template-columns: 1fr; gap: 16px; }
       .left-card{ order:2; }
       .right-card{ order:1; }
-      .grid{ grid-template-columns:1fr; }
-      .pill{ display:none; }
+      .grid{ grid-template-columns: 1fr; }
+      .pill{ display:none; } /* no celular fica clean */
     }
+
     @media (prefers-reduced-motion: reduce){
       *{ animation:none !important; transition:none !important; }
       .orb{ display:none; }
-      .btn-wa::after{ display:none; }
     }
   </style>
 </head>
@@ -235,34 +389,32 @@
           <p>Gestão • Tráfego • WhatsApp</p>
         </div>
       </div>
+
       <div class="pill">✔ Atendimento humano • ✔ Sem fidelidade • ✔ Sem spam</div>
     </header>
 
     <section class="hero">
+      <!-- Esquerda -->
       <div class="card left-card">
         <div class="mockup-wrap">
           <img class="mockup" src="mockup.png" alt="Prévia PL Digital" />
         </div>
       </div>
 
+      <!-- Direita -->
       <div class="card right-card">
         <h1>Quer vender mais pelo Instagram e WhatsApp?</h1>
-        <p class="sub">Preencha rapidinho que eu te chamo.</p>
+        <p class="sub">
+          Preencha e eu te chamo com um plano claro (estratégia + anúncios + atendimento).
+        </p>
 
         <div class="badges">
           <div class="badge">⚡ Resposta rápida</div>
-          <div class="badge">🎯 Foco em clientes</div>
+          <div class="badge">🎯 Conversão no WhatsApp</div>
           <div class="badge">📈 Crescimento organizado</div>
         </div>
 
         <form id="leadForm" autocomplete="on">
-          <label for="cliente">Cliente / Campanha</label>
-          <select id="cliente" name="cliente" required>
-            <option value="" selected>Selecione</option>
-            <option value="AS Serralheria">Cliente (AS Serralheria)</option>
-            <option value="RM Instrutor de Direção">Cliente (RM Instrutor de Direção)</option>
-          </select>
-
           <div class="grid">
             <div>
               <label for="nome">Nome</label>
@@ -276,8 +428,8 @@
 
           <div class="grid">
             <div>
-              <label for="email">E-mail</label>
-              <input id="email" name="email" type="email" placeholder="Ex: seuemail@gmail.com" required />
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="ex: seuemail@gmail.com" />
             </div>
             <div>
               <label for="whats">WhatsApp (com DDD)</label>
@@ -286,7 +438,7 @@
           </div>
 
           <label for="negocio">Seu negócio</label>
-          <input id="negocio" name="negocio" placeholder="Ex: Barbearia, Loja, Clínica..." />
+          <input id="negocio" name="negocio" placeholder="Ex: Barbearia, Loja, Clínica, Serralheria..." />
 
           <label for="objetivo">O que você quer agora?</label>
           <select id="objetivo" name="objetivo">
@@ -294,13 +446,13 @@
             <option value="Quero vender mais pelo Instagram">Quero vender mais pelo Instagram</option>
             <option value="Quero tráfego pago e gestão">Quero tráfego pago e gestão</option>
             <option value="Quero organizar meu perfil e conteúdo">Quero organizar meu perfil e conteúdo</option>
-            <option value="Quero um plano completo">Quero um plano completo</option>
+            <option value="Quero um plano completo (estratégia + execução)">Quero um plano completo</option>
           </select>
 
           <div class="cta-row">
             <div class="cta-text">
-              <strong>Clique para enviar</strong>
-              <span>Abrir WhatsApp</span>
+              <strong>Enviar direto no WhatsApp</strong>
+              <span>Mensagem vai pronta automaticamente</span>
             </div>
 
             <button class="btn-wa" type="submit" aria-label="Enviar no WhatsApp">
@@ -310,177 +462,77 @@
             </button>
           </div>
 
-          <div id="toast" class="toast"></div>
           <div id="errBox" class="err"></div>
-
-          <div id="fallback" class="fallback">
-            <a id="fallbackWa" href="#" target="_blank" rel="noopener">Abrir WhatsApp</a>
-            <a id="fallbackMail" href="#" target="_blank" rel="noopener">Abrir E-mail</a>
-          </div>
-
-          <p class="hint">Se não abrir automático, use os botões.</p>
+          <p class="hint">Ao clicar, o WhatsApp abre com a mensagem pronta.</p>
         </form>
       </div>
     </section>
   </main>
 
   <script>
-    // ====== SEUS DADOS ======
     const OWNER_WHATSAPP = "5531998064556";
-    const OWNER_EMAIL = "pldigitalg@gmail.com";
 
-    // ====== EMAILJS (SEUS DADOS ✅) ======
-    const EMAILJS_SERVICE_ID = "service_uz2hyiy";
-    const EMAILJS_TEMPLATE_LEAD_OWNER = "template_0rd5uut"; // LEAD PRA VOCÊ
-    const EMAILJS_TEMPLATE_AUTOREPLY = "template_ya997d9";  // AUTO-REPLY PRO CLIENTE
-    const EMAILJS_PUBLIC_KEY = "HQOPA8NQiBGZ3-Ur4";
+    function onlyDigits(str){
+      return (str || "").replace(/\D/g, "");
+    }
 
-    // init emailjs
-    try { emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); } catch(e){}
-
-    function safeFbqTrack(name){ try{ if(window.fbq) fbq('trackCustom', name); }catch(e){} }
-    function safeGtagEvent(name){ try{ if(window.gtag) gtag('event', name, { method:'landing_form' }); }catch(e){} }
-
-    function onlyDigits(str){ return (str || "").replace(/\D/g, ""); }
+    function buildMessage(data){
+      return [
+        "Olá! Vim pela sua página (PL Digital).",
+        "",
+        "📌 Dados do lead:",
+        `• Nome: ${data.nome || "-"}`,
+        `• WhatsApp: ${data.whats || "-"}`,
+        `• Email: ${data.email || "-"}`,
+        `• Cidade: ${data.cidade || "-"}`,
+        `• Negócio: ${data.negocio || "-"}`,
+        `• Objetivo: ${data.objetivo || "-"}`,
+        "",
+        "Quero saber como funciona e valores. ✅"
+      ].join("\n");
+    }
 
     function showError(msg){
       const box = document.getElementById("errBox");
       box.textContent = msg;
       box.style.display = "block";
     }
+
     function clearError(){
       const box = document.getElementById("errBox");
       box.textContent = "";
       box.style.display = "none";
     }
-    function showToast(msg){
-      const t = document.getElementById("toast");
-      t.textContent = msg;
-      t.style.display = "block";
-      setTimeout(() => { t.style.display = "none"; }, 4500);
-    }
 
-    function buildMessage(d){
-      return [
-        "Olá! Vim pela sua página (PL Digital).",
-        "",
-        `Cliente/Campanha: ${d.cliente || "-"}`,
-        "",
-        `Nome: ${d.nome || "-"}`,
-        `WhatsApp: ${d.whats || "-"}`,
-        `E-mail: ${d.email || "-"}`,
-        `Cidade: ${d.cidade || "-"}`,
-        `Negócio: ${d.negocio || "-"}`,
-        `Objetivo: ${d.objetivo || "-"}`,
-        "",
-        "Quero saber como funciona e valores."
-      ].join("\n");
-    }
-
-    function openWhatsApp(message){
-      const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(message)}`;
-      const win = window.open(url, "_blank", "noopener,noreferrer");
-      return { url, opened: !!win };
-    }
-    function mailtoUrl(message){
-      const subject = "Lead do Site - PL Digital";
-      return `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-    }
-    function openEmailClient(message){
-      window.location.href = mailtoUrl(message);
-    }
-    function showFallbackLinks(waUrl, mailUrl){
-      const fb = document.getElementById("fallback");
-      document.getElementById("fallbackWa").href = waUrl;
-      document.getElementById("fallbackMail").href = mailUrl;
-      fb.style.display = "flex";
-    }
-
-    async function sendLeadToOwner(lead){
-      // Template A: manda pra você (template_0rd5uut)
-      return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_LEAD_OWNER, {
-        cliente: lead.cliente,
-        nome: lead.nome,
-        whats: lead.whats,
-        email: lead.email,
-        cidade: lead.cidade,
-        negocio: lead.negocio,
-        objetivo: lead.objetivo,
-        mensagem: lead.mensagem
-      });
-    }
-
-    async function sendAutoReplyToClient(lead){
-      // Template B: manda pro cliente (template_ya997d9)
-      // O template precisa ter "To email" = {{email}}
-      return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_AUTOREPLY, {
-        nome: lead.nome,
-        email: lead.email
-      });
-    }
-
-    document.getElementById("leadForm").addEventListener("submit", async (e) => {
+    document.getElementById("leadForm").addEventListener("submit", function(e){
       e.preventDefault();
       clearError();
 
-      safeFbqTrack("LeadForm_Submit");
-      safeGtagEvent("lead_form_submit");
-
-      const cliente = document.getElementById("cliente").value;
       const nome = document.getElementById("nome").value.trim();
-      const email = document.getElementById("email").value.trim();
       const whatsRaw = document.getElementById("whats").value.trim();
       const whatsDigits = onlyDigits(whatsRaw);
 
-      if(!cliente) return showError("Selecione o cliente/campanha.");
-      if(!nome) return showError("Preencha seu nome.");
-      if(!email || !email.includes("@")) return showError("Digite um e-mail válido.");
-      if(whatsDigits.length < 10) return showError("Digite um WhatsApp válido com DDD.");
+      if(!nome){
+        showError("Preencha seu nome para eu te atender melhor.");
+        return;
+      }
+      if(whatsDigits.length < 10){
+        showError("Digite um WhatsApp válido com DDD. Ex: (31) 99999-9999");
+        return;
+      }
 
-      const lead = {
-        cliente,
+      const data = {
         nome,
-        email,
         whats: whatsRaw,
+        email: document.getElementById("email").value.trim(),
         cidade: document.getElementById("cidade").value.trim(),
         negocio: document.getElementById("negocio").value.trim(),
         objetivo: document.getElementById("objetivo").value
       };
-      lead.mensagem = buildMessage(lead);
 
-      // 1) Enviar lead pra você + auto-reply pro cliente (sem travar)
-      const results = await Promise.allSettled([
-        sendLeadToOwner(lead),
-        sendAutoReplyToClient(lead)
-      ]);
-
-      const okOwner = results[0].status === "fulfilled";
-      const okClient = results[1].status === "fulfilled";
-
-      if(okOwner && okClient){
-        showToast("✅ Enviado! Vou te chamar no WhatsApp.");
-      }else if(okOwner && !okClient){
-        showToast("✅ Recebido! Vou te chamar no WhatsApp.");
-      }else{
-        // mesmo se EmailJS falhar, ainda abrimos whatsapp e mostramos fallback
-        showToast("✅ Recebido! Vamos abrir o WhatsApp agora.");
-      }
-
-      // 2) Abre WhatsApp + Email backup
-      const wa = openWhatsApp(lead.mensagem);
-      const mailUrl = mailtoUrl(lead.mensagem);
-
-      setTimeout(() => {
-        try { openEmailClient(lead.mensagem); } catch(e){}
-      }, 250);
-
-      if(!wa.opened){
-        showFallbackLinks(wa.url, mailUrl);
-        showToast("⚠️ Se não abriu automático, use os botões.");
-      }
-
-      safeFbqTrack("WhatsApp_Open_Attempt");
-      safeGtagEvent("whatsapp_open_attempt");
+      const msg = buildMessage(data);
+      const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
     });
   </script>
 </body>
