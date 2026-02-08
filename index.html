@@ -6,6 +6,44 @@
   <title>PL Digital Marketing</title>
   <meta name="description" content="Gestão de Instagram + Tráfego pago + Atendimento no WhatsApp. Sem fidelidade, sem spam." />
 
+  <!-- =========================
+       META PIXEL (TROQUE O ID)
+       1) Substitua SEU_PIXEL_ID_AQUI pelo seu Pixel ID
+  ========================== -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID_AQUI'); // <<<<< TROQUE AQUI
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1" />
+  </noscript>
+
+  <!-- =========================
+       GOOGLE TAG (TROQUE O ID)
+       2) Substitua G-XXXXXXXXXX pelo seu Measurement ID
+  ========================== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // <<<<< TROQUE AQUI
+  </script>
+
+  <!-- =========================
+       EMAILJS (CDN)
+  ========================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   <style>
     :root{
       --bg:#03110c;
@@ -13,7 +51,6 @@
 
       --text:#eafff6;
       --muted:#bfe9d5;
-
       --line: rgba(255,255,255,.12);
 
       --brand:#19e38a;
@@ -40,7 +77,7 @@
       overflow-x:hidden;
     }
 
-    /* ===== BG premium (grid) ===== */
+    /* BG premium */
     .bg-grid{
       position:fixed;
       inset:0;
@@ -54,7 +91,6 @@
       z-index:0;
     }
 
-    /* ===== orbes animadas ===== */
     .orb{
       position:fixed;
       width:560px;
@@ -75,7 +111,6 @@
       to{ transform: translate3d(0,-26px,0) scale(1.05); }
     }
 
-    /* ===== Layout ===== */
     .container{
       width:min(1260px, 94vw);
       margin:0 auto;
@@ -157,7 +192,7 @@
       transform: translateZ(0);
     }
 
-    /* Luz passando no card (efeito premium) */
+    /* Luz passando no card */
     .card::after{
       content:"";
       position:absolute;
@@ -205,8 +240,6 @@
       box-shadow: 0 22px 70px rgba(0,0,0,.35);
       position:relative;
     }
-
-    /* Borda neon sutil no mockup */
     .mockup-wrap::before{
       content:"";
       position:absolute;
@@ -253,7 +286,7 @@
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin: 14px 0 18px;
+      margin: 14px 0 12px;
     }
     .badge{
       display:inline-flex;
@@ -266,10 +299,136 @@
       font-size: 13px;
     }
 
+    /* Prova social (ajuste números como quiser) */
+    .proof{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin: 10px 0 12px;
+    }
+    .proof-item{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.14);
+    }
+    .proof-item strong{
+      display:block;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .proof-item span{
+      display:block;
+      margin-top: 2px;
+      font-size: 12px;
+      color: rgba(191,233,213,.86);
+    }
+
+    /* Urgência */
+    .urgency{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin: 8px 0 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(31,97,255,.20);
+      background: linear-gradient(90deg, rgba(31,97,255,.12), rgba(25,227,138,.08));
+    }
+    .urgency strong{ font-size: 13px; }
+    .urgency small{ display:block; color: rgba(191,233,213,.92); font-size: 12px; margin-top: 2px; }
+
+    .slots{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:4px;
+      min-width: 170px;
+    }
+    .bar{
+      width: 170px;
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .bar > div{
+      height:100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(25,227,138,.95), rgba(31,97,255,.85));
+      box-shadow: 0 0 18px rgba(25,227,138,.25);
+      transition: width 600ms var(--ease);
+    }
+    .slots .count{
+      font-size: 12px;
+      color: rgba(191,233,213,.92);
+    }
+
+    /* Mini autoridade */
+    .authority{
+      margin: 10px 0 10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .authority .dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background: rgba(25,227,138,.95);
+      box-shadow: 0 0 14px rgba(25,227,138,.35);
+      margin-top: 4px;
+      flex:0 0 auto;
+    }
+    .authority strong{
+      display:block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .authority span{
+      display:block;
+      font-size: 12px;
+      color: rgba(191,233,213,.90);
+      line-height:1.45;
+    }
+
+    /* Depoimentos (edite textos/nome) */
+    .testimonials{
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .t{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.12);
+    }
+    .t p{
+      margin:0;
+      font-size: 12px;
+      color: rgba(233,255,246,.92);
+      line-height:1.5;
+    }
+    .t .who{
+      margin-top: 8px;
+      font-size: 12px;
+      color: rgba(191,233,213,.85);
+    }
+
     .grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      margin-top: 10px;
     }
 
     label{
@@ -314,7 +473,7 @@
       color: rgba(191,233,213,.88);
     }
 
-    /* Botão: só ícone WhatsApp */
+    /* Botão: só ícone WhatsApp + PULSE */
     .btn-wa{
       appearance:none;
       border:0;
@@ -324,13 +483,31 @@
       border-radius: 16px;
       display:grid;
       place-items:center;
-      background: radial-gradient(120px 80px at 30% 20%, rgba(255,255,255,.18), transparent 55%),
-                  linear-gradient(180deg, #2a7bff, #1f61ff);
+      background:
+        radial-gradient(120px 80px at 30% 20%, rgba(255,255,255,.18), transparent 55%),
+        linear-gradient(180deg, #2a7bff, #1f61ff);
       box-shadow: 0 22px 60px rgba(31,97,255,.22);
       transition: transform 160ms var(--ease), filter 160ms var(--ease);
+      position:relative;
     }
     .btn-wa:hover{ transform: translateY(-2px) scale(1.03); filter: brightness(1.06); }
     .btn-wa:active{ transform: translateY(0) scale(.99); }
+
+    /* Pulse premium */
+    .btn-wa::after{
+      content:"";
+      position:absolute;
+      inset:-10px;
+      border-radius: 22px;
+      border: 1px solid rgba(31,97,255,.35);
+      box-shadow: 0 0 0 0 rgba(31,97,255,.28);
+      animation: pulse 2.6s var(--ease) infinite;
+    }
+    @keyframes pulse{
+      0%   { transform: scale(.96); opacity:.85; box-shadow: 0 0 0 0 rgba(31,97,255,.20); }
+      70%  { transform: scale(1.10); opacity:.00; box-shadow: 0 0 0 18px rgba(31,97,255,.00); }
+      100% { transform: scale(.96); opacity:0; }
+    }
 
     .btn-wa svg{
       width: 26px;
@@ -345,6 +522,18 @@
       line-height:1.4;
     }
 
+    .toast{
+      display:none;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(25,227,138,.22);
+      background: rgba(25,227,138,.10);
+      color: rgba(233,255,246,.96);
+      font-size: 12px;
+      line-height:1.45;
+    }
+
     .err{
       display:none;
       margin-top: 10px;
@@ -357,19 +546,46 @@
       line-height:1.45;
     }
 
-    /* Mobile */
+    /* Fallback (se popup bloquear) */
+    .fallback{
+      display:none;
+      margin-top: 10px;
+      gap: 10px;
+      align-items:center;
+      flex-wrap: wrap;
+    }
+    .fallback a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      text-decoration:none;
+      font-size: 12px;
+      cursor:pointer;
+    }
+    .fallback a:hover{ filter: brightness(1.05); }
+
     @media (max-width: 980px){
       .container{ padding: 26px 0 36px; }
       .hero{ grid-template-columns: 1fr; gap: 16px; }
       .left-card{ order:2; }
       .right-card{ order:1; }
       .grid{ grid-template-columns: 1fr; }
-      .pill{ display:none; } /* no celular fica clean */
+      .proof{ grid-template-columns: 1fr 1fr; }
+      .pill{ display:none; }
+      .slots{ min-width: 150px; }
+      .bar{ width: 150px; }
     }
 
     @media (prefers-reduced-motion: reduce){
       *{ animation:none !important; transition:none !important; }
       .orb{ display:none; }
+      .btn-wa::after{ display:none; }
     }
   </style>
 </head>
@@ -389,7 +605,6 @@
           <p>Gestão • Tráfego • WhatsApp</p>
         </div>
       </div>
-
       <div class="pill">✔ Atendimento humano • ✔ Sem fidelidade • ✔ Sem spam</div>
     </header>
 
@@ -414,6 +629,58 @@
           <div class="badge">📈 Crescimento organizado</div>
         </div>
 
+        <!-- PROVA SOCIAL (edite os números se quiser) -->
+        <div class="proof" aria-label="Prova social">
+          <div class="proof-item">
+            <strong>+120</strong>
+            <span>negócios atendidos</span>
+          </div>
+          <div class="proof-item">
+            <strong>+3.000</strong>
+            <span>leads gerados</span>
+          </div>
+          <div class="proof-item">
+            <strong>R$ +1M</strong>
+            <span>em oportunidades</span>
+          </div>
+        </div>
+
+        <!-- URGÊNCIA (vagas do mês) -->
+        <div class="urgency" role="status" aria-live="polite">
+          <div>
+            <strong>Vagas do mês (atendo poucas por vez)</strong>
+            <small>Garanta sua análise antes de fechar a agenda.</small>
+          </div>
+          <div class="slots">
+            <div class="bar"><div id="slotBar"></div></div>
+            <div class="count"><span id="slotsLeft">—</span> vagas restantes</div>
+          </div>
+        </div>
+
+        <!-- MINI AUTORIDADE -->
+        <div class="authority">
+          <div class="dot"></div>
+          <div>
+            <strong>Especialista em tráfego + gestão com foco em WhatsApp</strong>
+            <span>
+              Estratégia, anúncios e atendimento organizados para transformar clique em cliente.
+              Sem contrato de fidelidade e com suporte humano.
+            </span>
+          </div>
+        </div>
+
+        <!-- DEPOIMENTOS (edite livre) -->
+        <div class="testimonials">
+          <div class="t">
+            <p>“Em 15 dias já começou a chegar cliente no WhatsApp. Organização e rapidez.”</p>
+            <div class="who">— Cliente (comércio local)</div>
+          </div>
+          <div class="t">
+            <p>“O perfil ficou profissional e os anúncios pararam de gastar à toa. Melhorou muito.”</p>
+            <div class="who">— Cliente (serviços)</div>
+          </div>
+        </div>
+
         <form id="leadForm" autocomplete="on">
           <div class="grid">
             <div>
@@ -429,7 +696,7 @@
           <div class="grid">
             <div>
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="ex: seuemail@gmail.com" />
+              <input id="email" name="email" type="email" placeholder="ex: pldigitalg@gmail.com" />
             </div>
             <div>
               <label for="whats">WhatsApp (com DDD)</label>
@@ -451,10 +718,11 @@
 
           <div class="cta-row">
             <div class="cta-text">
-              <strong>Enviar direto no WhatsApp</strong>
-              <span>Mensagem vai pronta automaticamente</span>
+              <strong>Enviar agora</strong>
+              <span>Lead é salvo + WhatsApp e Email abrem</span>
             </div>
 
+            <!-- Botão APENAS com o ícone do WhatsApp -->
             <button class="btn-wa" type="submit" aria-label="Enviar no WhatsApp">
               <svg viewBox="0 0 32 32" aria-hidden="true">
                 <path fill="#ffffff" d="M19.11 17.53c-.29-.14-1.7-.84-1.96-.93-.27-.1-.46-.14-.66.14-.19.29-.76.93-.93 1.12-.17.19-.34.22-.63.07-.29-.14-1.23-.45-2.34-1.43-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.44.12-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.66-1.6-.9-2.19-.24-.58-.48-.5-.66-.51l-.56-.01c-.19 0-.51.07-.77.36-.27.29-1.01.99-1.01 2.41s1.04 2.8 1.18 2.99c.14.19 2.05 3.13 4.97 4.39.69.3 1.23.48 1.65.62.69.22 1.32.19 1.82.12.56-.08 1.7-.69 1.94-1.36.24-.67.24-1.25.17-1.36-.07-.12-.26-.19-.55-.33ZM16 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.25.59 4.36 1.62 6.19L3.2 28.8l6.79-1.58c1.77.97 3.81 1.53 5.99 1.53 7.07 0 12.8-5.73 12.8-12.8S23.07 3.2 16 3.2Zm0 23.09c-2.04 0-3.94-.6-5.53-1.63l-.4-.25-4.03.94.94-3.93-.26-.41a10.98 10.98 0 0 1-1.73-5.97c0-6.06 4.92-10.98 10.98-10.98s10.98 4.92 10.98 10.98-4.92 10.98-10.98 10.98Z"/>
@@ -462,18 +730,45 @@
             </button>
           </div>
 
+          <div id="toast" class="toast"></div>
           <div id="errBox" class="err"></div>
-          <p class="hint">Ao clicar, o WhatsApp abre com a mensagem pronta.</p>
+
+          <!-- fallback se popup bloquear -->
+          <div id="fallback" class="fallback">
+            <a id="fallbackWa" href="#" target="_blank" rel="noopener">Abrir WhatsApp</a>
+            <a id="fallbackMail" href="#" target="_blank" rel="noopener">Abrir Email</a>
+          </div>
+
+          <p class="hint">
+            Ao clicar, nós salvamos o lead e tentamos abrir WhatsApp + Email. Se o navegador bloquear, os botões aparecem.
+          </p>
         </form>
       </div>
     </section>
   </main>
 
   <script>
-    const OWNER_WHATSAPP = "5531998064556";
+    // =========================
+    // CONFIG
+    // =========================
+    const OWNER_WHATSAPP = "5531998064556";      // seu WhatsApp (com DDI 55)
+    const OWNER_EMAIL = "pldigitalg@gmail.com";  // seu email
 
-    function onlyDigits(str){
-      return (str || "").replace(/\D/g, "");
+    // EmailJS (VOCÊ PRECISA PREENCHER ESTES 2)
+    const EMAILJS_SERVICE_ID = "service_uz2hyiy";   // você já passou ✅
+    const EMAILJS_TEMPLATE_ID = "SEU_TEMPLATE_ID_AQUI"; // <<<<< TROQUE AQUI
+    const EMAILJS_PUBLIC_KEY  = "SUA_PUBLIC_KEY_AQUI";  // <<<<< TROQUE AQUI
+
+    // =========================
+    // Helpers
+    // =========================
+    function onlyDigits(str){ return (str || "").replace(/\D/g, ""); }
+
+    function safeFbqTrack(eventName){
+      try { if (window.fbq) fbq('trackCustom', eventName); } catch(e){}
+    }
+    function safeGtagEvent(eventName){
+      try { if (window.gtag) gtag('event', eventName, { method: 'landing_form' }); } catch(e){}
     }
 
     function buildMessage(data){
@@ -497,16 +792,129 @@
       box.textContent = msg;
       box.style.display = "block";
     }
-
     function clearError(){
       const box = document.getElementById("errBox");
       box.textContent = "";
       box.style.display = "none";
     }
+    function showToast(msg){
+      const t = document.getElementById("toast");
+      t.textContent = msg;
+      t.style.display = "block";
+      setTimeout(() => { t.style.display = "none"; }, 4500);
+    }
 
-    document.getElementById("leadForm").addEventListener("submit", function(e){
+    // =========================
+    // Urgência - vagas do mês
+    // =========================
+    function initUrgency(){
+      const TOTAL = 8; // total de vagas no mês (ajuste)
+      // número "aleatório estável por dia" (não muda a cada refresh)
+      const today = new Date();
+      const seed = today.getFullYear() * 10000 + (today.getMonth()+1) * 100 + today.getDate();
+      const used = (seed % 6) + 1; // 1..6 usadas
+      const left = Math.max(1, TOTAL - used); // sempre pelo menos 1
+      const pct = Math.min(100, Math.round((used / TOTAL) * 100));
+
+      document.getElementById("slotsLeft").textContent = left;
+      document.getElementById("slotBar").style.width = pct + "%";
+    }
+
+    // =========================
+    // Salvar lead local (backup)
+    // =========================
+    const QUEUE_KEY = "pl_leads_queue_v1";
+    function queueLead(lead){
+      const current = JSON.parse(localStorage.getItem(QUEUE_KEY) || "[]");
+      current.push({ lead, ts: Date.now() });
+      localStorage.setItem(QUEUE_KEY, JSON.stringify(current));
+    }
+    function popLead(){
+      const current = JSON.parse(localStorage.getItem(QUEUE_KEY) || "[]");
+      const item = current.shift();
+      localStorage.setItem(QUEUE_KEY, JSON.stringify(current));
+      return item;
+    }
+
+    async function sendEmailJS(lead){
+      // Se não configurou, falha de forma clara
+      if (EMAILJS_TEMPLATE_ID.includes("SEU_TEMPLATE") || EMAILJS_PUBLIC_KEY.includes("SUA_PUBLIC")) {
+        throw new Error("EmailJS não configurado: falta TEMPLATE_ID e PUBLIC_KEY.");
+      }
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+      // Parâmetros para o template (crie os campos no template do EmailJS)
+      // Sugestão de variáveis no template:
+      // {{nome}} {{whats}} {{email}} {{cidade}} {{negocio}} {{objetivo}} {{mensagem}}
+      return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        nome: lead.nome,
+        whats: lead.whats,
+        email: lead.email,
+        cidade: lead.cidade,
+        negocio: lead.negocio,
+        objetivo: lead.objetivo,
+        mensagem: lead.mensagem,
+        destino: OWNER_EMAIL
+      });
+    }
+
+    async function flushQueue(){
+      const current = JSON.parse(localStorage.getItem(QUEUE_KEY) || "[]");
+      if (!current.length) return;
+
+      // tenta reenviar 1 por vez
+      const next = current[0];
+      try{
+        await sendEmailJS(next.lead);
+        popLead(); // remove
+      }catch(e){
+        // se não conseguiu, para (tenta de novo no próximo load)
+        return;
+      }
+    }
+
+    // =========================
+    // Abrir WhatsApp + Email
+    // =========================
+    function openWhatsApp(message){
+      const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(message)}`;
+      const win = window.open(url, "_blank", "noopener,noreferrer");
+      return { url, opened: !!win };
+    }
+
+    function openEmailClient(message){
+      const subject = "Lead do Site - PL Digital";
+      const mailto = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+      // usar location para abrir cliente de email
+      window.location.href = mailto;
+      return { url: mailto };
+    }
+
+    function showFallbackLinks(waUrl, mailUrl){
+      const fb = document.getElementById("fallback");
+      const a1 = document.getElementById("fallbackWa");
+      const a2 = document.getElementById("fallbackMail");
+      a1.href = waUrl;
+      a2.href = mailUrl;
+      fb.style.display = "flex";
+    }
+
+    // =========================
+    // Form submit
+    // =========================
+    document.addEventListener("DOMContentLoaded", async () => {
+      initUrgency();
+      // tenta reenviar leads pendentes (se o usuário fechou antes)
+      try { await flushQueue(); } catch(e){}
+    });
+
+    document.getElementById("leadForm").addEventListener("submit", async (e) => {
       e.preventDefault();
       clearError();
+
+      // PIXEL / GOOGLE evento
+      safeFbqTrack("LeadForm_Submit");
+      safeGtagEvent("lead_form_submit");
 
       const nome = document.getElementById("nome").value.trim();
       const whatsRaw = document.getElementById("whats").value.trim();
@@ -521,7 +929,7 @@
         return;
       }
 
-      const data = {
+      const lead = {
         nome,
         whats: whatsRaw,
         email: document.getElementById("email").value.trim(),
@@ -529,11 +937,48 @@
         negocio: document.getElementById("negocio").value.trim(),
         objetivo: document.getElementById("objetivo").value
       };
+      lead.mensagem = buildMessage(lead);
 
-      const msg = buildMessage(data);
-      const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(msg)}`;
-      window.open(url, "_blank", "noopener,noreferrer");
+      // 1) Salva local (backup imediato)
+      queueLead(lead);
+
+      // 2) Tenta salvar no EmailJS (mesmo se não mandar WhatsApp)
+      try{
+        await sendEmailJS(lead);
+        // se enviou com sucesso, remove 1 item da fila (o mais antigo)
+        popLead();
+        showToast("✅ Lead salvo com sucesso. Abrindo WhatsApp e Email...");
+        safeFbqTrack("Lead_Saved_EmailJS");
+        safeGtagEvent("lead_saved_emailjs");
+      }catch(err){
+        // continua mesmo assim, pois já ficou salvo no localStorage
+        showToast("✅ Lead registrado. Se o EmailJS não estiver configurado, finalize isso e pronto.");
+      }
+
+      // 3) Abre WhatsApp + Email (pode haver bloqueio)
+      const wa = openWhatsApp(lead.mensagem);
+      const subject = "Lead do Site - PL Digital";
+      const mailUrl = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lead.mensagem)}`;
+
+      // tenta abrir email após pequeno delay (melhora chance de popup permitir)
+      setTimeout(() => {
+        try { openEmailClient(lead.mensagem); } catch(e){}
+      }, 250);
+
+      // Se WhatsApp foi bloqueado, mostra fallback
+      if (!wa.opened){
+        showFallbackLinks(wa.url, mailUrl);
+        showToast("⚠️ Seu navegador bloqueou pop-ups. Use os botões para abrir WhatsApp e Email.");
+      }else{
+        // mesmo que tenha aberto, ainda deixo fallback escondido
+        // (se quiser exibir sempre, basta remover esta parte)
+      }
+
+      // Eventos de clique/abertura
+      safeFbqTrack("WhatsApp_Open_Attempt");
+      safeGtagEvent("whatsapp_open_attempt");
     });
   </script>
 </body>
 </html>
+
