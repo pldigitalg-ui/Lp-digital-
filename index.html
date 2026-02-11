@@ -34,7 +34,7 @@
   </script>
 
   <!-- EMAILJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/brow@4/dist/email.min.js"></script>
 
   <style>
     :root{
@@ -432,6 +432,51 @@
       document.getElementById("fallbackMail").href = mailUrl;
       fb.style.display = "flex";
     }
+<section id="portfolio" style="padding:28px 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 16px;">
+    <h2 style="margin:0 0 8px;font-size:22px;">Projetos entregues</h2>
+    <p style="margin:0 0 16px;opacity:.8;">
+      3 sites completos em 30 dias. Sistema funcionando, sem promessa.
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;">
+      
+      <article style="border:1px solid rgba(0,0,0,.10);border-radius:16px;padding:14px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);">
+        <h3 style="margin:0 0 6px;font-size:16px;">Serralheria — Orçamentos</h3>
+        <p style="margin:0 0 10px;opacity:.8;font-size:13px;">Página de orçamento com seleção de serviços e envio no WhatsApp.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="https://pldigitalg-ui.github.io/as-serralheria/" target="_blank" style="padding:10px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.12);text-decoration:none;font-weight:700;">Ver site</a>
+          <a href="#contato" style="padding:10px 12px;border-radius:12px;background:#22c55e;color:#fff;text-decoration:none;font-weight:800;">Quero um igual</a>
+        </div>
+      </article>
+
+      <article style="border:1px solid rgba(0,0,0,.10);border-radius:16px;padding:14px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);">
+        <h3 style="margin:0 0 6px;font-size:16px;">Restaurante — Pedidos Online</h3>
+        <p style="margin:0 0 10px;opacity:.8;font-size:13px;">Cardápio com carrinho e pedido pronto no WhatsApp.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="https://restaurantelpgrill-rest.github.io/lpgrill-site/" target="_blank" style="padding:10px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.12);text-decoration:none;font-weight:700;">Ver site</a>
+          <a href="#contato" style="padding:10px 12px;border-radius:12px;background:#22c55e;color:#fff;text-decoration:none;font-weight:800;">Quero um igual</a>
+        </div>
+      </article>
+
+      <article style="border:1px solid rgba(0,0,0,.10);border-radius:16px;padding:14px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);">
+        <h3 style="margin:0 0 6px;font-size:16px;">PL Digital — Site Institucional</h3>
+        <p style="margin:0 0 10px;opacity:.8;font-size:13px;">Apresentação da empresa, serviços e CTA para fechar no WhatsApp.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="https://pldigitalg-ui.github.io/Lp-digital-/" target="_blank" style="padding:10px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.12);text-decoration:none;font-weight:700;">Ver site</a>
+          <a href="#contato" style="padding:10px 12px;border-radius:12px;background:#22c55e;color:#fff;text-decoration:none;font-weight:800;">Quero um igual</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 900px){
+    #portfolio > div > div{ grid-template-columns:1fr !important; }
+  }
+</style>
 
     async function sendLeadToOwner(lead){
       // cliente fixo (pra não quebrar seu template {{cliente}})
@@ -455,7 +500,6 @@
         email: lead.email
       });
     }
-
     document.getElementById("leadForm").addEventListener("submit", async (e) => {
       e.preventDefault();
       clearError();
@@ -517,4 +561,5 @@
   </script>
 </body>
 </html>
+
 
