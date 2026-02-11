@@ -387,6 +387,48 @@
   <footer>
     PL Digital • Tráfego • Gestão • Sites/Sistemas
   </footer>
+<script>
+/* Fade-in suave */
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelectorAll(".hero, .proof, .final").forEach((el,i)=>{
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    setTimeout(()=>{
+      el.style.transition = "all .8s ease";
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }, 200 + (i*200));
+  });
+});
 
+/* Animação leve nos cards ao aparecer */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.transform = "translateY(0)";
+      entry.target.style.opacity = "1";
+    }
+  });
+},{threshold:0.2});
+
+document.querySelectorAll(".card").forEach(card=>{
+  card.style.transform = "translateY(40px)";
+  card.style.opacity = "0";
+  card.style.transition = "all .6s ease";
+  observer.observe(card);
+});
+
+/* Micro breathing effect no botão principal */
+setInterval(()=>{
+  const btn = document.querySelector(".btn.primary");
+  if(btn){
+    btn.style.boxShadow = "0 10px 40px rgba(34,197,94,.4)";
+    setTimeout(()=>{
+      btn.style.boxShadow = "0 10px 25px rgba(34,197,94,.25)";
+    },800);
+  }
+},2000);
+</script>
 </body>
 </html>
+
