@@ -33,8 +33,8 @@
     gtag('config', 'G-XXXXXXXXXX');
   </script>
 
-  <!-- EMAILJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/brow@4/dist/email.min.js"></script>
+  <!-- EMAILJS (corrigido) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <style>
     :root{
@@ -140,7 +140,6 @@
     .badges{ display:flex; flex-wrap:wrap; gap:10px; margin:12px 0 12px; }
     .badge{ display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px; border:1px solid rgba(25,227,138,.26); background: rgba(25,227,138,.08); font-size:13px; }
 
-    /* prova social (relatos) */
     .testimonials{
       display:grid;
       grid-template-columns: 1fr;
@@ -162,7 +161,6 @@
     .t .tag{ font-size:11px; color: rgba(191,233,213,.88); border:1px solid rgba(255,255,255,.12); padding:4px 8px; border-radius:999px; }
     .t .text{ font-size:12px; color: rgba(234,255,246,.92); }
 
-    /* urgência */
     .urgency{
       margin: 10px 0 12px;
       padding: 10px 12px;
@@ -190,7 +188,6 @@
     .cta-text strong{ font-size:13px; }
     .cta-text span{ font-size:12px; color: rgba(191,233,213,.88); }
 
-    /* botão WA só ícone + pulsando */
     .btn-wa{
       appearance:none; border:0; cursor:pointer; width:54px; height:54px; border-radius:16px;
       display:grid; place-items:center;
@@ -229,6 +226,139 @@
       background: rgba(0,0,0,.18); color: var(--text); text-decoration:none; font-size:12px;
     }
 
+    /* =========================
+       PORTFÓLIO (NÍVEL AGÊNCIA)
+       ========================= */
+    .portfolio{ margin-top: 18px; }
+    .portfolio .head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin: 0 0 14px;
+    }
+    .portfolio h2{ margin:0; font-size:18px; letter-spacing:.2px; }
+    .portfolio p{
+      margin:6px 0 0;
+      color: rgba(191,233,213,.88);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .portfolio .mini-pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.16);
+      color: rgba(234,255,246,.92);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .p-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .p-card{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.16);
+      border-radius: 16px;
+      overflow:hidden;
+      position:relative;
+      box-shadow: 0 18px 70px rgba(0,0,0,.28);
+      transform: translateZ(0);
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+    }
+    .p-card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(25,227,138,.22);
+      box-shadow: 0 26px 90px rgba(0,0,0,.42);
+    }
+    .p-shot{
+      position:relative;
+      height: 168px;
+      background:
+        radial-gradient(700px 240px at 10% 0%, rgba(25,227,138,.22), transparent 60%),
+        radial-gradient(520px 260px at 90% 0%, rgba(31,97,255,.18), transparent 60%),
+        rgba(0,0,0,.20);
+      border-bottom:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+    }
+    .p-shot img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.03) saturate(1.03);
+      opacity:.95;
+    }
+    .p-shot::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.58));
+      pointer-events:none;
+    }
+    .p-badge{
+      position:absolute;
+      top:10px; left:10px;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(25,227,138,.30);
+      background: rgba(25,227,138,.10);
+      font-size:12px;
+      color: rgba(234,255,246,.96);
+      z-index:2;
+    }
+    .p-body{ padding: 12px 12px 13px; }
+    .p-title{
+      margin:0 0 6px;
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .p-desc{
+      margin:0 0 10px;
+      color: rgba(191,233,213,.90);
+      font-size:12.5px;
+      line-height:1.4;
+    }
+    .p-feats{
+      display:grid;
+      gap:6px;
+      margin:0 0 12px;
+      padding:0;
+      list-style:none;
+    }
+    .p-feats li{
+      display:flex; gap:8px; align-items:flex-start;
+      color: rgba(234,255,246,.92);
+      font-size:12px;
+      line-height:1.35;
+    }
+    .p-feats li svg{
+      flex:0 0 auto;
+      width:16px; height:16px;
+      margin-top:1px;
+      color: rgba(25,227,138,.92);
+    }
+    .p-actions{ display:flex; gap:10px; flex-wrap:wrap; }
+    .p-btn{
+      display:inline-flex;
+      align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      text-decoration:none;
+      font-size:12px;
+      font-weight:800;
+      transition: transform 160ms var(--ease), border-color 220ms var(--ease);
+    }
+    .p-btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.22); }
+    .p-btn.primary{
+      border:1px solid rgba(25,227,138,.28);
+      background: rgba(25,227,138,.12);
+    }
+    .p-btn.primary:hover{ border-color: rgba(25,227,138,.45); }
+
     @media (max-width: 980px){
       .container{ padding:22px 0 36px; }
       .hero{ grid-template-columns:1fr; gap:16px; }
@@ -236,6 +366,10 @@
       .right-card{ order:1; }
       .grid{ grid-template-columns:1fr; }
       .pill{ display:none; }
+
+      .p-grid{ grid-template-columns:1fr; }
+      .p-shot{ height: 160px; }
+      .portfolio .head{ align-items:flex-start; flex-direction:column; }
     }
     @media (prefers-reduced-motion: reduce){
       *{ animation:none !important; transition:none !important; }
@@ -302,6 +436,85 @@
         <!-- URGÊNCIA -->
         <div class="urgency">⏳ Agenda da semana: pegando <b>poucas vagas</b> para novos atendimentos.</div>
 
+        <!-- =========================
+             PORTFÓLIO (Projetos Entregues)
+             ========================= -->
+        <section class="portfolio" id="portfolio">
+          <div class="head">
+            <div>
+              <h2>Portfólio (Projetos Entregues)</h2>
+              <p>Sites e sistemas reais, publicados e funcionando. Sem promessa.</p>
+            </div>
+            <div class="mini-pill">✅ 3 entregas em 30 dias</div>
+          </div>
+
+          <div class="p-grid">
+            <!-- Projeto 1 -->
+            <article class="p-card">
+              <div class="p-shot">
+                <div class="p-badge">✅ Projeto entregue</div>
+                <img src="portfolio-as-serralheria.jpg" alt="Projeto AS Serralheria" loading="lazy" />
+              </div>
+              <div class="p-body">
+                <h3 class="p-title">AS Serralheria — Página de Orçamento</h3>
+                <p class="p-desc">Orçamento com seleção de serviços e envio direto no WhatsApp.</p>
+                <ul class="p-feats">
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4z"/></svg>Seleção de serviços + formulário</li>
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4z"/></svg>Envio pronto no WhatsApp</li>
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4z"/></svg>Mobile premium e rápido</li>
+                </ul>
+                <div class="p-actions">
+                  <a class="p-btn" href="https://pldigitalg-ui.github.io/as-serralheria/" target="_blank" rel="noopener">Ver site</a>
+                  <a class="p-btn primary js-want" href="#" data-proj="AS Serralheria">Quero um igual</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Projeto 2 -->
+            <article class="p-card">
+              <div class="p-shot">
+                <div class="p-badge">✅ Projeto entregue</div>
+                <img src="portfolio-lpgrill.jpg" alt="Projeto LP Grill" loading="lazy" />
+              </div>
+              <div class="p-body">
+                <h3 class="p-title">LP Grill — Sistema de Pedidos Online</h3>
+                <p class="p-desc">Cardápio com carrinho e pedido pronto no WhatsApp.</p>
+                <ul class="p-feats">
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4z"/></svg>Carrinho + total automático</li>
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4z"/></svg>Pedido montado no WhatsApp</li>
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4z"/></svg>Layout rápido e responsivo</li>
+                </ul>
+                <div class="p-actions">
+                  <a class="p-btn" href="https://restaurantelpgrill-rest.github.io/lpgrill-site/" target="_blank" rel="noopener">Ver site</a>
+                  <a class="p-btn primary js-want" href="#" data-proj="LP Grill">Quero um igual</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Projeto 3 -->
+            <article class="p-card">
+              <div class="p-shot">
+                <div class="p-badge">✅ Projeto entregue</div>
+                <img src="portfolio-pldigital.jpg" alt="Projeto PL Digital" loading="lazy" />
+              </div>
+              <div class="p-body">
+                <h3 class="p-title">PL Digital — Site Institucional</h3>
+                <p class="p-desc">Site institucional estratégico com foco em conversão.</p>
+                <ul class="p-feats">
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4z"/></svg>Seções organizadas e CTA</li>
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4z"/></svg>Prova social e captura de lead</li>
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.9 12.3l1.4-1.4 2.9 2.9 8-8 1.4 1.4z"/></svg>Visual premium (agência)</li>
+                </ul>
+                <div class="p-actions">
+                  <a class="p-btn" href="https://pldigitalg-ui.github.io/Lp-digital-/" target="_blank" rel="noopener">Ver site</a>
+                  <a class="p-btn primary js-want" href="#" data-proj="PL Digital">Quero um igual</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
         <form id="leadForm" autocomplete="on">
           <div class="grid">
             <div>
@@ -337,7 +550,7 @@
             <option value="Quero um plano completo">Quero um plano completo</option>
           </select>
 
-          <div class="cta-row">
+          <div class="cta-row" id="contato">
             <div class="cta-text">
               <strong>Clique para enviar</strong>
               <span>Abrimos WhatsApp e Email</span>
@@ -432,56 +645,9 @@
       document.getElementById("fallbackMail").href = mailUrl;
       fb.style.display = "flex";
     }
-<section id="portfolio" style="padding:28px 0;">
-  <div style="max-width:1100px;margin:0 auto;padding:0 16px;">
-    <h2 style="margin:0 0 8px;font-size:22px;">Projetos entregues</h2>
-    <p style="margin:0 0 16px;opacity:.8;">
-      3 sites completos em 30 dias. Sistema funcionando, sem promessa.
-    </p>
-
-    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;">
-      
-      <article style="border:1px solid rgba(0,0,0,.10);border-radius:16px;padding:14px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);">
-        <h3 style="margin:0 0 6px;font-size:16px;">Serralheria — Orçamentos</h3>
-        <p style="margin:0 0 10px;opacity:.8;font-size:13px;">Página de orçamento com seleção de serviços e envio no WhatsApp.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="https://pldigitalg-ui.github.io/as-serralheria/" target="_blank" style="padding:10px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.12);text-decoration:none;font-weight:700;">Ver site</a>
-          <a href="#contato" style="padding:10px 12px;border-radius:12px;background:#22c55e;color:#fff;text-decoration:none;font-weight:800;">Quero um igual</a>
-        </div>
-      </article>
-
-      <article style="border:1px solid rgba(0,0,0,.10);border-radius:16px;padding:14px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);">
-        <h3 style="margin:0 0 6px;font-size:16px;">Restaurante — Pedidos Online</h3>
-        <p style="margin:0 0 10px;opacity:.8;font-size:13px;">Cardápio com carrinho e pedido pronto no WhatsApp.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="https://restaurantelpgrill-rest.github.io/lpgrill-site/" target="_blank" style="padding:10px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.12);text-decoration:none;font-weight:700;">Ver site</a>
-          <a href="#contato" style="padding:10px 12px;border-radius:12px;background:#22c55e;color:#fff;text-decoration:none;font-weight:800;">Quero um igual</a>
-        </div>
-      </article>
-
-      <article style="border:1px solid rgba(0,0,0,.10);border-radius:16px;padding:14px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);">
-        <h3 style="margin:0 0 6px;font-size:16px;">PL Digital — Site Institucional</h3>
-        <p style="margin:0 0 10px;opacity:.8;font-size:13px;">Apresentação da empresa, serviços e CTA para fechar no WhatsApp.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="https://pldigitalg-ui.github.io/Lp-digital-/" target="_blank" style="padding:10px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.12);text-decoration:none;font-weight:700;">Ver site</a>
-          <a href="#contato" style="padding:10px 12px;border-radius:12px;background:#22c55e;color:#fff;text-decoration:none;font-weight:800;">Quero um igual</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<style>
-  @media (max-width: 900px){
-    #portfolio > div > div{ grid-template-columns:1fr !important; }
-  }
-</style>
 
     async function sendLeadToOwner(lead){
-      // cliente fixo (pra não quebrar seu template {{cliente}})
       const clienteFix = "Site PL Digital";
-
       return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_LEAD_OWNER, {
         cliente: clienteFix,
         nome: lead.nome,
@@ -500,6 +666,27 @@
         email: lead.email
       });
     }
+
+    // =========================
+    // PORTFÓLIO: CTA "Quero um igual" -> WhatsApp com mensagem pronta
+    // =========================
+    (function portfolioCTA(){
+      const btns = document.querySelectorAll(".js-want");
+      if(!btns.length) return;
+
+      btns.forEach(b=>{
+        b.addEventListener("click", (e)=>{
+          e.preventDefault();
+          const proj = b.getAttribute("data-proj") || "um projeto";
+          const msg = `Olá! Vi o portfólio da PL Digital e quero um site/sistema como o projeto "${proj}" para meu negócio.`;
+          const url = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(msg)}`;
+          window.open(url, "_blank", "noopener,noreferrer");
+          safeFbq("Portfolio_WantLike");
+          safeGtag("portfolio_want_like");
+        });
+      });
+    })();
+
     document.getElementById("leadForm").addEventListener("submit", async (e) => {
       e.preventDefault();
       clearError();
@@ -526,7 +713,6 @@
       };
       lead.mensagem = buildMessage(lead);
 
-      // 1) salva lead + auto-reply
       const results = await Promise.allSettled([
         sendLeadToOwner(lead),
         sendAutoReplyToClient(lead)
@@ -542,7 +728,6 @@
         showToast("✅ Recebido! Vamos abrir o WhatsApp agora.");
       }
 
-      // 2) abre Whats + email backup
       const wa = openWhatsApp(lead.mensagem);
       const mailUrl = mailtoUrl(lead.mensagem);
 
@@ -561,5 +746,3 @@
   </script>
 </body>
 </html>
-
-
