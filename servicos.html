@@ -1,1 +1,117 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#071612" />
+  <title>PL Digital — Serviços</title>
+
+  <style>
+    :root{--bg:#071612;--bg2:#050b0a;--text:#f4f4f5;--muted:#a1a1aa;--line:rgba(255,255,255,.10);--accent:#22c55e;--accent2:#86efac;--shadow:0 18px 50px rgba(0,0,0,.45);--radius:18px}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);
+      background:radial-gradient(1200px 600px at 18% 8%, rgba(34,197,94,.22), transparent 58%),
+      radial-gradient(1000px 600px at 86% 30%, rgba(34,197,94,.12), transparent 58%),
+      linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 80px}
+    .glass{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));border-radius:var(--radius);box-shadow:var(--shadow)}
+    header{position:sticky;top:0;z-index:50;padding:14px 16px;backdrop-filter:blur(12px)}
+    .topbar{max-width:1100px;margin:0 auto;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+      padding:12px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.26);box-shadow:var(--shadow)}
+    .brand{display:flex;gap:10px;align-items:center;min-width:240px}
+    .brand img{width:40px;height:40px;border-radius:12px;object-fit:cover;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.06)}
+    .brand b{display:block;font-size:14px;letter-spacing:-.2px}
+    .brand small{display:block;color:var(--muted);font-weight:700}
+    nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    nav a{text-decoration:none;padding:10px 14px;border-radius:999px;font-weight:900;color:rgba(244,244,245,.95);
+      border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);transition:.2s ease}
+    nav a:hover{transform:translateY(-2px);border-color:rgba(34,197,94,.45);background:rgba(255,255,255,.12)}
+    nav a.active{color:#031008;border:none;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    h1{margin:0 0 10px;font-size:clamp(24px,3vw,34px);letter-spacing:-.8px;line-height:1.1}
+    p{margin:0;color:var(--muted);line-height:1.55;font-weight:650}
+    .hero{margin-top:14px;padding:20px}
+    .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.18);color:var(--muted);font-weight:900;font-size:13px}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 6px rgba(34,197,94,.18)}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+    .card{border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.16);padding:14px;min-height:140px}
+    .card strong{display:block;font-size:14px;letter-spacing:-.2px}
+    .card span{display:block;margin-top:8px;color:var(--muted);line-height:1.5;font-size:13.5px}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:14px;text-decoration:none;font-weight:950;
+      border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);box-shadow:0 10px 25px rgba(0,0,0,.25);transition:.2s ease}
+    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.10)}
+    .btn.primary{border:none;color:#031008;background:linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 45%),linear-gradient(135deg,#22c55e,#86efac)}
+    .wa-float{position:fixed;right:20px;bottom:20px;z-index:9999;display:flex;align-items:center;gap:10px;padding:16px 18px;border-radius:999px;
+      font-weight:950;text-decoration:none;color:#031008;background:linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 50%),linear-gradient(135deg,#22c55e,#86efac);
+      box-shadow:0 20px 50px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25)}
+    .wa-float .wa-dot{width:12px;height:12px;border-radius:50%;background:#0a3;box-shadow:0 0 0 6px rgba(34,197,94,.22);animation:waPulse 1.4s infinite}
+    @keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.35)}70%{box-shadow:0 0 0 14px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+    footer{text-align:center;padding:22px 16px 40px;color:rgba(161,161,170,.9);font-weight:700}
+    @media (max-width:980px){.grid{grid-template-columns:1fr}.topbar{border-radius:18px}.brand{min-width:auto}}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <img src="logo.jpeg" alt="PL Digital" />
+        <div>
+          <b>PL Digital Marketing</b>
+          <small>Gestão • Tráfego • Sites/Sistemas</small>
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a class="active" href="servicos.html">Serviços</a>
+        <a href="portfolio.html">Portfólio</a>
+        <a href="instagram.html">Instagrams</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero glass">
+      <h1>Serviços que colocam cliente no seu WhatsApp</h1>
+      <p>Oferta enxuta, visual premium e entrega rápida. Tudo organizado para converter.</p>
+
+      <div class="pillrow">
+        <span class="pill"><span class="dot"></span> Atendimento humano</span>
+        <span class="pill"><span class="dot"></span> Sem fidelidade</span>
+        <span class="pill"><span class="dot"></span> Sem enrolação</span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <strong>Gestão + Tráfego</strong>
+          <span>Perfil organizado + anúncios focados em WhatsApp. Estrutura para vender com consistência.</span>
+        </div>
+        <div class="card">
+          <strong>Instagram do zero</strong>
+          <span>Identidade visual premium, bio estratégica e feed alinhado (padrão empresa grande).</span>
+        </div>
+        <div class="card">
+          <strong>Site / Sistema</strong>
+          <span>Landing page, catálogo e páginas de orçamento/pedido com envio direto no WhatsApp.</span>
+        </div>
+      </div>
+
+      <div class="btns">
+        <a class="btn primary" href="https://wa.me/5531998064556" target="_blank" rel="noopener">Quero um orçamento</a>
+        <a class="btn" href="portfolio.html">Ver portfólio</a>
+      </div>
+    </section>
+  </main>
+
+  <a class="wa-float" href="https://wa.me/5531998064556" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <span class="wa-dot"></span> WhatsApp
+  </a>
+
+  <footer>PL Digital • Tráfego • Gestão • Sites/Sistemas</footer>
+</body>
+</html>
 
