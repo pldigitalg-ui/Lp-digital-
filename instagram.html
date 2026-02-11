@@ -8,7 +8,7 @@
   <style>
     :root{
       --bg:#071612;
-      --bg2:#071a14;
+      --bg2:#050b0a;
       --card:rgba(255,255,255,.06);
       --card2:rgba(255,255,255,.08);
       --text:#f4f4f5;
@@ -28,11 +28,12 @@
       background:
         radial-gradient(1200px 600px at 20% 10%, rgba(34,197,94,.20), transparent 55%),
         radial-gradient(1000px 600px at 85% 35%, rgba(34,197,94,.12), transparent 55%),
-        linear-gradient(180deg, var(--bg) 0%, #050b0a 100%);
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
     }
     a{color:inherit}
+    .wrap{max-width:1100px; margin:0 auto; padding:26px 16px 70px}
 
-    /* Top mini nav (igual seu header simples) */
+    /* NAV */
     header{padding:14px 16px; position:sticky; top:0; z-index:50;}
     nav{
       max-width:1100px; margin:0 auto;
@@ -50,25 +51,20 @@
       padding:10px 12px;
       border-radius:999px;
       color:var(--muted);
-      font-weight:700;
+      font-weight:800;
       letter-spacing:.2px;
       transition:.2s ease;
     }
-    nav a:hover{
-      color:var(--text);
-      background: rgba(255,255,255,.06);
-    }
+    nav a:hover{color:var(--text); background: rgba(255,255,255,.06);}
     nav a.active{
       color:#041008;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
     }
 
-    /* Layout */
-    .wrap{max-width:1100px; margin:0 auto; padding:26px 16px 70px;}
+    /* HERO */
     .hero{
-      margin-top:10px;
       border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding:22px;
@@ -78,13 +74,9 @@
       justify-content:space-between;
       flex-wrap:wrap;
     }
-    .hero h1{
-      margin:0 0 8px;
-      font-size: clamp(22px, 2.6vw, 32px);
-      letter-spacing:-.4px;
-    }
-    .hero p{margin:0; color:var(--muted); line-height:1.5; max-width:62ch}
-    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .hero h1{margin:0 0 10px; font-size: clamp(24px, 2.8vw, 34px); letter-spacing:-.6px}
+    .hero p{margin:0; color:var(--muted); line-height:1.55; max-width:70ch}
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px;
@@ -92,14 +84,11 @@
       border:1px solid var(--line);
       background: rgba(0,0,0,.18);
       color:var(--muted);
-      font-weight:700;
+      font-weight:800;
       font-size:13px;
     }
     .dot{width:9px; height:9px; border-radius:999px; background: var(--accent); box-shadow:0 0 0 4px rgba(34,197,94,.18)}
-    .cta{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;
-      margin-left:auto;
-    }
+    .cta{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end; margin-left:auto}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:12px 16px;
@@ -108,9 +97,10 @@
       background: rgba(255,255,255,.06);
       color:var(--text);
       text-decoration:none;
-      font-weight:800;
+      font-weight:900;
       transition:.2s ease;
       box-shadow: 0 10px 25px rgba(0,0,0,.25);
+      white-space:nowrap;
     }
     .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09)}
     .btn.primary{
@@ -119,8 +109,36 @@
       background: linear-gradient(135deg, var(--accent), var(--accent2));
     }
 
-    /* Cards */
-    .grid{display:grid; grid-template-columns: 1fr; gap:16px; margin-top:18px}
+    /* SECTIONS */
+    .section{
+      margin-top:18px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .section h2{
+      margin:0 0 12px;
+      font-size: 18px;
+      letter-spacing:-.2px;
+    }
+    .muted{color:var(--muted); line-height:1.55; margin:0}
+
+    .grid-3{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px; margin-top:12px}
+    .mini{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(0,0,0,.18);
+      padding:14px;
+      min-height:110px;
+    }
+    .mini .k{display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .mini .k strong{font-size:14px}
+    .mini p{margin:10px 0 0; color:var(--muted); line-height:1.5; font-size:13.5px}
+
+    /* PORTFOLIO CARDS */
+    .cards{display:grid; grid-template-columns: 1fr; gap:16px; margin-top:18px}
     .card{
       border:1px solid var(--line);
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
@@ -128,7 +146,7 @@
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .cardin{display:grid; grid-template-columns: 340px 1fr; gap:0}
+    .cardin{display:grid; grid-template-columns: 360px 1fr}
     .shot{
       background: rgba(0,0,0,.20);
       padding:16px;
@@ -137,7 +155,7 @@
       min-height: 320px;
     }
     .shot img{
-      width:100%; height:auto; max-height:520px;
+      width:100%; height:auto; max-height:560px;
       border-radius: 14px;
       border:1px solid rgba(255,255,255,.10);
       box-shadow: 0 18px 40px rgba(0,0,0,.35);
@@ -145,18 +163,18 @@
     }
     .body{padding:18px 18px 20px}
     .topline{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between}
-    .handle{font-size:18px; font-weight:900; letter-spacing:-.2px}
+    .handle{font-size:18px; font-weight:950; letter-spacing:-.2px}
     .badge{
       display:inline-flex; gap:8px; align-items:center;
       padding:8px 10px; border-radius:999px;
       background: rgba(34,197,94,.12);
       border:1px solid rgba(34,197,94,.25);
       color: var(--accent2);
-      font-weight:900;
+      font-weight:950;
       font-size:13px;
     }
     .desc{color:var(--muted); line-height:1.55; margin:10px 0 14px}
-    .subttl{margin:0 0 10px; color:var(--text); font-weight:900; letter-spacing:-.2px}
+    .subttl{margin:0 0 10px; color:var(--text); font-weight:950; letter-spacing:-.2px}
 
     .creations{
       display:grid;
@@ -171,8 +189,36 @@
       border:1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.18);
     }
-
     .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+
+    /* FAQ */
+    details{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(0,0,0,.16);
+      padding:12px 14px;
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:900}
+    details p{margin:10px 0 0; color:var(--muted); line-height:1.5}
+
+    /* FINAL CTA */
+    .final{
+      margin-top:18px;
+      border:1px solid rgba(34,197,94,.25);
+      background: radial-gradient(900px 260px at 20% 10%, rgba(34,197,94,.20), transparent 60%),
+                  linear-gradient(180deg, rgba(34,197,94,.10), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .final strong{font-size:16px}
+    .final span{color:var(--muted); display:block; margin-top:4px}
 
     footer{
       text-align:center;
@@ -180,9 +226,10 @@
       padding:22px 16px 40px;
     }
 
-    @media (max-width: 920px){
+    @media (max-width: 980px){
       .cardin{grid-template-columns: 1fr}
       .shot{border-right:none; border-bottom:1px solid var(--line)}
+      .grid-3{grid-template-columns: 1fr}
     }
     @media (max-width: 520px){
       nav{justify-content:flex-start; border-radius:16px}
@@ -193,7 +240,6 @@
 
 <body>
 
-  <!-- MENU (você já está com essa estrutura no index) -->
   <header>
     <nav>
       <a href="index.html">Home</a>
@@ -206,45 +252,94 @@
 
   <main class="wrap">
 
+    <!-- HERO -->
     <section class="hero">
       <div>
-        <h1>Instagrams criados do zero</h1>
-        <p>Perfis estruturados com identidade visual, bio estratégica e organização do feed para vender no WhatsApp.</p>
+        <h1>Perfis que viram máquina de vendas no WhatsApp</h1>
+        <p>
+          Criamos seu Instagram do zero com identidade visual premium, bio estratégica e feed organizado.
+          Você ganha um perfil que passa confiança e faz o cliente chamar.
+        </p>
 
         <div class="pillrow">
-          <span class="pill"><span class="dot"></span> Visual Premium</span>
-          <span class="pill"><span class="dot"></span> Bio + Destaques</span>
-          <span class="pill"><span class="dot"></span> Feed organizado</span>
+          <span class="pill"><span class="dot"></span> Perfil criado do zero</span>
+          <span class="pill"><span class="dot"></span> Design premium</span>
+          <span class="pill"><span class="dot"></span> Pronto para vender</span>
         </div>
       </div>
 
       <div class="cta">
         <a class="btn" href="index.html#contato">Ver planos</a>
-        <a class="btn primary" href="https://wa.me/5531998064556">Quero esse resultado</a>
+        <a class="btn primary" href="https://wa.me/5531998064556">Quero meu Instagram pronto</a>
       </div>
     </section>
 
-    <section class="grid">
+    <!-- COMO FUNCIONA -->
+    <section class="section">
+      <h2>Como funciona</h2>
+      <p class="muted">Processo simples, rápido e com padrão profissional.</p>
 
-      <!-- CARD 1 (edite) -->
+      <div class="grid-3">
+        <div class="mini">
+          <div class="k"><strong>1) Diagnóstico</strong><span class="badge">rápido</span></div>
+          <p>Você manda seu nicho, serviços e referência. A PL Digital define a estrutura (bio, destaques e organização).</p>
+        </div>
+        <div class="mini">
+          <div class="k"><strong>2) Identidade visual</strong><span class="badge">premium</span></div>
+          <p>Montamos o visual do perfil: capa, destaques e padrão de posts com o mesmo “ar” de empresa grande.</p>
+        </div>
+        <div class="mini">
+          <div class="k"><strong>3) Feed pronto</strong><span class="badge">vendas</span></div>
+          <p>Entregamos o perfil organizado e com posts prontos. O cliente entra, entende e chama no WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- O QUE ESTÁ INCLUSO -->
+    <section class="section">
+      <h2>O que está incluso</h2>
+      <p class="muted">Tudo pensado para passar confiança e converter.</p>
+
+      <div class="grid-3">
+        <div class="mini">
+          <div class="k"><strong>Bio estratégica</strong><span class="badge">claro</span></div>
+          <p>Texto direto: o que você faz, para quem, e como chamar no WhatsApp.</p>
+        </div>
+        <div class="mini">
+          <div class="k"><strong>Destaques alinhados</strong><span class="badge">organizado</span></div>
+          <p>Capas padronizadas e categorias que tiram dúvidas e aceleram orçamento.</p>
+        </div>
+        <div class="mini">
+          <div class="k"><strong>Design dos posts</strong><span class="badge">premium</span></div>
+          <p>Visual limpo e profissional (tipo agência grande), com padrão para manter o feed sempre bonito.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROVAS VISUAIS -->
+    <section class="cards">
+
+      <!-- CARD 1 (EDITE) -->
       <article class="card">
         <div class="cardin">
           <div class="shot">
             <!-- PRINT DO PERFIL -->
-            <img src="print1.jpg" alt="Print do Instagram" loading="lazy">
+            <img src="print1.jpg" alt="Print do perfil" loading="lazy">
           </div>
 
           <div class="body">
             <div class="topline">
-              <div class="handle">@clienteexemplo</div>
+              <!-- SEM @ — use "Projeto + Nicho" -->
+              <div class="handle">Projeto Instagram — Serralheria</div>
               <div class="badge">Perfil criado do zero</div>
             </div>
 
             <p class="desc">
-              Estruturação completa: identidade visual, bio estratégica, destaques, organização do feed e posts prontos para conversão.
+              Estrutura completa para vender: identidade visual + bio clara + destaques organizados + feed alinhado.
+              Perfil pronto para passar confiança e gerar orçamento.
             </p>
 
-            <h3 class="subttl">Nossas criações</h3>
+            <h3 class="subttl">Design criado pela PL Digital</h3>
             <div class="creations">
               <img src="feed1.jpg" alt="Criação 1" loading="lazy">
               <img src="feed2.jpg" alt="Criação 2" loading="lazy">
@@ -252,28 +347,30 @@
             </div>
 
             <div class="actions">
-              <a class="btn primary" href="https://wa.me/5531998064556">Quero esse resultado</a>
-              <a class="btn" href="index.html#contato">Falar no site</a>
+              <a class="btn primary" href="https://wa.me/5531998064556">Quero vender no WhatsApp</a>
+              <a class="btn" href="index.html#contato">Falar pelo site</a>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- CARD 2 (copie e cole para adicionar mais clientes) -->
+      <!-- CARD 2 (COPIE E COLE ESTE BLOCO PARA MAIS PROJETOS) -->
       <!--
       <article class="card">
         <div class="cardin">
           <div class="shot">
-            <img src="print2.jpg" alt="Print do Instagram" loading="lazy">
+            <img src="print2.jpg" alt="Print do perfil" loading="lazy">
           </div>
           <div class="body">
             <div class="topline">
-              <div class="handle">@outrocliente</div>
+              <div class="handle">Projeto Instagram — Barbearia</div>
               <div class="badge">Perfil criado do zero</div>
             </div>
-            <p class="desc">Descrição do que foi feito…</p>
+            <p class="desc">
+              Perfil estruturado para conversão: visual premium, destaques e posts prontos para atrair e fechar.
+            </p>
 
-            <h3 class="subttl">Nossas criações</h3>
+            <h3 class="subttl">Design criado pela PL Digital</h3>
             <div class="creations">
               <img src="feed4.jpg" alt="Criação 1" loading="lazy">
               <img src="feed5.jpg" alt="Criação 2" loading="lazy">
@@ -281,14 +378,46 @@
             </div>
 
             <div class="actions">
-              <a class="btn primary" href="https://wa.me/5531998064556">Quero esse resultado</a>
-              <a class="btn" href="index.html#contato">Falar no site</a>
+              <a class="btn primary" href="https://wa.me/5531998064556">Quero vender no WhatsApp</a>
+              <a class="btn" href="index.html#contato">Falar pelo site</a>
             </div>
           </div>
         </div>
       </article>
       -->
 
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <h2>Perguntas rápidas</h2>
+
+      <details>
+        <summary>Em quanto tempo fica pronto?</summary>
+        <p>Depende do plano e do volume de posts, mas normalmente entregamos rápido e com padrão profissional.</p>
+      </details>
+
+      <details>
+        <summary>Precisa passar senha do Instagram?</summary>
+        <p>Não necessariamente. Podemos entregar toda a identidade, posts e estrutura. Se for gerenciar, aí alinhamos o acesso.</p>
+      </details>
+
+      <details>
+        <summary>Isso ajuda a vender mesmo?</summary>
+        <p>Sim: um perfil organizado aumenta confiança, reduz dúvidas e faz o cliente te chamar mais rápido no WhatsApp.</p>
+      </details>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final">
+      <div>
+        <strong>Quer seu Instagram pronto e profissional?</strong>
+        <span>Me chama no WhatsApp e eu te mando o plano ideal para seu nicho.</span>
+      </div>
+      <div class="cta">
+        <a class="btn" href="index.html#contato">Ver planos</a>
+        <a class="btn primary" href="https://wa.me/5531998064556">Falar agora</a>
+      </div>
     </section>
 
   </main>
