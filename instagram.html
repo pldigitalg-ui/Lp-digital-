@@ -1,405 +1,273 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#071612" />
-  <title>PL Digital — Instagrams</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#071612" />
+<title>PL Digital — Instagrams Criados</title>
 
-  <style>
-    :root{
-      --bg:#071612;
-      --bg2:#050b0a;
-      --text:#f4f4f5;
-      --muted:#a1a1aa;
-      --line:rgba(255,255,255,.10);
-      --accent:#22c55e;
-      --accent2:#86efac;
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --radius: 18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 18% 8%, rgba(34,197,94,.22), transparent 58%),
-        radial-gradient(1000px 600px at 86% 30%, rgba(34,197,94,.12), transparent 58%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-    }
-    a{color:inherit}
-    .wrap{max-width:1100px; margin:0 auto; padding:18px 16px 80px}
-    .glass{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+<style>
+:root{
+  --bg:#071612;
+  --bg2:#050b0a;
+  --text:#f4f4f5;
+  --muted:#a1a1aa;
+  --line:rgba(255,255,255,.10);
+  --accent:#22c55e;
+  --accent2:#86efac;
+  --shadow:0 18px 50px rgba(0,0,0,.45);
+  --radius:18px;
+}
 
-    header{
-      position:sticky; top:0; z-index:50;
-      padding:14px 16px;
-      backdrop-filter: blur(12px);
-    }
-    .topbar{
-      max-width:1100px; margin:0 auto;
-      display:flex; gap:14px; align-items:center; justify-content:space-between;
-      padding:12px 14px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.26);
-      box-shadow: var(--shadow);
-      flex-wrap:wrap;
-    }
-    .brand{
-      display:flex; gap:10px; align-items:center;
-      min-width: 240px;
-    }
-    .brand img{
-      width:40px; height:40px; border-radius:12px;
-      object-fit:cover;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-    }
-    .brand b{display:block; font-size:14px; letter-spacing:-.2px}
-    .brand small{display:block; color:var(--muted); font-weight:700}
+/* GLOBAL RESET + BODY */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 650px at 18% 6%, rgba(34,197,94,.26), transparent 60%),
+    radial-gradient(950px 560px at 82% 26%, rgba(255,0,102,.14), transparent 60%),
+    linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
+}
 
-    nav{
-      display:flex; gap:10px; flex-wrap:wrap;
-      align-items:center; justify-content:flex-start;
-    }
-    nav a{
-      text-decoration:none;
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:900;
-      color: rgba(244,244,245,.95);
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      transition:.2s ease;
-    }
-    nav a:hover{
-      transform: translateY(-2px);
-      border-color: rgba(34,197,94,.45);
-      background: rgba(255,255,255,.12);
-    }
-    nav a.active{
-      color:#031008;
-      border:none;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-    }
+a{color:inherit; text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 16px 90px}
 
-    .hero{
-      margin-top:14px;
-      padding:20px;
-    }
-    h1{
-      margin:0 0 10px;
-      font-size: clamp(24px, 3vw, 34px);
-      letter-spacing:-.8px;
-      line-height:1.1;
-    }
-    .sub{
-      margin:0;
-      color: var(--muted);
-      line-height:1.55;
-      max-width: 80ch;
-      font-weight:650;
-    }
-    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.18);
-      color:var(--muted);
-      font-weight:900;
-      font-size:13px;
-    }
-    .dot{width:10px; height:10px; border-radius:999px; background: var(--accent); box-shadow:0 0 0 6px rgba(34,197,94,.18)}
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  padding:14px 16px;
+  backdrop-filter:blur(12px);
+}
+.topbar{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex; gap:14px;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 14px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(0,0,0,.26);
+  box-shadow:var(--shadow);
+  flex-wrap:wrap;
+}
+.brand img{
+  width:40px; height:40px; border-radius:12px; object-fit:cover;
+}
+nav a{
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:900;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  transition:.2s ease;
+}
+nav a:hover{transform:translateY(-2px)}
+nav a.active{color:#031008;border:none;background:linear-gradient(135deg,var(--accent),var(--accent2));}
 
-    .cta-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 16px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:950;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      box-shadow: 0 10px 25px rgba(0,0,0,.25);
-      transition:.2s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-2px); background: rgba(255,255,255,.10)}
-    .btn.primary{
-      border:none;
-      color:#031008;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 45%),
-        linear-gradient(135deg, #22c55e, #86efac);
-    }
+/* HERO */
+.hero{margin-top:14px;padding:20px}
+h1{margin:0 0 10px;font-size:clamp(24px,3vw,34px)}
+.sub{color:var(--muted);line-height:1.55;font-weight:650}
 
-    .section{
-      margin-top:14px;
-      padding:18px;
-    }
-    .section h2{margin:0 0 10px; font-size:18px; letter-spacing:-.2px}
-    .muted{color:var(--muted); line-height:1.55; margin:0}
+/* CARDS */
+.cards{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+.card{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+  box-shadow:var(--shadow);
+}
+.cardin{display:grid;grid-template-columns:360px 1fr}
+.shot{
+  padding:16px;
+  background:rgba(0,0,0,.18);
+  display:flex;align-items:center;justify-content:center;
+}
+.shot img{
+  width:100%;
+  border-radius:16px;
+  object-fit:cover;
+}
 
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap:12px;
-      margin-top:12px;
-    }
-    .mini{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(0,0,0,.16);
-      padding:14px;
-      min-height:120px;
-    }
-    .mini strong{font-size:14px; letter-spacing:-.2px}
-    .mini p{margin:10px 0 0; color:var(--muted); line-height:1.5; font-size:13.5px}
+/* INSTAGRAM METADATA */
+.insta-meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+.insta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px;border-radius:999px;font-weight:900;font-size:13px;
+  color:#fff;
+  background:linear-gradient(135deg,#ff0066,#ff9900,#cc00ff);
+  background-size:200% 200%;animation:instaGradient 4s ease infinite;
+  box-shadow:0 0 18px rgba(255,0,102,.45);
+  transition:.3s ease;
+}
+.insta-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 25px rgba(255,0,102,.75);
+}
+@keyframes instaGradient{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+.insta-badge{
+  padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900;
+  color:#00ff99;background:rgba(0,255,153,.08);
+  border:1px solid rgba(0,255,153,.35);
+  box-shadow:0 0 12px rgba(0,255,153,.25);
+  text-transform:uppercase;letter-spacing:.5px;
+}
 
-    .cards{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-      margin-top:12px;
-    }
-    .card{
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-    }
-    .cardin{
-      display:grid;
-      grid-template-columns: 360px 1fr;
-    }
-    .shot{
-      padding:16px;
-      background: rgba(0,0,0,.18);
-      border-right:1px solid var(--line);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height: 260px;
-    }
-    .shot img{
-      width:100%;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: 0 18px 40px rgba(0,0,0,.35);
-      object-fit:cover;
-      max-height:420px;
-    }
-    .body{padding:16px 16px 18px}
-    .topline{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .title{font-weight:950; letter-spacing:-.2px; font-size:16px}
-    .badge{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 10px;
-      border-radius:999px;
-      background: rgba(34,197,94,.12);
-      border:1px solid rgba(34,197,94,.25);
-      color: var(--accent2);
-      font-weight:950;
-      font-size:13px;
-      white-space:nowrap;
-    }
-    .desc{margin:10px 0 12px; color:var(--muted); line-height:1.55}
+/* SEPARADOR DE SEÇÃO */
+.sectionTitle{
+  margin:26px 0 6px;
+  font-size:18px;
+  font-weight:900;
+  color:var(--accent2);
+  text-align:center;
+}
 
-    .creations{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap:10px;
-    }
-    .creations img{
-      width:100%;
-      aspect-ratio: 1 / 1;
-      object-fit:cover;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-    }
+/* CONTADOR ESTÁTICO */
+.counter{
+  font-size:26px;
+  font-weight:900;
+  color:#fff;
+}
+.counter span{
+  color:var(--accent);
+  animation:countPulse 1.8s ease infinite;
+}
+@keyframes countPulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+  100%{transform:scale(1)}
+}
 
-    /* WhatsApp flutuante */
-    .wa-float{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      z-index:9999;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:16px 18px;
-      border-radius:999px;
-      font-weight:950;
-      text-decoration:none;
-      color:#031008;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 50%),
-        linear-gradient(135deg, #22c55e, #86efac);
-      box-shadow: 0 20px 50px rgba(0,0,0,.45);
-      border:1px solid rgba(255,255,255,.25);
-    }
-    .wa-float .wa-dot{
-      width:12px; height:12px; border-radius:50%;
-      background:#0a3;
-      box-shadow: 0 0 0 6px rgba(34,197,94,.22);
-      animation: waPulse 1.4s infinite;
-    }
-    @keyframes waPulse{
-      0%{ box-shadow: 0 0 0 0 rgba(34,197,94,.35); }
-      70%{ box-shadow: 0 0 0 14px rgba(34,197,94,0); }
-      100%{ box-shadow: 0 0 0 0 rgba(34,197,94,0); }
-    }
+/* WHATSAPP FLUTUANTE */
+.wa-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:9999;
+  display:flex;align-items:center;gap:10px;
+  padding:16px 18px;border-radius:999px;font-weight:950;
+  text-decoration:none;color:#031008;
+  background:linear-gradient(135deg,#22c55e,#86efac);
+  box-shadow:0 20px 50px rgba(0,0,0,.45);
+}
+.wa-dot{
+  width:12px;height:12px;border-radius:50%;
+  background:#0a3;
+  box-shadow:0 0 0 6px rgba(34,197,94,.22);
+  animation:waPulse 1.4s infinite;
+}
+@keyframes waPulse{
+  0%{box-shadow:0 0 0 0 rgba(34,197,94,.35)}
+  70%{box-shadow:0 0 0 14px rgba(34,197,94,0)}
+  100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
+}
 
-    footer{
-      text-align:center;
-      padding:22px 16px 40px;
-      color: rgba(161,161,170,.9);
-      font-weight:700;
-    }
+/* FOOTER */
+footer{text-align:center;padding:30px;color:rgba(161,161,170,.9);font-weight:700}
 
-    @media (max-width: 980px){
-      .cardin{grid-template-columns: 1fr}
-      .shot{border-right:none; border-bottom:1px solid var(--line)}
-      .grid-3{grid-template-columns: 1fr}
-      .topbar{border-radius:18px}
-      .brand{min-width:auto}
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="topbar">
-      <div class="brand">
-        <img src="logo.jpeg" alt="PL Digital" />
-        <div>
-          <b>PL Digital Marketing</b>
-          <small>Instagrams • Design • Conversão</small>
-        </div>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <img src="logo.jpeg" alt="PL Digital" />
+      <div>
+        <b>PL Digital Marketing</b>
+        <small>Instagrams criados com conversão</small>
       </div>
-
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#servicos">Serviços</a>
-        <a href="index.html#portfolio">Portfólio</a>
-        <a class="active" href="instagram.html">Instagrams</a>
-        <a href="index.html#contato">Contato</a>
-      </nav>
     </div>
-  </header>
 
-  <main class="wrap">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="portfolio.html">Portfólio</a>
+      <a class="active" href="instagram.html">Instagrams</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </div>
+</header>
 
-    <section class="hero glass">
-      <h1>Perfis que viram máquina de vendas no WhatsApp</h1>
-      <p class="sub">
-        Instagram criado do zero com identidade visual premium, bio estratégica e feed alinhado.
-        Visual de empresa grande para gerar confiança e acelerar orçamento.
-      </p>
+<main class="wrap">
 
-      <div class="pillrow">
-        <span class="pill"><span class="dot"></span> Perfil criado do zero</span>
-        <span class="pill"><span class="dot"></span> Design premium</span>
-        <span class="pill"><span class="dot"></span> Pronto para vender</span>
-      </div>
+  <div class="sectionTitle">Nossos Trabalhos no Instagram</div>
 
-      <div class="cta-row">
-        <a class="btn" href="index.html#contato">Ver planos</a>
-        <a class="btn primary" href="https://wa.me/5531998064556" target="_blank" rel="noopener">Quero meu Instagram pronto</a>
-      </div>
-    </section>
+  <section class="cards">
 
-    <section class="section glass">
-      <h2>Como funciona</h2>
-      <p class="muted">Processo simples, rápido e com padrão profissional.</p>
-
-      <div class="grid-3">
-        <div class="mini">
-          <strong>1) Estrutura</strong>
-          <p>Bio estratégica, destaques e organização do perfil para o cliente entender em segundos.</p>
+    <!-- ITEM 1 -->
+    <article class="card">
+      <div class="cardin">
+        <div class="shot">
+          <img src="portfolio-pldigital.jpg" alt="Mega7 Arts" />
         </div>
-        <div class="mini">
-          <strong>2) Identidade visual</strong>
-          <p>Design premium e padrão de posts para o feed ficar bonito e consistente.</p>
-        </div>
-        <div class="mini">
-          <strong>3) Conversão</strong>
-          <p>CTA certo para levar o cliente ao WhatsApp com confiança e rapidez.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section glass">
-      <h2>Nossas criações</h2>
-      <p class="muted">Sem link de Instagram: prova visual + CTA (conversão alta).</p>
-
-      <div class="cards">
-
-        <article class="card">
-          <div class="cardin">
-            <div class="shot">
-              <!-- Você pode trocar isso por um print real do Instagram depois -->
-              <img src="portfolio-pldigital.jpg" alt="Projeto Instagram" loading="lazy">
-            </div>
-
-            <div class="body">
-              <div class="topline">
-                <div class="title">Projeto Instagram — Agência / Marketing</div>
-                <div class="badge">Criado do zero</div>
-              </div>
-
-              <p class="desc">
-                Visual premium, bio clara, destaques organizados e feed alinhado para passar confiança e vender.
-              </p>
-
-              <div class="creations">
-                <img src="portfolio-como.jpg" alt="Criação 1" loading="lazy">
-                <img src="portfolio-lpgrill.jpg" alt="Criação 2" loading="lazy">
-                <img src="portfolio-pldigital.jpg" alt="Criação 3" loading="lazy">
-              </div>
-            </div>
+        <div class="body">
+          <div class="insta-meta">
+            <a class="insta-btn" href="https://www.instagram.com/mega7_arts/" target="_blank" rel="noopener">
+              <!-- Instagram SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5C18.545 4 20 5.455 20 7.75v8.5C20 18.545 18.545 20 16.25 20h-8.5C5.455 20 4 18.545 4 16.25v-8.5C4 5.455 5.455 4 7.75 4zm4.25 2.5A5.75 5.75 0 1 0 17.75 12 5.757 5.757 0 0 0 12 6.5zm0 2A3.75 3.75 0 1 1 8.25 12 3.754 3.754 0 0 1 12 8.5zm5.25-2.75a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/>
+              </svg>
+              @mega7_arts
+            </a>
+            <span class="insta-badge">Perfil ativo</span>
           </div>
-        </article>
-
+          <p class="sub">Identidade visual premium + gestão de conteúdo.</p>
+          <div class="counter">Seguidores: <span id="c1">6500</span></div>
+        </div>
       </div>
-    </section>
+    </article>
 
-  </main>
+    <!-- ITEM 2 -->
+    <article class="card">
+      <div class="cardin">
+        <div class="shot">
+          <img src="portfolio-lpgrill.jpg" alt="LP Grill" />
+        </div>
+        <div class="body">
+          <div class="insta-meta">
+            <a class="insta-btn" href="https://www.instagram.com/restaurantelpgrill/" target="_blank" rel="noopener">
+              <!-- Instagram SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5C18.545 4 20 5.455 20 7.75v8.5C20 18.545 18.545 20 16.25 20h-8.5C5.455 20 4 18.545 4 16.25v-8.5C4 5.455 5.455 4 7.75 4zm4.25 2.5A5.75 5.75 0 1 0 17.75 12 5.757 5.757 0 0 0 12 6.5zm0 2A3.75 3.75 0 1 1 8.25 12 3.754 3.754 0 0 1 12 8.5zm5.25-2.75a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/>
+              </svg>
+              @restaurantelpgrill
+            </a>
+            <span class="insta-badge">Perfil ativo</span>
+          </div>
+          <p class="sub">Design com foco em público e conversão.</p>
+          <div class="counter">Seguidores: <span id="c2">11200</span></div>
+        </div>
+      </div>
+    </article>
 
-  <a class="wa-float" href="https://wa.me/5531998064556" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    <span class="wa-dot"></span>
-    WhatsApp
-  </a>
-
-  <footer>
-    PL Digital • Instagrams • Design • Conversão
-  </footer>
-
-</body>
-</html>
+    <!-- ITEM 3 -->
+    <article class="card">
+      <div class="cardin">
+        <div class="shot">
+          <img src="portfolio-como.jpg" alt="Alberto Serralheiro" />
+        </div>
+        <div class="body">
+          <div class="insta-meta">
+            <a class="insta-btn" href="https://www.instagram.com/alberto_serralheiro45/" target="_blank" rel="noopener">
+              <!-- Instagram SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5C18.545 4 20 5.455 20 7.75v8.5C20 18.545 18.545 20 16.25 20h-8.5C5.455 20 4 18.545 4 16.25v-8.5C4 5.455 5.455 4 7.75 4zm4.25 2.5A5.75 5.75 0 1 0 17.75 12 5.757
