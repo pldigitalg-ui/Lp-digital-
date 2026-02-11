@@ -10,8 +10,6 @@
     :root{
       --bg:#071612;
       --bg2:#050b0a;
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.08);
       --text:#f4f4f5;
       --muted:#a1a1aa;
       --line:rgba(255,255,255,.10);
@@ -26,13 +24,16 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
+
+      /* mantém o “fundo instável” com glow / gradiente */
       background:
-        radial-gradient(1200px 600px at 18% 8%, rgba(34,197,94,.22), transparent 58%),
-        radial-gradient(1000px 600px at 86% 30%, rgba(34,197,94,.12), transparent 58%),
+        radial-gradient(1200px 650px at 18% 6%, rgba(34,197,94,.26), transparent 60%),
+        radial-gradient(950px 560px at 82% 26%, rgba(34,197,94,.14), transparent 60%),
+        radial-gradient(700px 420px at 55% 78%, rgba(34,197,94,.10), transparent 60%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
     }
     a{color:inherit}
-    .wrap{max-width:1100px; margin:0 auto; padding:18px 16px 80px}
+    .wrap{max-width:1100px; margin:0 auto; padding:18px 16px 90px}
     .glass{
       border:1px solid var(--line);
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
@@ -40,7 +41,7 @@
       box-shadow: var(--shadow);
     }
 
-    /* ===== HEADER / TOP NAV (BOTÕES) ===== */
+    /* HEADER */
     header{
       position:sticky; top:0; z-index:50;
       padding:14px 16px;
@@ -82,12 +83,19 @@
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
       transition:.2s ease;
+      white-space:nowrap;
     }
     nav a:hover{
       transform: translateY(-2px);
       border-color: rgba(34,197,94,.45);
       background: rgba(255,255,255,.12);
     }
+    nav a.active{
+      color:#031008;
+      border:none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+
     .chip{
       display:inline-flex; gap:8px; align-items:center;
       padding:8px 12px;
@@ -104,22 +112,17 @@
       box-shadow:0 0 0 6px rgba(34,197,94,.18);
     }
 
-    /* ===== HERO ===== */
+    /* HERO */
     .hero{
       margin-top:14px;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.15fr .85fr;
       gap:14px;
       align-items:stretch;
     }
-    .hero-left{
-      padding:20px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
+    .hero-left{padding:20px}
     h1{
-      margin:0;
+      margin:0 0 10px;
       font-size: clamp(24px, 3vw, 36px);
       letter-spacing:-.8px;
       line-height:1.1;
@@ -128,10 +131,11 @@
       margin:0;
       color: var(--muted);
       line-height:1.55;
-      max-width: 70ch;
+      max-width: 75ch;
       font-weight:650;
     }
-    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px;
@@ -141,6 +145,33 @@
       color:var(--muted);
       font-weight:900;
       font-size:13px;
+    }
+
+    .cta-row{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:950;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-2px); background: rgba(255,255,255,.10)}
+    .btn.primary{
+      border:none;
+      color:#031008;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 45%),
+        linear-gradient(135deg, #22c55e, #86efac);
     }
 
     .hero-right{
@@ -159,168 +190,57 @@
       object-fit:cover;
     }
 
-    /* ===== SECTIONS ===== */
-    section{scroll-margin-top: 110px;}
-    .section{
+    /* HOME SECTIONS */
+    .home-grid{
       margin-top:14px;
-      padding:18px;
-    }
-    .section h2{
-      margin:0 0 10px;
-      font-size:18px;
-      letter-spacing:-.2px;
-    }
-    .muted{color:var(--muted); line-height:1.55; margin:0}
-
-    .grid-3{
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
       gap:12px;
-      margin-top:12px;
     }
     .mini{
       border:1px solid var(--line);
-      border-radius: 16px;
+      border-radius:16px;
       background: rgba(0,0,0,.16);
       padding:14px;
-      min-height:120px;
+      min-height:130px;
     }
-    .mini strong{font-size:14px; letter-spacing:-.2px}
-    .mini p{margin:10px 0 0; color:var(--muted); line-height:1.5; font-size:13.5px}
-
-    /* ===== PORTFÓLIO ===== */
-    .cards{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-      margin-top:12px;
+    .mini strong{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      font-size:14px; letter-spacing:-.2px;
     }
-    .card{
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-    }
-    .cardin{
-      display:grid;
-      grid-template-columns: 360px 1fr;
-    }
-    .shot{
-      padding:16px;
-      background: rgba(0,0,0,.18);
-      border-right:1px solid var(--line);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height: 260px;
-    }
-    .shot img{
-      width:100%;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: 0 18px 40px rgba(0,0,0,.35);
-      object-fit:cover;
-      max-height:420px;
-    }
-    .body{
-      padding:16px 16px 18px;
-    }
-    .topline{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .title{
-      font-weight:950;
-      letter-spacing:-.2px;
-      font-size:16px;
-    }
-    .badge{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 10px;
+    .tag{
+      display:inline-flex;
+      padding:7px 10px;
       border-radius:999px;
       background: rgba(34,197,94,.12);
       border:1px solid rgba(34,197,94,.25);
       color: var(--accent2);
       font-weight:950;
-      font-size:13px;
+      font-size:12px;
       white-space:nowrap;
     }
-    .desc{
-      margin:10px 0 12px;
-      color:var(--muted);
-      line-height:1.55;
-    }
-    .list{
-      margin:0;
-      padding-left:18px;
-      color: rgba(244,244,245,.92);
-      line-height:1.6;
-      font-weight:700;
-    }
+    .mini p{margin:10px 0 0; color:var(--muted); line-height:1.5; font-size:13.5px}
 
-    /* ===== CONTATO / FORM ===== */
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:12px;
-    }
-    .field{
+    /* FOOTER CTA */
+    .final{
+      margin-top:14px;
+      padding:18px;
       display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-    label{font-weight:900; color: rgba(244,244,245,.92); font-size:13px}
-    input, textarea, select{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.22);
-      color: var(--text);
-      outline:none;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
-      font-weight:700;
-    }
-    textarea{min-height:110px; resize:vertical}
-    .full{grid-column: 1 / -1}
-    .hint{
-      margin-top:8px;
-      color: rgba(161,161,170,.9);
-      font-weight:700;
-      font-size:13px;
-    }
-
-    /* Botão cromado do formulário */
-    .btn-whats-chrome{
-      width:100%;
-      border:none;
-      cursor:pointer;
-      padding:16px;
-      border-radius:14px;
-      font-weight:950;
-      letter-spacing:.5px;
-      text-transform:uppercase;
-      color:#031008;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      border:1px solid rgba(34,197,94,.25);
       background:
-        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 45%),
-        linear-gradient(135deg, #22c55e, #86efac);
-      box-shadow:
-        0 18px 45px rgba(0,0,0,.35),
-        inset 0 1px 0 rgba(255,255,255,.45);
-      border:1px solid rgba(255,255,255,.22);
-      transition:.2s ease;
+        radial-gradient(900px 260px at 20% 10%, rgba(34,197,94,.20), transparent 60%),
+        linear-gradient(180deg, rgba(34,197,94,.10), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    .btn-whats-chrome:hover{
-      transform: translateY(-2px);
-      filter: saturate(1.1);
-    }
+    .final strong{font-size:16px}
+    .final span{color:var(--muted); display:block; margin-top:4px; font-weight:700}
 
-    /* ===== WHATSAPP FLUTUANTE ===== */
+    /* WhatsApp flutuante */
     .wa-float{
       position:fixed;
       right:20px;
@@ -339,7 +259,6 @@
         linear-gradient(135deg, #22c55e, #86efac);
       box-shadow: 0 20px 50px rgba(0,0,0,.45);
       border:1px solid rgba(255,255,255,.25);
-      transform: translateZ(0);
     }
     .wa-float .wa-dot{
       width:12px; height:12px; border-radius:50%;
@@ -362,16 +281,14 @@
 
     @media (max-width: 980px){
       .hero{grid-template-columns: 1fr}
-      .contact-grid{grid-template-columns: 1fr}
-      .cardin{grid-template-columns: 1fr}
-      .shot{border-right:none; border-bottom:1px solid var(--line)}
-      .brand{min-width:auto}
+      .home-grid{grid-template-columns: 1fr}
       .topbar{border-radius: 18px}
+      .brand{min-width:auto}
     }
   </style>
 </head>
 
-<body id="home">
+<body>
 
   <header>
     <div class="topbar">
@@ -384,11 +301,11 @@
       </div>
 
       <nav>
-        <a href="#home">Home</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#portfolio">Portfólio</a>
+        <a class="active" href="index.html">Home</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="portfolio.html">Portfólio</a>
         <a href="instagram.html">Instagrams</a>
-        <a href="#contato">Contato</a>
+        <a href="contato.html">Contato</a>
       </nav>
 
       <span class="chip"><span class="dot"></span> Atendimento humano • Sem fidelidade • Sem spam</span>
@@ -397,19 +314,24 @@
 
   <main class="wrap">
 
-    <!-- HERO (SEM botões duplicados) -->
     <section class="hero">
       <div class="hero-left glass">
         <h1>Quer vender mais pelo Instagram e WhatsApp?</h1>
         <p class="sub">
-          Eu faço <b>gestão + tráfego</b> e também entrego <b>site/sistema pronto</b> (pedido, orçamento, landing page).
-          Sem promessa — <b>funcionando</b>.
+          Eu organizo seu digital com padrão premium: <b>Instagram + tráfego + site/sistema</b> para o cliente entender,
+          confiar e chamar no WhatsApp.
         </p>
 
         <div class="pillrow">
           <span class="pill"><span class="dot"></span> Resposta rápida</span>
-          <span class="pill"><span class="dot"></span> Foco em clientes</span>
+          <span class="pill"><span class="dot"></span> Foco em conversão</span>
           <span class="pill"><span class="dot"></span> Crescimento organizado</span>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn primary" href="https://wa.me/5531998064556" target="_blank" rel="noopener">Quero orçamento</a>
+          <a class="btn" href="portfolio.html">Ver portfólio</a>
+          <a class="btn" href="instagram.html">Ver Instagrams</a>
         </div>
       </div>
 
@@ -418,141 +340,45 @@
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="section glass">
-      <h2>Serviços</h2>
-      <p class="muted">Pacote completo para o cliente entender, confiar e chamar no WhatsApp.</p>
+    <section class="home-grid">
+      <div class="mini glass">
+        <strong>Serviços <span class="tag">pronto pra vender</span></strong>
+        <p>Veja tudo que entregamos: gestão, tráfego, Instagram do zero e sites/sistemas.</p>
+        <div class="cta-row" style="margin-top:12px">
+          <a class="btn" href="servicos.html">Abrir serviços</a>
+        </div>
+      </div>
 
-      <div class="grid-3">
-        <div class="mini">
-          <strong>Gestão + Tráfego</strong>
-          <p>Perfil organizado, conteúdo estratégico e anúncios focados em conversão (WhatsApp / direct).</p>
+      <div class="mini glass">
+        <strong>Portfólio <span class="tag">real</span></strong>
+        <p>Projetos publicados e funcionando. Layout premium e CTA focado em WhatsApp.</p>
+        <div class="cta-row" style="margin-top:12px">
+          <a class="btn" href="portfolio.html">Abrir portfólio</a>
         </div>
-        <div class="mini">
-          <strong>Instagram do zero</strong>
-          <p>Identidade visual premium, bio estratégica e feed alinhado (padrão de empresa grande).</p>
-        </div>
-        <div class="mini">
-          <strong>Site / Sistema</strong>
-          <p>Landing page, catálogo e páginas com CTA para orçamento/pedido — rápido e publicado.</p>
+      </div>
+
+      <div class="mini glass">
+        <strong>Contato <span class="tag">rápido</span></strong>
+        <p>Fale comigo agora. Botão flutuante no canto e página de contato com envio direto no WhatsApp.</p>
+        <div class="cta-row" style="margin-top:12px">
+          <a class="btn" href="contato.html">Abrir contato</a>
         </div>
       </div>
     </section>
 
-    <!-- PORTFÓLIO -->
-    <section id="portfolio" class="section glass">
-      <h2>Portfólio</h2>
-      <p class="muted">Sites e sistemas reais, publicados e funcionando.</p>
-
-      <div class="cards">
-
-        <article class="card">
-          <div class="cardin">
-            <div class="shot">
-              <img src="portfolio-pldigital.jpg" alt="Projeto PL Digital" loading="lazy">
-            </div>
-            <div class="body">
-              <div class="topline">
-                <div class="title">PL Digital — Landing Page</div>
-                <div class="badge">Projeto entregue</div>
-              </div>
-              <p class="desc">Landing page premium com CTA, prova social e contato direto no WhatsApp.</p>
-              <ul class="list">
-                <li>Layout “SaaS” (limpo e profissional)</li>
-                <li>CTA para WhatsApp</li>
-                <li>Seções estruturadas para conversão</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="cardin">
-            <div class="shot">
-              <img src="portfolio-lpgrill.jpg" alt="Projeto LP Grill" loading="lazy">
-            </div>
-            <div class="body">
-              <div class="topline">
-                <div class="title">LP Grill — Pedidos</div>
-                <div class="badge">Projeto entregue</div>
-              </div>
-              <p class="desc">Página de pedidos com foco em praticidade e fechamento rápido no WhatsApp.</p>
-              <ul class="list">
-                <li>Visual premium (escuro + destaque verde)</li>
-                <li>Fluxo simples para pedido/orçamento</li>
-                <li>Mobile-first</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="cardin">
-            <div class="shot">
-              <img src="portfolio-as.jpg" alt="Projeto Como" loading="lazy">
-            </div>
-            <div class="body">
-              <div class="topline">
-                <div class="title">Site Institucional / Apresentação</div>
-                <div class="badge">Projeto entregue</div>
-              </div>
-              <p class="desc">Página institucional limpa, com apresentação clara e CTA direto.</p>
-              <ul class="list">
-                <li>Estrutura clara e objetiva</li>
-                <li>Textos pensados para venda</li>
-                <li>Botão de contato pronto</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
+    <section class="final">
+      <div>
+        <strong>Quer o seu digital pronto e profissional?</strong>
+        <span>Me chama no WhatsApp e eu te mando o plano ideal para seu nicho.</span>
       </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="section glass">
-      <h2>Contato</h2>
-      <p class="muted">Preencha rápido e já envia direto no WhatsApp (sem enrolação).</p>
-
-      <form id="leadForm">
-        <div class="contact-grid">
-          <div class="field">
-            <label for="nome">Nome</label>
-            <input id="nome" name="nome" placeholder="Seu nome" required />
-          </div>
-
-          <div class="field">
-            <label for="cidade">Cidade</label>
-            <input id="cidade" name="cidade" placeholder="Ex: Janaúba / BH" />
-          </div>
-
-          <div class="field full">
-            <label for="servico">O que você precisa?</label>
-            <select id="servico" name="servico">
-              <option value="Gestão + Tráfego">Gestão + Tráfego</option>
-              <option value="Instagram do zero">Instagram do zero</option>
-              <option value="Site/Landing Page">Site/Landing Page</option>
-              <option value="Sistema de pedidos/orçamento">Sistema de pedidos/orçamento</option>
-              <option value="Outro">Outro</option>
-            </select>
-          </div>
-
-          <div class="field full">
-            <label for="msg">Mensagem</label>
-            <textarea id="msg" name="msg" placeholder="Ex: quero captar clientes no WhatsApp, orçamento para este mês..."></textarea>
-          </div>
-
-          <div class="full">
-            <button type="submit" class="btn-whats-chrome">ENVIAR NO WHATSAPP!!</button>
-            <div class="hint">Ou clique no botão flutuante do WhatsApp no canto da tela.</div>
-          </div>
-        </div>
-      </form>
+      <div class="cta-row" style="margin:0">
+        <a class="btn" href="servicos.html">Ver serviços</a>
+        <a class="btn primary" href="https://wa.me/5531998064556" target="_blank" rel="noopener">Falar agora</a>
+      </div>
     </section>
 
   </main>
 
-  <!-- WHATSAPP FLUTUANTE (clique sem preencher nada) -->
   <a class="wa-float" href="https://wa.me/5531998064556" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
     <span class="wa-dot"></span>
     WhatsApp
@@ -562,37 +388,5 @@
     PL Digital • Tráfego • Gestão • Sites/Sistemas
   </footer>
 
-  <script>
-    // Envia o formulário direto pro WhatsApp com mensagem completa
-    (function(){
-      const WHATS = "5531998064556"; // +55 31 99806-4556
-
-      const form = document.getElementById("leadForm");
-      if(!form) return;
-
-      form.addEventListener("submit", function(e){
-        e.preventDefault();
-
-        const nome = (document.getElementById("nome")?.value || "").trim();
-        const cidade = (document.getElementById("cidade")?.value || "").trim();
-        const servico = (document.getElementById("servico")?.value || "").trim();
-        const msg = (document.getElementById("msg")?.value || "").trim();
-
-        const texto =
-`Olá! Quero um orçamento na PL Digital.
-
-Nome: ${nome}
-Cidade: ${cidade || "-"}
-Serviço: ${servico || "-"}
-
-Mensagem: ${msg || "-"}`;
-
-        const url = "https://wa.me/" + WHATS + "?text=" + encodeURIComponent(texto);
-        window.open(url, "_blank", "noopener");
-      });
-    })();
-  </script>
-
 </body>
 </html>
-
