@@ -7,50 +7,271 @@
   <title>PL Digital — Portfólio</title>
 
   <style>
-    :root{--bg:#071612;--bg2:#050b0a;--text:#f4f4f5;--muted:#a1a1aa;--line:rgba(255,255,255,.10);--accent:#22c55e;--accent2:#86efac;--shadow:0 18px 50px rgba(0,0,0,.45);--radius:18px}
-    *{box-sizing:border-box} html,body{height:100%}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);
-      background:radial-gradient(1200px 600px at 18% 8%, rgba(34,197,94,.22), transparent 58%),
-      radial-gradient(1000px 600px at 86% 30%, rgba(34,197,94,.12), transparent 58%),
-      linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+    :root{
+      --bg:#071612;
+      --bg2:#050b0a;
+      --text:#f4f4f5;
+      --muted:#a1a1aa;
+      --line:rgba(255,255,255,.10);
+      --accent:#22c55e;
+      --accent2:#86efac;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 650px at 18% 6%, rgba(34,197,94,.26), transparent 60%),
+        radial-gradient(950px 560px at 82% 26%, rgba(34,197,94,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
     a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 80px}
-    .glass{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));border-radius:var(--radius);box-shadow:var(--shadow)}
-    header{position:sticky;top:0;z-index:50;padding:14px 16px;backdrop-filter:blur(12px)}
-    .topbar{max-width:1100px;margin:0 auto;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;
-      padding:12px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.26);box-shadow:var(--shadow)}
-    .brand{display:flex;gap:10px;align-items:center;min-width:240px}
-    .brand img{width:40px;height:40px;border-radius:12px;object-fit:cover;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.06)}
-    .brand b{display:block;font-size:14px;letter-spacing:-.2px}
-    .brand small{display:block;color:var(--muted);font-weight:700}
-    nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    nav a{text-decoration:none;padding:10px 14px;border-radius:999px;font-weight:900;color:rgba(244,244,245,.95);
-      border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);transition:.2s ease}
-    nav a:hover{transform:translateY(-2px);border-color:rgba(34,197,94,.45);background:rgba(255,255,255,.12)}
-    nav a.active{color:#031008;border:none;background:linear-gradient(135deg,var(--accent),var(--accent2))}
-    h1{margin:0 0 10px;font-size:clamp(24px,3vw,34px);letter-spacing:-.8px;line-height:1.1}
-    p{margin:0;color:var(--muted);line-height:1.55;font-weight:650}
+
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 90px}
+    .glass{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      padding:14px 16px;
+      backdrop-filter: blur(12px);
+    }
+    .topbar{
+      max-width:1100px; margin:0 auto;
+      display:flex; gap:14px; align-items:center; justify-content:space-between;
+      padding:12px 14px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.26);
+      box-shadow: var(--shadow);
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center;
+      min-width: 240px;
+    }
+    .brand img{
+      width:40px; height:40px; border-radius:12px;
+      object-fit:cover;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+    }
+    .brand b{display:block; font-size:14px; letter-spacing:-.2px}
+    .brand small{display:block; color:var(--muted); font-weight:700}
+
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center; justify-content:flex-start;
+    }
+    nav a{
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      color: rgba(244,244,245,.95);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    nav a:hover{
+      transform: translateY(-2px);
+      border-color: rgba(34,197,94,.45);
+      background: rgba(255,255,255,.12);
+    }
+    nav a.active{
+      color:#031008;
+      border:none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+
     .hero{margin-top:14px;padding:20px}
-    .cards{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
-    .card{overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));box-shadow:var(--shadow)}
-    .cardin{display:grid;grid-template-columns:360px 1fr}
-    .shot{padding:16px;background:rgba(0,0,0,.18);border-right:1px solid var(--line);display:flex;align-items:center;justify-content:center;min-height:260px}
-    .shot img{width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.10);box-shadow:0 18px 40px rgba(0,0,0,.35);object-fit:cover;max-height:420px}
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing:-.8px;
+      line-height:1.1;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      line-height:1.55;
+      font-weight:650;
+      max-width: 80ch;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+
+    /* Card clicável */
+    .card-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      border-radius: var(--radius);
+      outline:none;
+    }
+
+    .card{
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      transition: .18s ease;
+    }
+    .card-link:hover .card{
+      transform: translateY(-2px);
+      border-color: rgba(34,197,94,.35);
+    }
+
+    .cardin{
+      display:grid;
+      grid-template-columns: 360px 1fr;
+    }
+    .shot{
+      padding:16px;
+      background: rgba(0,0,0,.18);
+      border-right:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height: 260px;
+    }
+    .shot img{
+      width:100%;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      object-fit:cover;
+      max-height:420px;
+    }
     .body{padding:16px 16px 18px}
-    .topline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .title{font-weight:950;letter-spacing:-.2px;font-size:16px}
-    .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);color:var(--accent2);font-weight:950;font-size:13px;white-space:nowrap}
-    .desc{margin:10px 0 12px;color:var(--muted);line-height:1.55}
-    .list{margin:0;padding-left:18px;color:rgba(244,244,245,.92);line-height:1.6;font-weight:700}
-    .wa-float{position:fixed;right:20px;bottom:20px;z-index:9999;display:flex;align-items:center;gap:10px;padding:16px 18px;border-radius:999px;
-      font-weight:950;text-decoration:none;color:#031008;background:linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 50%),linear-gradient(135deg,#22c55e,#86efac);
-      box-shadow:0 20px 50px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.25)}
-    .wa-float .wa-dot{width:12px;height:12px;border-radius:50%;background:#0a3;box-shadow:0 0 0 6px rgba(34,197,94,.22);animation:waPulse 1.4s infinite}
-    @keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.35)}70%{box-shadow:0 0 0 14px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
-    footer{text-align:center;padding:22px 16px 40px;color:rgba(161,161,170,.9);font-weight:700}
-    @media (max-width:980px){.cardin{grid-template-columns:1fr}.shot{border-right:none;border-bottom:1px solid var(--line)}.topbar{border-radius:18px}.brand{min-width:auto}}
+    .topline{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .title{
+      font-weight:950;
+      letter-spacing:-.2px;
+      font-size:16px;
+    }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.25);
+      color: var(--accent2);
+      font-weight:950;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .desc{
+      margin:10px 0 12px;
+      color:var(--muted);
+      line-height:1.55;
+    }
+    .list{
+      margin:0;
+      padding-left:18px;
+      color: rgba(244,244,245,.92);
+      line-height:1.6;
+      font-weight:700;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:950;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-2px); background: rgba(255,255,255,.10)}
+    .btn.primary{
+      border:none;
+      color:#031008;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 45%),
+        linear-gradient(135deg, #22c55e, #86efac);
+    }
+
+    /* WhatsApp flutuante */
+    .wa-float{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:9999;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:16px 18px;
+      border-radius:999px;
+      font-weight:950;
+      text-decoration:none;
+      color:#031008;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 50%),
+        linear-gradient(135deg, #22c55e, #86efac);
+      box-shadow: 0 20px 50px rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.25);
+    }
+    .wa-float .wa-dot{
+      width:12px; height:12px; border-radius:50%;
+      background:#0a3;
+      box-shadow: 0 0 0 6px rgba(34,197,94,.22);
+      animation: waPulse 1.4s infinite;
+    }
+    @keyframes waPulse{
+      0%{ box-shadow: 0 0 0 0 rgba(34,197,94,.35); }
+      70%{ box-shadow: 0 0 0 14px rgba(34,197,94,0); }
+      100%{ box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+
+    footer{
+      text-align:center;
+      padding:22px 16px 40px;
+      color: rgba(161,161,170,.9);
+      font-weight:700;
+    }
+
+    @media (max-width:980px){
+      .cardin{grid-template-columns: 1fr}
+      .shot{border-right:none; border-bottom:1px solid var(--line)}
+      .topbar{border-radius: 18px}
+      .brand{min-width:auto}
+    }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -76,52 +297,91 @@
   <main class="wrap">
     <section class="hero glass">
       <h1>Portfólio</h1>
-      <p>Projetos reais, publicados e funcionando. Padrão premium e focado em conversão.</p>
+      <p class="sub">
+        Projetos reais, publicados e funcionando. Clique no card ou no botão para abrir o site.
+      </p>
 
       <div class="cards">
 
-        <article class="card">
-          <div class="cardin">
-            <div class="shot"><img src="portfolio-pldigital.jpg" alt="Projeto PL Digital" loading="lazy"></div>
-            <div class="body">
-              <div class="topline"><div class="title">PL Digital — Landing Page</div><div class="badge">Projeto entregue</div></div>
-              <p class="desc">Landing page premium com CTA, prova social e contato direto no WhatsApp.</p>
-              <ul class="list"><li>Layout “SaaS”</li><li>CTA para WhatsApp</li><li>Mobile-first</li></ul>
-            </div>
-          </div>
-        </article>
+        <!-- AS SERRALHERIA -->
+        <a class="card-link" href="https://pldigitalg-ui.github.io/as-serralheria/" target="_blank" rel="noopener">
+          <article class="card">
+            <div class="cardin">
+              <div class="shot">
+                <!-- Se você tiver uma imagem específica da AS, troque o src -->
+                <img src="portfolio-como.jpg" alt="AS Serralheria — Site" loading="lazy">
+              </div>
 
-        <article class="card">
-          <div class="cardin">
-            <div class="shot"><img src="portfolio-lpgrill.jpg" alt="Projeto LP Grill" loading="lazy"></div>
-            <div class="body">
-              <div class="topline"><div class="title">LP Grill — Pedidos</div><div class="badge">Projeto entregue</div></div>
-              <p class="desc">Página de pedidos com foco em praticidade e fechamento rápido no WhatsApp.</p>
-              <ul class="list"><li>Fluxo simples</li><li>Visual premium</li><li>Conversão</li></ul>
-            </div>
-          </div>
-        </article>
+              <div class="body">
+                <div class="topline">
+                  <div class="title">AS Serralheria — Orçamentos</div>
+                  <div class="badge">Ao vivo</div>
+                </div>
 
-        <article class="card">
-          <div class="cardin">
-            <div class="shot"><img src="portfolio-como.jpg" alt="Site Institucional" loading="lazy"></div>
-            <div class="body">
-              <div class="topline"><div class="title">Site Institucional / Apresentação</div><div class="badge">Projeto entregue</div></div>
-              <p class="desc">Página limpa, com apresentação clara e CTA direto.</p>
-              <ul class="list"><li>Estrutura clara</li><li>Textos para venda</li><li>CTA pronto</li></ul>
+                <p class="desc">
+                  Página de orçamento com foco em conversão e contato rápido.
+                </p>
+
+                <ul class="list">
+                  <li>Visual premium</li>
+                  <li>CTA forte</li>
+                  <li>Mobile-first</li>
+                </ul>
+
+                <div class="actions">
+                  <span class="btn primary">Abrir site</span>
+                  <span class="btn">Ver detalhes</span>
+                </div>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </a>
+
+        <!-- LP GRILL -->
+        <a class="card-link" href="https://restaurantelpgrill-rest.github.io/lpgrill-site/" target="_blank" rel="noopener">
+          <article class="card">
+            <div class="cardin">
+              <div class="shot">
+                <img src="portfolio-lpgrill.jpg" alt="LP Grill — Site" loading="lazy">
+              </div>
+
+              <div class="body">
+                <div class="topline">
+                  <div class="title">LP Grill — Pedidos</div>
+                  <div class="badge">Ao vivo</div>
+                </div>
+
+                <p class="desc">
+                  Página de pedidos com navegação simples e CTA direto.
+                </p>
+
+                <ul class="list">
+                  <li>Fluxo rápido</li>
+                  <li>Foco em pedido/WhatsApp</li>
+                  <li>Layout responsivo</li>
+                </ul>
+
+                <div class="actions">
+                  <span class="btn primary">Abrir site</span>
+                  <span class="btn">Ver detalhes</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </a>
 
       </div>
     </section>
   </main>
 
   <a class="wa-float" href="https://wa.me/5531998064556" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    <span class="wa-dot"></span> WhatsApp
+    <span class="wa-dot"></span>
+    WhatsApp
   </a>
 
-  <footer>PL Digital • Projetos publicados</footer>
+  <footer>
+    PL Digital • Projetos publicados
+  </footer>
+
 </body>
 </html>
-
