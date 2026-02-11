@@ -9,12 +9,10 @@
 :root{
   --bg:#06110d;
   --bg2:#0c1f18;
-  --card:#11261f;
   --text:#f4f4f5;
   --muted:#9ca3af;
   --accent:#22c55e;
-  --line:rgba(255,255,255,.08);
-  --radius:20px;
+  --radius:28px;
 }
 
 *{box-sizing:border-box}
@@ -22,13 +20,13 @@ body{
   margin:0;
   font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto;
   background:
-    radial-gradient(900px 500px at 20% 5%, rgba(34,197,94,.18), transparent 60%),
+    radial-gradient(900px 600px at 20% 5%, rgba(34,197,94,.15), transparent 60%),
     linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
   color:var(--text);
 }
 
 .wrap{
-  max-width:1200px;
+  max-width:1300px;
   margin:0 auto;
   padding:40px 20px 100px;
 }
@@ -37,11 +35,11 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:50px;
+  margin-bottom:60px;
 }
 
 nav a{
-  margin-left:18px;
+  margin-left:20px;
   font-weight:700;
   color:var(--muted);
   text-decoration:none;
@@ -55,59 +53,52 @@ h1{
   margin-bottom:60px;
 }
 
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:50px;
+  justify-items:center;
 }
 
-.card{
-  background:var(--card);
-  border-radius:var(--radius);
-  overflow:hidden;
-  border:1px solid var(--line);
-  transition:.3s;
+/* MOCKUP PHONE */
+.phone{
+  width:300px;
+  height:600px;
+  background:#000;
+  border-radius:40px;
+  padding:12px;
+  box-shadow:0 40px 80px rgba(0,0,0,.6);
+  position:relative;
 }
 
-.card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(34,197,94,.4);
-}
-
-.card img{
+.screen{
   width:100%;
-  display:block;
+  height:100%;
+  border-radius:30px;
+  overflow:hidden;
+  background:#fff;
 }
 
-.card-body{
-  padding:20px;
+.screen iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.phone-title{
+  text-align:center;
+  margin-bottom:15px;
+  font-weight:900;
 }
 
 .insta-link{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
+  text-align:center;
+  display:block;
+  margin-top:15px;
   font-weight:900;
-  margin-bottom:10px;
   color:#fff;
   text-decoration:none;
-}
-
-.badge{
-  display:inline-block;
-  font-size:11px;
-  font-weight:800;
-  padding:4px 10px;
-  border-radius:999px;
-  background:rgba(34,197,94,.15);
-  color:var(--accent);
-  border:1px solid rgba(34,197,94,.3);
-}
-
-.desc{
-  margin-top:10px;
-  font-size:14px;
-  color:var(--muted);
 }
 
 .wa-float{
@@ -115,7 +106,7 @@ h1{
   right:25px;
   bottom:25px;
   background:linear-gradient(135deg,#22c55e,#86efac);
-  padding:15px 20px;
+  padding:16px 22px;
   border-radius:999px;
   font-weight:900;
   text-decoration:none;
@@ -125,7 +116,7 @@ h1{
 
 footer{
   text-align:center;
-  padding:40px;
+  padding:50px 20px;
   color:var(--muted);
 }
 </style>
@@ -146,56 +137,52 @@ footer{
   </nav>
 </header>
 
-<h1>Instagrams Criados</h1>
+<h1>Instagrams Estruturados</h1>
 
 <div class="grid">
 
-  <!-- MEGA7 -->
-  <div class="card">
-    <img src="portfolio-pldigital.jpg">
-    <div class="card-body">
-      <a class="insta-link" href="https://www.instagram.com/mega7_arts/" target="_blank">
-        @mega7_arts
-      </a>
-      <div class="badge">Perfil ativo</div>
-      <div class="desc">Identidade visual estratégica e posicionamento criativo.</div>
+  <!-- Mega7 -->
+  <div>
+    <div class="phone-title">@mega7_arts</div>
+    <div class="phone">
+      <div class="screen">
+        <iframe src="https://www.instagram.com/mega7_arts/embed"></iframe>
+      </div>
     </div>
+    <a class="insta-link" href="https://www.instagram.com/mega7_arts/" target="_blank">Abrir no Instagram</a>
   </div>
 
-  <!-- ALBERTO -->
-  <div class="card">
-    <img src="portfolio-como.jpg">
-    <div class="card-body">
-      <a class="insta-link" href="https://www.instagram.com/alberto_serralheiro45/" target="_blank">
-        @alberto_serralheiro45
-      </a>
-      <div class="badge">Perfil ativo</div>
-      <div class="desc">Perfil profissional focado em autoridade e captação.</div>
+  <!-- Alberto -->
+  <div>
+    <div class="phone-title">@alberto_serralheiro45</div>
+    <div class="phone">
+      <div class="screen">
+        <iframe src="https://www.instagram.com/alberto_serralheiro45/embed"></iframe>
+      </div>
     </div>
+    <a class="insta-link" href="https://www.instagram.com/alberto_serralheiro45/" target="_blank">Abrir no Instagram</a>
   </div>
 
-  <!-- LP GRILL -->
-  <div class="card">
-    <img src="portfolio-lpgrill.jpg">
-    <div class="card-body">
-      <a class="insta-link" href="https://www.instagram.com/restaurantelpgrill/" target="_blank">
-        @restaurantelpgrill
-      </a>
-      <div class="badge">Perfil ativo</div>
-      <div class="desc">Feed estruturado para vendas e pedidos.</div>
+  <!-- LP Grill -->
+  <div>
+    <div class="phone-title">@restaurantelpgrill</div>
+    <div class="phone">
+      <div class="screen">
+        <iframe src="https://www.instagram.com/restaurantelpgrill/embed"></iframe>
+      </div>
     </div>
+    <a class="insta-link" href="https://www.instagram.com/restaurantelpgrill/" target="_blank">Abrir no Instagram</a>
   </div>
 
   <!-- RM -->
-  <div class="card">
-    <img src="portfolio-pldigital.jpg">
-    <div class="card-body">
-      <a class="insta-link" href="https://www.instagram.com/rm.instrutordedirecao/" target="_blank">
-        @rm.instrutordedirecao
-      </a>
-      <div class="badge">Perfil ativo</div>
-      <div class="desc">Instagram profissional para instrutor de direção.</div>
+  <div>
+    <div class="phone-title">@rm.instrutordedirecao</div>
+    <div class="phone">
+      <div class="screen">
+        <iframe src="https://www.instagram.com/rm.instrutordedirecao/embed"></iframe>
+      </div>
     </div>
+    <a class="insta-link" href="https://www.instagram.com/rm.instrutordedirecao/" target="_blank">Abrir no Instagram</a>
   </div>
 
 </div>
@@ -207,7 +194,7 @@ footer{
 </a>
 
 <footer>
-PL Digital • Instagrams estruturados para vender
+PL Digital • Estrutura digital profissional
 </footer>
 
 </body>
