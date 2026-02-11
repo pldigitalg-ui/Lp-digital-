@@ -1,22 +1,301 @@
-<div class="card">
-    
-  <!-- Print do Perfil -->
-  <img src="print1.jpg" alt="Instagram Cliente">
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PL Digital — Instagrams</title>
 
-  <div class="info">
-    <h3>@clienteexemplo</h3>
-    <div class="followers">Perfil criado do zero</div>
-    <p>Estruturação completa do Instagram, identidade visual profissional, bio estratégica e posicionamento focado em vendas.</p>
+  <style>
+    :root{
+      --bg:#071612;
+      --bg2:#071a14;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --text:#f4f4f5;
+      --muted:#a1a1aa;
+      --line:rgba(255,255,255,.10);
+      --accent:#22c55e;
+      --accent2:#86efac;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(34,197,94,.20), transparent 55%),
+        radial-gradient(1000px 600px at 85% 35%, rgba(34,197,94,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, #050b0a 100%);
+    }
+    a{color:inherit}
 
-    <!-- Nossas Criações -->
-    <h4 style="margin-top:20px; color:#00ff88;">Nossas Criações</h4>
-    <div class="antes-depois">
-      <img src="feed1.jpg" alt="Post criado" width="130">
-      <img src="feed2.jpg" alt="Post criado" width="130">
-      <img src="feed3.jpg" alt="Post criado" width="130">
-    </div>
+    /* Top mini nav (igual seu header simples) */
+    header{padding:14px 16px; position:sticky; top:0; z-index:50;}
+    nav{
+      max-width:1100px; margin:0 auto;
+      display:flex; gap:12px; flex-wrap:wrap;
+      align-items:center; justify-content:center;
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+    nav a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:700;
+      letter-spacing:.2px;
+      transition:.2s ease;
+    }
+    nav a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+    }
+    nav a.active{
+      color:#041008;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
 
-    <a href="https://wa.me/5531998064556" class="btn">Quero esse resultado</a>
-  </div>
+    /* Layout */
+    .wrap{max-width:1100px; margin:0 auto; padding:26px 16px 70px;}
+    .hero{
+      margin-top:10px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .hero h1{
+      margin:0 0 8px;
+      font-size: clamp(22px, 2.6vw, 32px);
+      letter-spacing:-.4px;
+    }
+    .hero p{margin:0; color:var(--muted); line-height:1.5; max-width:62ch}
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+    }
+    .dot{width:9px; height:9px; border-radius:999px; background: var(--accent); box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;
+      margin-left:auto;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:800;
+      transition:.2s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09)}
+    .btn.primary{
+      border:none;
+      color:#041008;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
 
-</div>
+    /* Cards */
+    .grid{display:grid; grid-template-columns: 1fr; gap:16px; margin-top:18px}
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .cardin{display:grid; grid-template-columns: 340px 1fr; gap:0}
+    .shot{
+      background: rgba(0,0,0,.20);
+      padding:16px;
+      border-right:1px solid var(--line);
+      display:flex; align-items:center; justify-content:center;
+      min-height: 320px;
+    }
+    .shot img{
+      width:100%; height:auto; max-height:520px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      object-fit:cover;
+    }
+    .body{padding:18px 18px 20px}
+    .topline{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+    .handle{font-size:18px; font-weight:900; letter-spacing:-.2px}
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px; border-radius:999px;
+      background: rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.25);
+      color: var(--accent2);
+      font-weight:900;
+      font-size:13px;
+    }
+    .desc{color:var(--muted); line-height:1.55; margin:10px 0 14px}
+    .subttl{margin:0 0 10px; color:var(--text); font-weight:900; letter-spacing:-.2px}
+
+    .creations{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:10px;
+    }
+    .creations img{
+      width:100%;
+      aspect-ratio: 1 / 1;
+      object-fit:cover;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+
+    footer{
+      text-align:center;
+      color:rgba(161,161,170,.85);
+      padding:22px 16px 40px;
+    }
+
+    @media (max-width: 920px){
+      .cardin{grid-template-columns: 1fr}
+      .shot{border-right:none; border-bottom:1px solid var(--line)}
+    }
+    @media (max-width: 520px){
+      nav{justify-content:flex-start; border-radius:16px}
+      .creations{grid-template-columns: repeat(2, minmax(0, 1fr))}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU (você já está com essa estrutura no index) -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#servicos">Serviços</a>
+      <a href="index.html#portfolio">Portfólio</a>
+      <a class="active" href="instagram.html">Instagrams</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div>
+        <h1>Instagrams criados do zero</h1>
+        <p>Perfis estruturados com identidade visual, bio estratégica e organização do feed para vender no WhatsApp.</p>
+
+        <div class="pillrow">
+          <span class="pill"><span class="dot"></span> Visual Premium</span>
+          <span class="pill"><span class="dot"></span> Bio + Destaques</span>
+          <span class="pill"><span class="dot"></span> Feed organizado</span>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="index.html#contato">Ver planos</a>
+        <a class="btn primary" href="https://wa.me/5531998064556">Quero esse resultado</a>
+      </div>
+    </section>
+
+    <section class="grid">
+
+      <!-- CARD 1 (edite) -->
+      <article class="card">
+        <div class="cardin">
+          <div class="shot">
+            <!-- PRINT DO PERFIL -->
+            <img src="print1.jpg" alt="Print do Instagram" loading="lazy">
+          </div>
+
+          <div class="body">
+            <div class="topline">
+              <div class="handle">@clienteexemplo</div>
+              <div class="badge">Perfil criado do zero</div>
+            </div>
+
+            <p class="desc">
+              Estruturação completa: identidade visual, bio estratégica, destaques, organização do feed e posts prontos para conversão.
+            </p>
+
+            <h3 class="subttl">Nossas criações</h3>
+            <div class="creations">
+              <img src="feed1.jpg" alt="Criação 1" loading="lazy">
+              <img src="feed2.jpg" alt="Criação 2" loading="lazy">
+              <img src="feed3.jpg" alt="Criação 3" loading="lazy">
+            </div>
+
+            <div class="actions">
+              <a class="btn primary" href="https://wa.me/5531998064556">Quero esse resultado</a>
+              <a class="btn" href="index.html#contato">Falar no site</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2 (copie e cole para adicionar mais clientes) -->
+      <!--
+      <article class="card">
+        <div class="cardin">
+          <div class="shot">
+            <img src="print2.jpg" alt="Print do Instagram" loading="lazy">
+          </div>
+          <div class="body">
+            <div class="topline">
+              <div class="handle">@outrocliente</div>
+              <div class="badge">Perfil criado do zero</div>
+            </div>
+            <p class="desc">Descrição do que foi feito…</p>
+
+            <h3 class="subttl">Nossas criações</h3>
+            <div class="creations">
+              <img src="feed4.jpg" alt="Criação 1" loading="lazy">
+              <img src="feed5.jpg" alt="Criação 2" loading="lazy">
+              <img src="feed6.jpg" alt="Criação 3" loading="lazy">
+            </div>
+
+            <div class="actions">
+              <a class="btn primary" href="https://wa.me/5531998064556">Quero esse resultado</a>
+              <a class="btn" href="index.html#contato">Falar no site</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      -->
+
+    </section>
+
+  </main>
+
+  <footer>
+    PL Digital • Tráfego • Gestão • Sites/Sistemas
+  </footer>
+
+</body>
+</html>
