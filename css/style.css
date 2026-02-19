@@ -1,405 +1,438 @@
-/* ========= PL DIGITAL — LAYOUT CORPORATIVO (mantém cores/CTAs) ========= */
-
-/* Fonte (opcional). Se você já usa outra, pode remover. */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 
 :root{
-  /* Mantém sua identidade: verde neon no escuro */
-  --bg0:#060b09;
-  --bg1:#07140e;
-  --panel: rgba(255,255,255,.05);
-  --panel2: rgba(255,255,255,.08);
-  --line: rgba(255,255,255,.10);
+  /* ===== PL DIGITAL GROUP (Dark + Neon fraco) ===== */
+  --bg:#06110D;
+  --bg2:#050B0A;
+  --text:#EAF5EF;
+  --muted:rgba(234,245,239,.72);
 
-  --text:#eaf5ef;
-  --muted: rgba(234,245,239,.72);
+  --surface: rgba(255,255,255,.05);
+  --surface2: rgba(255,255,255,.07);
 
-  --accent:#39ff88;      /* neon */
-  --accent2:#23c86a;
-  --accentSoft: rgba(57,255,136,.12);
+  --stroke: rgba(255,255,255,.10);
+  --stroke2: rgba(255,255,255,.14);
 
-  --shadow: 0 18px 60px rgba(0,0,0,.55);
-  --radius: 18px;
-  --radius2: 24px;
+  /* Verde MAIS FRACO (sem “gritar”) */
+  --primary:#24d06a;
+  --primaryDeep:#19a556;
+  --accent:#7CFFB0;
+
+  --shadow: 0 22px 70px rgba(0,0,0,.50);
+  --shadow2: 0 12px 34px rgba(0,0,0,.38);
 
   --container: 1160px;
+  --speed: 180ms;
 }
 
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 body{
-  margin:0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--text);
   background:
-    radial-gradient(1200px 700px at 20% 10%, rgba(57,255,136,.12), transparent 55%),
-    radial-gradient(900px 600px at 80% 30%, rgba(57,255,136,.08), transparent 60%),
-    linear-gradient(180deg, var(--bg1), var(--bg0));
+    radial-gradient(1200px 700px at 10% 0%, rgba(36,208,106,.10), transparent 58%),
+    radial-gradient(900px 600px at 90% 10%, rgba(124,255,176,.06), transparent 58%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+  color:var(--text);
+  line-height:1.35;
+  overflow-x:hidden;
 }
 
-/* Base */
-a{ color:inherit; text-decoration:none; }
-img{ max-width:100%; display:block; }
-.container{
-  width:min(var(--container), calc(100% - 48px));
-  margin:0 auto;
-}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--container); margin:0 auto; padding:0 18px}
 
-/* Topbar (corporativo) */
+/* =========================================
+   TOPBAR (sem telefone: só e-mail + atendimento)
+========================================= */
 .topbar{
-  border-bottom:1px solid var(--line);
-  background: rgba(0,0,0,.25);
+  background: rgba(0,0,0,.22);
+  border-bottom:1px solid rgba(255,255,255,.08);
   backdrop-filter: blur(10px);
 }
-.topbar .row{
+.topbar__row{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  min-height:42px;
   gap:16px;
-  padding:10px 0;
-  font-size:13px;
-  color:var(--muted);
 }
-.topbar .left, .topbar .right{
-  display:flex; align-items:center; gap:14px;
+.topbar__left, .topbar__right{
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap
+}
+.topbar__item{
+  display:flex; align-items:center; gap:10px;
+  color:rgba(255,255,255,.84);
+  font-size:13px;
 }
 .badge{
-  display:inline-flex; align-items:center; gap:8px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
   padding:8px 12px;
-  border:1px solid var(--line);
   border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.03);
+  color: rgba(255,255,255,.82);
+  font-weight:800;
+  white-space:nowrap;
 }
 .badge .dot{
-  width:10px; height:10px; border-radius:999px;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(57,255,136,.12);
+  width:10px;height:10px;border-radius:50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 4px rgba(36,208,106,.12);
 }
 
-/* Header */
+/* =========================================
+   HEADER (Metallmec style) + Mobile menu
+========================================= */
 .header{
-  position:sticky;
+  position: sticky;
   top:0;
   z-index:50;
-  background: rgba(6,11,9,.62);
-  backdrop-filter: blur(14px);
-  border-bottom:1px solid var(--line);
+  transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
-.header .row{
+.header__row{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
-  padding:16px 0;
+  min-height:74px;
+  gap:16px;
 }
-.brand{
-  display:flex; align-items:center; gap:12px;
-  min-width:220px;
+
+/* estado padrão (sobre hero) */
+.header--over-hero{
+  background: rgba(5,11,10,.55);
+  border-bottom:1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(14px);
 }
-.brand .logo{
-  width:46px; height:46px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.03);
+
+/* estado após rolar */
+.header--scrolled{
+  background: rgba(5,11,10,.92);
+  border-bottom:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 10px 30px rgba(0,0,0,.30);
+}
+
+.brand{display:flex; align-items:center; gap:12px}
+.brand__mark{
+  width:44px;height:44px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
   overflow:hidden;
 }
-.brand .t strong{ display:block; font-weight:800; letter-spacing:.2px; }
-.brand .t span{ display:block; color:var(--muted); font-size:13px; margin-top:2px; }
+.brand__mark img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.brand__text strong{display:block; font-size:16px; font-weight:900}
+.brand__text span{display:block; font-size:12px; opacity:.75; font-weight:700}
 
 .nav{
-  display:flex; gap:10px; flex-wrap:wrap;
-  justify-content:center;
+  display:flex; align-items:center; gap:14px;
 }
 .nav a{
-  padding:10px 14px;
+  font-weight:900;
+  font-size:13px;
+  padding:10px 12px;
+  border-radius:12px;
+  transition: background var(--speed), color var(--speed), border-color var(--speed);
   border:1px solid transparent;
-  border-radius:999px;
-  color:rgba(234,245,239,.86);
-  font-weight:600;
-  font-size:14px;
+  color: rgba(234,245,239,.86);
 }
 .nav a:hover{
-  border-color: var(--line);
   background: rgba(255,255,255,.03);
+  border-color: rgba(255,255,255,.10);
+}
+.nav a.active{
+  color:#031008;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
 }
 
-.actions{ display:flex; gap:10px; align-items:center; }
+/* Mobile toggle */
+.nav__toggle{
+  display:none;
+  width:44px;height:44px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+}
+.nav__toggle span{
+  display:block;
+  width:18px;height:2px;
+  background: rgba(234,245,239,.90);
+  margin:4px auto;
+  border-radius:2px;
+}
 
-/* Botões (mantém a ideia dos seus, só “adulto”) */
+/* =========================================
+   BOTÕES
+========================================= */
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:10px;
-  height:42px;
-  padding:0 16px;
-  border-radius:12px;
-  border:1px solid transparent;
-  font-weight:800;
-  font-size:14px;
-  cursor:pointer;
-  transition: transform .15s ease, filter .15s ease, background .15s ease, border-color .15s ease;
-  user-select:none;
+  padding:12px 16px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: linear-gradient(135deg, var(--primary), var(--primaryDeep));
+  color: #031008;
+  font-weight:950;
+  transition: transform var(--speed), filter var(--speed), background var(--speed);
+  box-shadow: 0 14px 34px rgba(36,208,106,.14);
 }
-.btn:active{ transform: translateY(1px); }
+.btn:hover{transform: translateY(-1px); filter: brightness(1.02)}
+.btn--ghost{
+  background: rgba(255,255,255,.04);
+  color: rgba(234,245,239,.90);
+  box-shadow:none;
+}
+.btn--small{padding:10px 12px; font-size:13px}
 
-.btn-primary{
-  background: linear-gradient(180deg, var(--accent), var(--accent2));
-  color:#03210f;
-  box-shadow: 0 10px 26px rgba(57,255,136,.18);
-}
-.btn-primary:hover{ filter: brightness(1.03); }
-
-.btn-ghost{
-  background: rgba(255,255,255,.03);
-  border-color: var(--line);
-  color: var(--text);
-}
-.btn-ghost:hover{
-  background: rgba(255,255,255,.05);
-  border-color: rgba(57,255,136,.22);
-}
-
-/* HERO — grid corporativo */
+/* =========================================
+   HERO (dark + profissional, sem excesso)
+========================================= */
 .hero{
-  padding:34px 0 18px;
-}
-.heroGrid{
-  display:grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap:22px;
-  align-items:stretch;
-}
-.heroCard{
-  border:1px solid var(--line);
-  border-radius: var(--radius2);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  box-shadow: var(--shadow);
-  overflow:hidden;
-}
-.heroLeft{
-  padding:34px;
   position:relative;
-}
-.kicker{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid rgba(57,255,136,.22);
-  background: rgba(57,255,136,.06);
-  color: rgba(234,245,239,.92);
-  font-weight:700;
-  font-size:13px;
-}
-h1{
-  margin:16px 0 10px;
-  font-size: clamp(28px, 3.2vw, 44px);
-  line-height:1.06;
-  letter-spacing:-.6px;
-}
-h1 .accent{ color: var(--accent); }
-.lead{
-  color: var(--muted);
-  font-size:15.5px;
-  line-height:1.6;
-  max-width:58ch;
-}
-.pills{
-  display:flex; flex-wrap:wrap;
-  gap:10px;
-  margin:16px 0 18px;
-}
-.pill{
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background: rgba(0,0,0,.20);
-  color: rgba(234,245,239,.88);
-  font-weight:700;
-  font-size:13px;
-}
-.ctaRow{
-  display:flex; flex-wrap:wrap; gap:10px;
-  margin-top:18px;
+  min-height: 560px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 70px 0;
+  overflow:hidden;
 }
 
-.heroRight{
-  padding:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* fundo com imagem (você vai trocar depois, mantive mockup.png como nome) */
+.hero__bg{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(900px 520px at 50% 15%, rgba(36,208,106,.12), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.60) 75%),
+    url("../mockup.png");
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.02) contrast(1.05);
+  opacity:.32; /* deixa discreto (sem “criança”) */
 }
-.mediaFrame{
-  width:100%;
-  height:100%;
-  min-height: 320px;
+
+/* grade técnica leve */
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  pointer-events:none;
+  opacity:.10;
+  background-image:
+    linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 50% 25%, rgba(0,0,0,1), transparent 70%);
+}
+
+.hero__center{
+  position:relative;
+  text-align:left;
+  max-width: 980px;
+  z-index:2;
+
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:18px;
+
+  padding: 22px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.22);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  font-size:12px;
+  color: rgba(234,245,239,.70);
+  margin:0 0 10px;
+}
+.kicker::before{
+  content:"";
+  width:10px; height:10px;
+  border-radius:999px;
+  background: radial-gradient(circle at 30% 30%, var(--accent), var(--primary));
+  box-shadow: 0 0 18px rgba(124,255,176,.14);
+}
+
+.hero__title{
+  margin:0 0 10px;
+  font-size: clamp(30px, 3.6vw, 50px);
+  line-height:1.05;
+  color:#fff;
+  letter-spacing:-.02em;
+}
+.hero__sub{
+  margin:0 0 16px;
+  color: rgba(255,255,255,.84);
+  font-size:14.5px;
+  line-height:1.6;
+}
+
+.pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+.pill{
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  font-weight:900;
+  font-size:12px;
+  color: rgba(234,245,239,.82);
+}
+
+.hero__cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+
+/* painel direito: imagem (sem “boneco” forçado — você troca depois) */
+.hero__media{
   border-radius: 18px;
-  border:1px solid var(--line);
-  background: rgba(0,0,0,.20);
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
   overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  min-height: 320px;
 }
-.mediaFrame img, .mediaFrame video{
+.hero__media img{
   width:100%;
   height:100%;
   object-fit:cover;
+  display:block;
+  filter: saturate(1.02);
+  opacity:.92;
 }
 
-/* Seções padrão */
-.section{
-  padding:22px 0;
-}
-.sectionHead{
+/* =========================================
+   SECTIONS
+========================================= */
+.section{padding: 54px 0}
+.section__head{
   display:flex;
+  justify-content:space-between;
   align-items:flex-end;
+  gap:16px;
+  margin-bottom: 18px;
+}
+.section__head h2{
+  margin:0;
+  font-size:28px;
+  letter-spacing:-.02em;
+}
+.section__head .muted{color: var(--muted); font-weight:650; margin:6px 0 0}
+
+.grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+
+.card{
+  border-radius: 20px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  padding: 18px;
+  box-shadow: var(--shadow2);
+}
+.card h3{margin:0 0 8px; font-size:16px}
+.card p{margin:0; color: var(--muted); line-height:1.55}
+.tag{
+  display:inline-flex;
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(124,255,176,.18);
+  background: rgba(36,208,106,.08);
+  color: rgba(234,245,239,.84);
+  font-weight:900;
+}
+
+/* CTA final */
+.cta{padding: 18px 0 70px}
+.cta__box{
+  border-radius: 26px;
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(900px 450px at 20% 0%, rgba(36,208,106,.14), transparent 60%),
+    radial-gradient(800px 420px at 80% 10%, rgba(124,255,176,.08), transparent 55%),
+    rgba(255,255,255,.04);
+  box-shadow: var(--shadow);
+  padding: 22px;
+  display:flex;
+  align-items:center;
   justify-content:space-between;
   gap:16px;
-  margin: 10px 0 12px;
 }
-.sectionHead h2{
-  margin:0;
-  font-size:22px;
-  letter-spacing:-.2px;
-}
-.sectionHead p{
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-}
-.grid3{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:14px;
-}
-.card{
-  border:1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(255,255,255,.04);
-  padding:16px;
-}
-.card strong{ display:block; font-size:15px; margin-bottom:6px; }
-.card p{ margin:0; color:var(--muted); line-height:1.55; font-size:14px; }
+.cta__actions{display:flex; gap:12px; flex-wrap:wrap}
 
-/* WhatsApp flutuante (mantém) */
-.whatsFloat{
+/* Whats flutuante (botão apenas, sem número visível) */
+.wpp{
   position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:60;
+  right:18px; bottom:18px;
+  width:58px; height:58px;
+  border-radius: 18px;
+  display:grid; place-items:center;
+  border:1px solid rgba(124,255,176,.22);
+  background: rgba(0,0,0,.30);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 50px rgba(0,0,0,.40);
+  z-index:80;
+  color:#fff;
 }
-.whatsFloat .btn{
-  height:48px;
-  padding:0 18px;
-  border-radius:999px;
+.wpp:hover{filter: brightness(1.06)}
+.wpp__glow{
+  position:absolute;
+  inset:-10px;
+  border-radius: 24px;
+  background: radial-gradient(circle at 30% 30%, rgba(124,255,176,.14), transparent 60%);
+  filter: blur(6px);
 }
+.wpp__icon{position:relative; font-size:22px}
 
-/* Responsivo */
-@media (max-width: 980px){
-  .heroGrid{ grid-template-columns: 1fr; }
-  .brand{ min-width:auto; }
-  .nav{ display:none; } /* se você já tem menu mobile, mantém o seu */
+/* footer */
+.footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.16);
+  padding: 24px 0;
 }
-@media (max-width: 680px){
-  .topbar .row{ flex-direction:column; align-items:flex-start; }
-  .heroLeft{ padding:22px; }
-  .grid3{ grid-template-columns: 1fr; }
-}
-/* ================== PATCH CORPORATIVO (Metallmec style) ================== */
-
-/* 1) Fundo menos “vivo” (reduz glow) */
-body{
-  background:
-    radial-gradient(1200px 650px at 18% 6%, rgba(34,197,94,.12), transparent 62%),
-    radial-gradient(950px 560px at 82% 26%, rgba(34,197,94,.07), transparent 62%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-}
-
-/* 2) Header mais “limpo” (menos pílula gigante) */
-header{
-  padding:0;              /* tira o “alto” */
-  backdrop-filter: blur(14px);
-}
-
-/* Topbar (contato) */
-.topbar{
-  max-width:none;
-  margin:0;
-  padding:10px 0;
-  border-radius:0;
-  border:0;
-  border-bottom:1px solid var(--line);
-  background: rgba(0,0,0,.18);
-  box-shadow:none;
-  justify-content:space-between;
-  font-size:13px;
-  color: rgba(244,244,245,.70);
-}
-
-/* Container padrão dentro do header/topbar */
-.header-inner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px 16px;
+.footer__row{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:14px;
+  flex-wrap:wrap;
 }
+.footer__brand strong{display:block}
+.footer__brand span{display:block; color:rgba(234,245,239,.65); font-size:12px}
+.footer__copy{color:rgba(234,245,239,.60); font-size:12px}
 
-/* Barra do menu (segunda linha) */
-.navbar{
-  border-bottom:1px solid var(--line);
-  background: rgba(5,11,10,.68);
-  backdrop-filter: blur(14px);
-}
-
-/* Chip: deixa mais discreto (corporativo) */
-.chip{
-  border:1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.03);
-  color: rgba(244,244,245,.70);
-  font-weight:800;
-}
-
-/* 3) Menos “pulo” em hover (acabamento enterprise) */
-nav a:hover,
-.btn:hover{
-  transform:none; /* tira animação de “subir” */
-}
-
-/* 4) Cards e botões com raio mais corporativo */
-.glass{ border-radius: 18px; }
-.btn{ border-radius: 12px; }
-nav a{ border-radius: 12px; }
-.pill{ border-radius: 999px; } /* pills podem ficar */
-
-.hero-left{ padding:28px; }
-.hero-right{ padding:14px; }
-
-/* 5) WhatsApp: remove vibe “pulse” (sem animação) */
-.wa-float{
-  animation:none !important;
-}
-.wa-float .wa-dot{
-  animation:none !important;
-  box-shadow: 0 0 0 5px rgba(34,197,94,.14);
-}
-
-/* 6) Melhor separação visual abaixo do hero */
-.home-grid{ gap:14px; }
-.mini{ background: rgba(0,0,0,.14); }
-
-/* 7) CTA final menos “efeito gamer” */
-.final{
-  background:
-    radial-gradient(900px 260px at 20% 10%, rgba(34,197,94,.12), transparent 62%),
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-}
-
-/* Responsivo: mantém nav aparecendo até 980px (se quiser) */
+/* =========================================
+   MOBILE
+========================================= */
 @media (max-width: 980px){
-  .header-inner{ flex-wrap:wrap; }
-  nav{ justify-content:flex-start; }
+  .hero__center{grid-template-columns: 1fr}
+  .grid3{grid-template-columns: 1fr}
+  .section__head{flex-direction:column; align-items:flex-start}
+
+  .nav__toggle{display:inline-block}
+
+  .nav{
+    position:fixed;
+    top:74px; left:12px; right:12px;
+    border:1px solid rgba(255,255,255,.12);
+    background: rgba(5,11,10,.92);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 12px;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:6px;
+    box-shadow: var(--shadow);
+  }
+  .nav.is-open{display:flex}
+  .nav a{padding:12px 12px}
 }
