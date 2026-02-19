@@ -391,38 +391,51 @@
     </div>
   </div>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="container">
-      <div class="row">
+<header>
+  <!-- TOPBAR (contato + promessa) -->
+  <div class="topbar">
+    <div class="header-inner">
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+        <span>(31) 0000-0000</span>
+        <span>•</span>
+        <span>contato@pldigital.com.br</span>
+      </div>
 
-        <a class="brand" href="index.html" aria-label="PL Digital">
-          <div class="logo">
-            <!-- Mantive sua imagem principal (você tinha 2 logos, deixei 1 pra ficar corporativo) -->
-            <img src="portfolio-ass.jpg" alt="PL Digital" />
-          </div>
-          <div class="t">
-            <strong>PL Digital Marketing</strong>
-            <span>Gestão • Tráfego • Sites/Sistemas</span>
-          </div>
-        </a>
+      <span class="chip">
+        <span class="dot"></span>
+        Atendimento humano • Sem fidelidade • Sem spam
+      </span>
+    </div>
+  </div>
 
-        <nav class="nav" aria-label="Menu">
-          <a class="active" href="index.html">Home</a>
-          <a href="servicos.html">Serviços</a>
-          <a href="portfolio.html">Portfólio</a>
-          <a href="instagram.html">Instagram</a>
-          <a href="contato.html">Contato</a>
-        </nav>
-
-        <div class="actions">
-          <a class="btn" href="portfolio.html">Ver portfólio</a>
-          <a class="btn primary" href="https://wa.me/5531998064556" target="_blank" rel="noopener">Quero orçamento</a>
+  <!-- NAVBAR (logo + menu + CTA) -->
+  <div class="navbar">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="portfolio-ass.jpg" alt="PL Digital" />
+        <div>
+          <b>PL Digital Marketing</b>
+          <small>Gestão • Tráfego • Sites/Sistemas</small>
         </div>
+      </div>
 
+      <nav>
+        <a class="active" href="index.html">Home</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="portfolio.html">Portfólio</a>
+        <a href="instagram.html">Instagram</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+
+      <!-- CTA’s (mantém os seus botões) -->
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <a class="btn" href="portfolio.html">Ver portfólio</a>
+        <a class="btn primary" href="https://wa.me/5531998064556" target="_blank" rel="noopener">Quero orçamento</a>
       </div>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <main>
     <div class="container">
@@ -508,4 +521,5 @@
   <!-- Removi as animações (fade-in, observer e breathing) para ficar corporativo -->
 </body>
 </html>
+
 
