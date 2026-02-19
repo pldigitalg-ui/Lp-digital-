@@ -306,4 +306,100 @@ h1 .accent{ color: var(--accent); }
   .heroLeft{ padding:22px; }
   .grid3{ grid-template-columns: 1fr; }
 }
+/* ================== PATCH CORPORATIVO (Metallmec style) ================== */
 
+/* 1) Fundo menos “vivo” (reduz glow) */
+body{
+  background:
+    radial-gradient(1200px 650px at 18% 6%, rgba(34,197,94,.12), transparent 62%),
+    radial-gradient(950px 560px at 82% 26%, rgba(34,197,94,.07), transparent 62%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+
+/* 2) Header mais “limpo” (menos pílula gigante) */
+header{
+  padding:0;              /* tira o “alto” */
+  backdrop-filter: blur(14px);
+}
+
+/* Topbar (contato) */
+.topbar{
+  max-width:none;
+  margin:0;
+  padding:10px 0;
+  border-radius:0;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background: rgba(0,0,0,.18);
+  box-shadow:none;
+  justify-content:space-between;
+  font-size:13px;
+  color: rgba(244,244,245,.70);
+}
+
+/* Container padrão dentro do header/topbar */
+.header-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+/* Barra do menu (segunda linha) */
+.navbar{
+  border-bottom:1px solid var(--line);
+  background: rgba(5,11,10,.68);
+  backdrop-filter: blur(14px);
+}
+
+/* Chip: deixa mais discreto (corporativo) */
+.chip{
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  color: rgba(244,244,245,.70);
+  font-weight:800;
+}
+
+/* 3) Menos “pulo” em hover (acabamento enterprise) */
+nav a:hover,
+.btn:hover{
+  transform:none; /* tira animação de “subir” */
+}
+
+/* 4) Cards e botões com raio mais corporativo */
+.glass{ border-radius: 18px; }
+.btn{ border-radius: 12px; }
+nav a{ border-radius: 12px; }
+.pill{ border-radius: 999px; } /* pills podem ficar */
+
+.hero-left{ padding:28px; }
+.hero-right{ padding:14px; }
+
+/* 5) WhatsApp: remove vibe “pulse” (sem animação) */
+.wa-float{
+  animation:none !important;
+}
+.wa-float .wa-dot{
+  animation:none !important;
+  box-shadow: 0 0 0 5px rgba(34,197,94,.14);
+}
+
+/* 6) Melhor separação visual abaixo do hero */
+.home-grid{ gap:14px; }
+.mini{ background: rgba(0,0,0,.14); }
+
+/* 7) CTA final menos “efeito gamer” */
+.final{
+  background:
+    radial-gradient(900px 260px at 20% 10%, rgba(34,197,94,.12), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+}
+
+/* Responsivo: mantém nav aparecendo até 980px (se quiser) */
+@media (max-width: 980px){
+  .header-inner{ flex-wrap:wrap; }
+  nav{ justify-content:flex-start; }
+}
