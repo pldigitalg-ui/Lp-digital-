@@ -3,385 +3,128 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#071612" />
-  <title>PL Digital — Portfólio</title>
-
-  <style>
-    :root{
-      --bg:#071612;
-      --bg2:#050b0a;
-      --text:#f4f4f5;
-      --muted:#a1a1aa;
-      --line:rgba(255,255,255,.10);
-      --accent:#22c55e;
-      --accent2:#86efac;
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --radius: 18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 650px at 18% 6%, rgba(34,197,94,.26), transparent 60%),
-        radial-gradient(950px 560px at 82% 26%, rgba(34,197,94,.14), transparent 60%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-    }
-    a{color:inherit}
-
-    .wrap{max-width:1100px;margin:0 auto;padding:18px 16px 90px}
-    .glass{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    header{
-      position:sticky; top:0; z-index:50;
-      padding:14px 16px;
-      backdrop-filter: blur(12px);
-    }
-    .topbar{
-      max-width:1100px; margin:0 auto;
-      display:flex; gap:14px; align-items:center; justify-content:space-between;
-      padding:12px 14px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.26);
-      box-shadow: var(--shadow);
-      flex-wrap:wrap;
-    }
-    .brand{
-      display:flex; gap:10px; align-items:center;
-      min-width: 240px;
-    }
-    .brand img{
-      width:40px; height:40px; border-radius:12px;
-      object-fit:cover;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-    }
-    .brand b{display:block; font-size:14px; letter-spacing:-.2px}
-    .brand small{display:block; color:var(--muted); font-weight:700}
-
-    nav{
-      display:flex; gap:10px; flex-wrap:wrap;
-      align-items:center; justify-content:flex-start;
-    }
-    nav a{
-      text-decoration:none;
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:900;
-      color: rgba(244,244,245,.95);
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      transition:.2s ease;
-      white-space:nowrap;
-    }
-    nav a:hover{
-      transform: translateY(-2px);
-      border-color: rgba(34,197,94,.45);
-      background: rgba(255,255,255,.12);
-    }
-    nav a.active{
-      color:#031008;
-      border:none;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-    }
-
-    .hero{margin-top:14px;padding:20px}
-    h1{
-      margin:0 0 10px;
-      font-size: clamp(24px, 3vw, 34px);
-      letter-spacing:-.8px;
-      line-height:1.1;
-    }
-    .sub{
-      margin:0;
-      color: var(--muted);
-      line-height:1.55;
-      font-weight:650;
-      max-width: 80ch;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-      margin-top:14px;
-    }
-
-    /* Card clicável */
-    .card-link{
-      display:block;
-      text-decoration:none;
-      color:inherit;
-      border-radius: var(--radius);
-      outline:none;
-    }
-
-    .card{
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-      transition: .18s ease;
-    }
-    .card-link:hover .card{
-      transform: translateY(-2px);
-      border-color: rgba(34,197,94,.35);
-    }
-
-    .cardin{
-      display:grid;
-      grid-template-columns: 360px 1fr;
-    }
-    .shot{
-      padding:16px;
-      background: rgba(0,0,0,.18);
-      border-right:1px solid var(--line);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height: 260px;
-    }
-    .shot img{
-      width:100%;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: 0 18px 40px rgba(0,0,0,.35);
-      object-fit:cover;
-      max-height:420px;
-    }
-    .body{padding:16px 16px 18px}
-    .topline{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .title{
-      font-weight:950;
-      letter-spacing:-.2px;
-      font-size:16px;
-    }
-    .badge{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 10px;
-      border-radius:999px;
-      background: rgba(34,197,94,.12);
-      border:1px solid rgba(34,197,94,.25);
-      color: var(--accent2);
-      font-weight:950;
-      font-size:13px;
-      white-space:nowrap;
-    }
-    .desc{
-      margin:10px 0 12px;
-      color:var(--muted);
-      line-height:1.55;
-    }
-    .list{
-      margin:0;
-      padding-left:18px;
-      color: rgba(244,244,245,.92);
-      line-height:1.6;
-      font-weight:700;
-    }
-
-    .actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 16px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:950;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      box-shadow: 0 10px 25px rgba(0,0,0,.25);
-      transition:.2s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{transform: translateY(-2px); background: rgba(255,255,255,.10)}
-    .btn.primary{
-      border:none;
-      color:#031008;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 45%),
-        linear-gradient(135deg, #22c55e, #86efac);
-    }
-
-    /* WhatsApp flutuante */
-    .wa-float{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      z-index:9999;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:16px 18px;
-      border-radius:999px;
-      font-weight:950;
-      text-decoration:none;
-      color:#031008;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0) 50%),
-        linear-gradient(135deg, #22c55e, #86efac);
-      box-shadow: 0 20px 50px rgba(0,0,0,.45);
-      border:1px solid rgba(255,255,255,.25);
-    }
-    .wa-float .wa-dot{
-      width:12px; height:12px; border-radius:50%;
-      background:#0a3;
-      box-shadow: 0 0 0 6px rgba(34,197,94,.22);
-      animation: waPulse 1.4s infinite;
-    }
-    @keyframes waPulse{
-      0%{ box-shadow: 0 0 0 0 rgba(34,197,94,.35); }
-      70%{ box-shadow: 0 0 0 14px rgba(34,197,94,0); }
-      100%{ box-shadow: 0 0 0 0 rgba(34,197,94,0); }
-    }
-
-    footer{
-      text-align:center;
-      padding:22px 16px 40px;
-      color: rgba(161,161,170,.9);
-      font-weight:700;
-    }
-
-    @media (max-width:980px){
-      .cardin{grid-template-columns: 1fr}
-      .shot{border-right:none; border-bottom:1px solid var(--line)}
-      .topbar{border-radius: 18px}
-      .brand{min-width:auto}
-    }
-  </style>
+  <meta name="theme-color" content="#06110D" />
+  <title>Portfólio • PL DIGITAL GROUP</title>
+  <link rel="stylesheet" href="css/estilo.css" />
 </head>
 
 <body>
 
-  <header>
-    <div class="topbar">
-      <div class="brand">
-        <img src="logo.jpeg" alt="PL Digital" />
-        <div>
-          <b>PL Digital Marketing</b>
-          <small>Projetos publicados</small>
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar__row">
+        <div class="topbar__left">
+          <div class="topbar__item">PLdigitalG@gmail.com</div>
+          <div class="topbar__item">• Atendimento em todo o Brasil (chamada online)</div>
+        </div>
+        <div class="topbar__right">
+          <span class="badge"><span class="dot"></span> Atendimento humano • Sem fidelidade • Sem spam</span>
         </div>
       </div>
+    </div>
+  </div>
 
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="servicos.html">Serviços</a>
-        <a class="active" href="tfolio.html">Portfólio</a>
-        <a href="instagram.html">Instagrams</a>
-        <a href="contato.html">Contato</a>
-      </nav>
+  <header class="header header--scrolled">
+    <div class="container">
+      <div class="header__row">
+
+        <a class="brand" href="index.html" aria-label="PL DIGITAL GROUP">
+          <span class="brand__mark">
+            <img src="portfolio-ass.jpg" alt="PL DIGITAL GROUP" />
+          </span>
+          <span class="brand__text">
+            <strong>PL DIGITAL GROUP</strong>
+            <span>Gestão • Tráfego • Sites/Sistemas</span>
+          </span>
+        </a>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav" id="siteNav" aria-label="Menu">
+          <a href="index.html">Home</a>
+          <a href="servicos.html">Serviços</a>
+          <a class="active" href="portfolio.html">Portfólio</a>
+          <a href="instagram.html">Instagram</a>
+          <a href="contato.html">Contato</a>
+          <a class="btn btn--small" href="https://wa.me/5531998832407" target="_blank" rel="noopener">Quero orçamento</a>
+        </nav>
+
+        <div style="display:flex; gap:12px; align-items:center;">
+          <a class="btn btn--ghost btn--small" href="servicos.html">Ver serviços</a>
+          <a class="btn btn--small" href="https://wa.me/5531998832407" target="_blank" rel="noopener">Quero orçamento</a>
+        </div>
+
+      </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero glass">
-      <h1>Portfólio</h1>
-      <p class="sub">
-        Projetos reais, publicados e funcionando. Clique no card ou no botão para abrir o site.
-      </p>
-
-      <div class="cards">
-
-        <!-- AS SERRALHERIA -->
-        <a class="card-link" href="https://pldigitalg-ui.github.io/as-serralheria/" target="_blank" rel="noopener">
-          <article class="card">
-            <div class="cardin">
-              <div class="shot">
-                <!-- Se você tiver uma imagem específica da AS, troque o src -->
-                <img src="portfolio-ass.jpg" alt="AS Serralheria — Site" loading="lazy">
-              </div>
-
-              <div class="body">
-                <div class="topline">
-                  <div class="title">AS Serralheria — Orçamentos</div>
-                  <div class="badge">Ao vivo</div>
-                </div>
-
-                <p class="desc">
-                  Página de orçamento com foco em conversão e contato rápido.
-                </p>
-
-                <ul class="list">
-                  <li>Visual premium</li>
-                  <li>CTA forte</li>
-                  <li>Mobile-first</li>
-                </ul>
-
-                <div class="actions">
-                  <span class="btn primary">Abrir site</span>
-                  <span class="btn">Ver detalhes</span>
-                </div>
-              </div>
-            </div>
-          </article>
-        </a>
-
-        <!-- LP GRILL -->
-        <a class="card-link" href="https://restaurantelpgrill-rest.github.io/lpgrill-site/" target="_blank" rel="noopener">
-          <article class="card">
-            <div class="cardin">
-              <div class="shot">
-                <img src="lpgrill-site.jpg" alt="LP Grill — Site" loading="lazy">
-              </div>
-
-              <div class="body">
-                <div class="topline">
-                  <div class="title">LP Grill — Pedidos</div>
-                  <div class="badge">Ao vivo</div>
-                </div>
-
-                <p class="desc">
-                  Página de pedidos com navegação simples e CTA direto.
-                </p>
-
-                <ul class="list">
-                  <li>Fluxo rápido</li>
-                  <li>Foco em pedido/WhatsApp</li>
-                  <li>Layout responsivo</li>
-                </ul>
-
-                <div class="actions">
-                  <span class="btn primary">Abrir site</span>
-                  <span class="btn">Ver detalhes</span>
-                </div>
-              </div>
-            </div>
-          </article>
-        </a>
-
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <h2>Portfólio</h2>
+          <p class="muted">Projetos publicados e funcionando. Layout premium e CTA para WhatsApp.</p>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <a class="wa-float" href="https://wa.me/5531998064556" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    <span class="wa-dot"></span>
-    WhatsApp
+      <div class="grid3">
+        <div class="card">
+          <h3>LP Grill Açaí</h3>
+          <p>Site com estrutura de conversão e foco em pedido rápido.</p>
+          <div style="margin-top:14px"><span class="tag">site</span> <span class="tag">CTA</span></div>
+        </div>
+
+        <div class="card">
+          <h3>AS Andrade Serralheria</h3>
+          <p>Landing com prova e chamada direta para orçamento.</p>
+          <div style="margin-top:14px"><span class="tag">landing</span> <span class="tag">serviço</span></div>
+        </div>
+
+        <div class="card">
+          <h3>Projetos em andamento</h3>
+          <p>Mais cases entrando: tráfego, Instagram e sistemas simples.</p>
+          <div style="margin-top:14px"><span class="tag">tráfego</span> <span class="tag">social</span></div>
+        </div>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div class="card">
+        <h3 style="margin-bottom:8px;">Quer ver seu projeto aqui?</h3>
+        <p class="muted">Me chama no WhatsApp e eu te mostro o caminho mais rápido pra vender com padrão premium.</p>
+        <div style="margin-top:14px">
+          <a class="btn" href="https://wa.me/5531998832407" target="_blank" rel="noopener">Falar agora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a class="wpp" href="https://wa.me/5531998832407" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="wpp__glow" aria-hidden="true"></span>
+    <span class="wpp__icon">💬</span>
   </a>
 
-  <footer>
-    PL Digital • Projetos publicados
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__row">
+        <div class="footer__brand">
+          <strong>PL DIGITAL GROUP</strong>
+          <span>Gestão • Tráfego • Sites/Sistemas</span>
+        </div>
+        <div class="footer__copy">© <span id="year"></span> PL DIGITAL GROUP • Atendimento online em todo o Brasil</div>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const nav = document.getElementById("siteNav");
+    const toggle = document.getElementById("navToggle");
+    toggle.addEventListener("click", () => nav.classList.toggle("is-open"));
+    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("is-open")));
+  </script>
 
 </body>
 </html>
